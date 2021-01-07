@@ -1,0 +1,61 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: white;
+    color: white;
+}
+
+#div1 {
+    font-size: large;
+    background-color: #A2A392;
+    /* top, right & left, bottom */
+    margin: 3px auto 20px;
+    height: 200px;
+    width: 95%;
+    text-align: center;
+}
+
+#div1:hover {
+    font-weight: bold;
+}
+
+.div2 {
+    font-size: large;
+    background-color: #9A998C;
+    /* top, right & left, bottom */
+    margin: 0px auto 20px;
+    height: 200px;
+    width: 95%;
+}
+
+.div2:hover {
+    font-weight: bold;
+}
+
+textarea {
+    width: 15em;
+    height: 1.5em;
+}
+
+
+/* for Larger screen */
+@media screen and (min-width: 768px) {
+
+    /* Would I change anything for a large screen? */
+#div1 {
+    font-size: larger;
+    height: 400px;
+    width: 650px;
+}
+
+.div2 {
+    font-size: larger;
+    height: 400px;
+    width: 650px;
+}
+
+textarea {
+    /* top, right, bottom, left */
+    margin: 10px 0px 0px 0px;
+}
+
+}
