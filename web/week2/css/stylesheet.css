@@ -4,6 +4,15 @@ body {
     color: white;
 }
 
+h1 {
+    color: #022F40;
+}
+
+#center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
 #div1 {
     font-size: large;
     background-color: #A2A392;
@@ -16,6 +25,10 @@ body {
 
 #div1:hover {
     font-weight: bold;
+}
+
+#colorchange {
+    vertical-align: bottom;
 }
 
 .div2 {
@@ -34,6 +47,11 @@ body {
 textarea {
     width: 15em;
     height: 1.5em;
+}
+
+button {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
