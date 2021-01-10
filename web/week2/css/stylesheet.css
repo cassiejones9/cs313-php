@@ -6,15 +6,38 @@ body {
 
 h1 {
     color: #022F40;
-}
-
-#center {
-    margin-right: auto;
-    margin-left: auto;
+    text-align: center;
 }
 
 p {
     color: #024f6c;
+    text-align: center;
+}
+
+#picture {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    /* text-align: center; */
+}
+
+ul {
+    color: #024f6c;
+    list-style-type: square;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#listitems {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #div1 {
