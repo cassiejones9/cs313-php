@@ -13,6 +13,10 @@ h1 {
     margin-left: auto;
 }
 
+p {
+    color: #024f6c;
+}
+
 #div1 {
     font-size: large;
     background-color: #A2A392;
