@@ -7,23 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 341 - Week 2</title>
     <link rel="stylesheet" href="css/stylesheet.css" />
+    <!-- Line 11 fixes favicon error -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <script src="js/js.js"></script>
     <!-- http://localhost//cs313-php/web/week2/week2.html -->
 </head>
 
 <body>
+
     <div id="div1">
         <div id="colorchange">
-            <label>Type a color here:</label>
+            <label for="color">Type a color here:</label>
             <textarea id="color" rows="1" cols="25" placeholder="Red"></textarea>
+            <button onclick="changeColor()">Change Color of This Div</button>
         </div>
-        
-        <button onclick="changeColor()">Change Color of This Div</button>
-
     </div>
-    <div class="div2"></div>
-    <div class="div2"></div>
-    <button onclick="clicked()">Click Me</button>
+    <div class="div2"><p class="pdiv">First Div</p></div>
+    <div class="div2"><p class="pdiv">Second Div</p></div>
+    <button onclick="clicked()" class="clickme">Click Me</button>
+
 </body>
 
 </html>

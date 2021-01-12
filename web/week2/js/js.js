@@ -4,43 +4,25 @@ function clicked() {
 }
 
 function changeColor() {
-    let input = document.getElementById("color");
-    let input = input.toLowerCase();
+	var textbox_id = "txtColor";
+	var textbox = document.getElementById(textbox_id);
+
+	var div_id = "div1";
+	var div = document.getElementById(div_id);
+
+	// We should verify values here before we use them...
+	var color = textbox.value;
+	div.style.backgroundColor = color;
+
+}
+
+
+function changeColor() {
+    let input = document.getElementById("color").value;
+    let div1 = document.getElementById("div1");
+    div1.style.backgroundColor =input;
     if (input == null) {
         alert("You must type in a color");
-    }
-    let color = "#FFFFFF";
-    switch (input) {
-        case "red":
-            color = "#8A1919";
-            break;
-        case "blue":
-            color = "#003049";
-            break;
-        case "purple":
-            color = "#766C9D";
-            break;
-        case "pink":
-            color = "#F665AB";
-            break;
-        case "black":
-            color = "#000000";
-            break;
-        case "orange":
-            color = "#F77F00";
-            break;
-        case "yellow":
-            color = "#FCBF49";
-            break;
-        case "white":
-            color = "#FFFFFF";
-            break;
-        case "green":
-            color = "#486A39";
-            break;
-        case "brown":
-            color = "#5E503F";
-            break;
     }
     
 }

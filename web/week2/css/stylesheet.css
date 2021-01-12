@@ -14,6 +14,10 @@ p {
     text-align: center;
 }
 
+.pdiv {
+    color: white;
+}
+
 #picture {
     display: flex;
     margin-left: auto;
@@ -76,11 +80,20 @@ textarea {
     height: 1.5em;
 }
 
-button {
+.clickme {
+    display: block;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
+    font-size: large;
+    background-color: #B5827D;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
 }
-
 
 /* for Larger screen */
 @media screen and (min-width: 768px) {
@@ -88,14 +101,14 @@ button {
     /* Would I change anything for a large screen? */
 #div1 {
     font-size: larger;
-    height: 400px;
-    width: 650px;
+    height: 200px;
+    width: 450px;
 }
 
 .div2 {
     font-size: larger;
-    height: 400px;
-    width: 650px;
+    height: 200px;
+    width: 450px;
 }
 
 textarea {
