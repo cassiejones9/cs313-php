@@ -75,6 +75,19 @@ ul {
     font-weight: bold;
 }
 
+.div3 {
+    font-size: large;
+    background-color: #9A998C;
+    /* top, right & left, bottom */
+    margin: 0px auto 20px;
+    height: 200px;
+    width: 95%;
+}
+
+.div3:hover {
+    font-weight: bold;
+}
+
 textarea {
     width: 15em;
     height: 1.5em;
@@ -95,6 +108,22 @@ textarea {
     border-radius: 3px;
 }
 
+.thirdDiv {
+    display: block;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    font-size: large;
+    background-color: #B5827D;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+}
+
 /* for Larger screen */
 @media screen and (min-width: 768px) {
 
@@ -106,6 +135,12 @@ textarea {
 }
 
 .div2 {
+    font-size: larger;
+    height: 200px;
+    width: 450px;
+}
+
+.div3 {
     font-size: larger;
     height: 200px;
     width: 450px;

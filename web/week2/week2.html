@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSE 341 - Week 2</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="css/stylesheet.css" />
     <!-- Line 11 fixes favicon error -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <script src="js/js.js"></script>
+    
+    
+    
     <!-- http://localhost//cs313-php/web/week2/week2.html -->
 </head>
 
@@ -19,13 +22,15 @@
         <div id="colorchange">
             <label for="color">Type a color here:</label>
             <textarea id="color" rows="1" cols="25" placeholder="Red"></textarea>
-            <button onclick="changeColor()">Change Color of This Div</button>
+            <button class="btn-dark">Change Color of This Div</button>
         </div>
     </div>
-    <div class="div2"><p class="pdiv">First Div</p></div>
     <div class="div2"><p class="pdiv">Second Div</p></div>
+    <div class="div2"><p class="pdiv">Third Div</p></div>
+    <button class="thirdDiv">Toggle Visibility of 3rd Div</button>
     <button onclick="clicked()" class="clickme">Click Me</button>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/js.js"></script>
 </body>
 
 </html>

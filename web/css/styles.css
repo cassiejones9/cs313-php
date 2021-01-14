@@ -1,0 +1,63 @@
+body {
+    font-family: Garamond;
+}
+
+h1 {
+    font-family: Garamond;
+    font-weight: bold;
+    margin: 5px;
+}
+
+h3 {
+    margin: 3px;
+}
+
+img {
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    /* text-align: center; */
+}
+
+#picture {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* for Larger screen */
+@media screen and (min-width: 768px) {
+
+    h1 {
+        text-align: center;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    h3:hover {
+        font-weight: bold;
+        transform: translateY(4px);
+    }
+
+    .card {
+        width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    ul {
+        text-align: center;
+    }
+
+    li {
+        text-align: center;
+    }
+
+    li:hover {
+        font-weight: bold;
+        transition-delay: .1s;
+    }
+
+}
