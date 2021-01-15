@@ -20,3 +20,6 @@ function clicked() {
         e.preventDefault();
   });
 
+$("thirdDiv").on("click", function(e){
+    $(".thirdDiv").fadeIn()
+});

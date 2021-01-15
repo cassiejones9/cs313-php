@@ -6,40 +6,44 @@ h1 {
     font-family: Garamond;
     font-weight: bold;
     margin: 5px;
+    text-align: center;
 }
 
 h3 {
     margin: 3px;
+    text-align: center;
 }
 
-img {
-    height: 300px;
+/* img {
+    max-height: 300px;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    /* text-align: center; */
-}
+} */
 
-#picture {
+.picture {
+    background-image: url("../images/cass.jpg");
+    max-width: 500px;
+    max-height: 300px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    
+}
+
+.picture:hover {
+    background-image: url('../images/family.jpg') ;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    /* top, right & left, bottom */
+    margin: 10px;
 }
 
 /* for Larger screen */
 @media screen and (min-width: 768px) {
-
-    h1 {
-        text-align: center;
-    }
-
-    h3 {
-        text-align: center;
-    }
-
-    h3:hover {
-        font-weight: bold;
-        transform: translateY(4px);
-    }
 
     .card {
         width: 900px;
