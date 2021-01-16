@@ -13,9 +13,9 @@
 </head>
 
 <body>
-  <h1 class=".h1">Cassie Jones</h1>
+  <h1>Cassie Jones</h1>
   <div class="picture">
-    <!-- <img src="images/cass.jpg"> -->
+    <img src="images/cass.jpg">
   </div>
   <h3>A Little About Me</h3>
   <div class="card">
@@ -31,11 +31,16 @@
   </div>
 
   <div class="center">
-  <button type="button" class="btn btn-outline-dark">Go to CSE 341 Assignments</button>
+  <a href="/web/assignments.php" class="btn btn-outline-dark">Go to CSE 341 Assignments</a>
   </div>
 
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/js.js"></script>
+
+  <footer>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/web/common/footer.php'; ?>
+  </footer>
 </body>
 
 </html>

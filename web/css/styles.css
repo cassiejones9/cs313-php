@@ -9,30 +9,51 @@ h1 {
     text-align: center;
 }
 
+.h1link {
+    color: black;
+}
+
+.h1link:hover {
+    cursor: pointer;
+    color: rgb(94, 94, 94);
+}
+
 h3 {
     margin: 3px;
     text-align: center;
 }
 
-/* img {
-    max-height: 300px;
-    max-width: 500px;
+p {
+    text-align: center;
+}
+
+.justify-content-center {
+    margin: 10px 0px 10px;
+}
+
+img {
+    height: 300px;
+    width: 210px;
     margin-left: auto;
     margin-right: auto;
-} */
+}
+
+.headerimg {
+    height: 75px;
+    width: 75px;
+}
 
 .picture {
-    background-image: url("../images/cass.jpg");
-    max-width: 500px;
-    max-height: 300px;
+    /* background: url('../images/cass.jpg') no-repeat;
+    height: 300px; */
     display: flex;
     margin-left: auto;
     margin-right: auto;
     
 }
 
-.picture:hover {
-    background-image: url('../images/family.jpg') ;
+.btn-outline-dark {
+    font-size: larger;
 }
 
 .center {
@@ -40,6 +61,10 @@ h3 {
     justify-content: center;
     /* top, right & left, bottom */
     margin: 10px;
+}
+
+.footercopyright {
+    margin-top: 20px;
 }
 
 /* for Larger screen */
@@ -64,4 +89,8 @@ h3 {
         transition-delay: .1s;
     }
 
+    .card-text {
+        text-align: left;
+
+    }
 }
