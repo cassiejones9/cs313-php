@@ -31,15 +31,15 @@
   </div>
 
   <div class="center">
-  <a href="/web/assignments.php" class="btn btn-outline-dark">Go to CSE 341 Assignments</a>
+  <a href="assignments.php" class="btn btn-outline-dark">Go to CSE 341 Assignments</a>
   </div>
 
-  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/js.js"></script>
 
   <footer>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/web/common/footer.php'; ?>
+    <?php echo $_SERVER['DOCUMENT_ROOT'] ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/footer.php'; ?>
   </footer>
 </body>
 
