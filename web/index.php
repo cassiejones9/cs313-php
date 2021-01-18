@@ -38,8 +38,8 @@
   <script src="js/js.js"></script>
 
   <footer>
-    <?php echo $_SERVER['DOCUMENT_ROOT'] ?>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/footer.php'; ?>
+    <?php echo $_SERVER['DOCUMENT_ROOT'] . '/web/common/footer.php'; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/web/common/footer.php'; ?>
   </footer>
 </body>
 
