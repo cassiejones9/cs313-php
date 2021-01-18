@@ -38,9 +38,11 @@
   <script src="js/js.js"></script>
 
   <footer>
-    <?php echo $_SERVER['DOCUMENT_ROOT'] . '/webfolder/common/footer.php'; ?>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/webfolder/common/footer.php'; ?>
+    <!-- <?php echo $_SERVER['DOCUMENT_ROOT'] . '/web/common/footer.php'; ?> -->
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/footer.php'; ?>
   </footer>
 </body>
 
 </html>
+
+<!-- if $_server document root = .... -->
