@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . '/web/common/header.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/header.php'; ?>
     </header>
     <div class="main">
         <div class="card">
