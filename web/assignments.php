@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . '/common/header.php'; ?>
+        <?php include './common/header.php'; ?>
     </header>
     <div class="main">
         <div class="card">
@@ -55,7 +55,7 @@
     <script src="js/js.js"></script>
 
     <footer>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . '/web/common/footer.php'; ?>
+        <?php include './common/footer.php'; ?>
     </footer>
 </body>
 
