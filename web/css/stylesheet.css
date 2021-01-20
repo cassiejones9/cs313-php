@@ -1,0 +1,66 @@
+div.title {
+    font-family: Garamond, serif;
+    font-size: xx-large;
+    text-align: center;
+    height: 60px;
+    background-color: white;
+    color: rgb(82, 81, 81);
+}
+
+/* Styling for the overall table */
+table {
+    font-family: Garamond, serif;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Styling for the column headers (days of the week) */
+th {
+    padding: 0 0.5em;
+    text-align: center;
+    background-color: #022F40;
+    color: white;
+    border: 2px double lightgray;
+}
+
+/* Styling for the individual cells (days) */
+td {
+    font-size: medium;
+    padding: 0.25em 0.25em;
+    width: 14%;
+    height: 80px;
+    text-align: left;
+    vertical-align: top;
+    border: 2px double #023c50;
+}
+
+/* Styling for the date numbers */
+.date {
+    font-size: large;
+    padding: 0.25em 0.25em;
+    text-align: left;
+    vertical-align: top;
+    color: #022F40;
+}
+
+.available {
+    background-color: #022F40;
+    color: white;
+    /* top right bottom left */
+    padding: 0px 15px 0px 15px;
+    margin: 4px;
+}
+
+.reserve {
+    display: flex;
+    margin: 10px auto 10px;
+    background-color: #020202;
+    color: white;
+}
+
+.reserve:hover {
+    color: #020202;
+    background-color: white;
+    border: 2px solid lightgray;
+}

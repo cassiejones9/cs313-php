@@ -22,7 +22,7 @@
             <div class="card-body">
                 <h4 class="card-title">Week 3</h4>
                 <p class="card-text">Shopping Cart</p>
-                <a href="" class="btn btn-outline-dark">See Assignment</a>
+                <a href="/project/index.php" class="btn btn-outline-dark">See Assignment</a>
             </div>
         </div>
         <div class="card">
