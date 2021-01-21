@@ -52,7 +52,7 @@
         } else {
             $major = test_input($_POST["major"]);
         }
-        
+
         if (empty($_POST["ckbox1"])) {
             $ckbox1 = "";
         } else {
@@ -75,7 +75,7 @@
         <br><br>
         E-mail: <input type="text" name="email" value="<?php echo $email; ?>">
         <span class="error">* <?php echo $emailErr; ?></span>
-        <br><br>        
+        <br><br>
         Major:
         <input type="radio" name="major" <?php if (isset($major) && $major == "Computer Science") echo "checked"; ?> value="Computer Science">Computer Science
         <input type="radio" name="major" <?php if (isset($major) && $major == "Web Design and Development") echo "checked"; ?> value="Web Design and Development">Web Design and Development
@@ -85,13 +85,13 @@
         Comment: <textarea name="comment" rows="2" cols="40"><?php echo $comment; ?></textarea>
         <br><br>
         Which continents have you visited?<br>
-        <input type="checkbox" name="ckbox1" <?php if( isset($ckbox1) && $ckbx1 = "North America") echo "checked"; ?> value="North America"> North America<br>
-        <input type="checkbox" name="ckbox2" <?php if( isset($ckbox2) && $ckbx2 = "South America") echo "checked"; ?> value="South America"> South America<br>
-        <input type="checkbox" name="ckbox3" <?php if( isset($ckbox3) && $ckbx4 = "Europe") echo "checked"; ?> value="Europe"> Europe<br>
-        <input type="checkbox" name="ckbox4" <?php if( isset($ckbox4) && $ckbx4 = "Asia") echo "checked"; ?> value="Asia"> Asia<br>
-        <input type="checkbox" name="ckbox5" <?php if( isset($ckbox5) && $ckbx5 = "Australia") echo "checked"; ?> value="Australia"> Australia<br>
-        <input type="checkbox" name="ckbox6" <?php if( isset($ckbox6) && $ckbx6 = "Africa") echo "checked"; ?> value="Africa"> Africa<br>
-        <input type="checkbox" name="ckbox7" <?php if( isset($ckbox7) && $ckbx7 = "Antarctica") echo "checked"; ?>  value="Antarctica"> Antarctica<br>
+        <input type="checkbox" name="ckbox1" <?php if (isset($ckbox1) && $ckbx1 = "North America") echo "checked"; ?> value="North America"> North America<br>
+        <input type="checkbox" name="ckbox2" <?php if (isset($ckbox2) && $ckbx2 = "South America") echo "checked"; ?> value="South America"> South America<br>
+        <input type="checkbox" name="ckbox3" <?php if (isset($ckbox3) && $ckbx4 = "Europe") echo "checked"; ?> value="Europe"> Europe<br>
+        <input type="checkbox" name="ckbox4" <?php if (isset($ckbox4) && $ckbx4 = "Asia") echo "checked"; ?> value="Asia"> Asia<br>
+        <input type="checkbox" name="ckbox5" <?php if (isset($ckbox5) && $ckbx5 = "Australia") echo "checked"; ?> value="Australia"> Australia<br>
+        <input type="checkbox" name="ckbox6" <?php if (isset($ckbox6) && $ckbx6 = "Africa") echo "checked"; ?> value="Africa"> Africa<br>
+        <input type="checkbox" name="ckbox7" <?php if (isset($ckbox7) && $ckbx7 = "Antarctica") echo "checked"; ?> value="Antarctica"> Antarctica<br>
 
         <input type="submit" name="submit" value="Submit">
     </form>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,6 +61,8 @@
 
     ?>
     <div class="container">
+        <img src="../images/logo.jpg" class="logo">
+        <h4>Need family or senior pictures done? Reserve a date that works for you!</h4>
         <div class="title">January 2021</div>
         <form method="post" action="viewcart.php">
             <table>
@@ -82,9 +85,9 @@
                     <td><span class="date">1</span></td>
                     <td><span class="date">2</span><br>
                         <span class="available">Reserve AM</span>
-                        <input type="checkbox" name="jan2am" <?php if (isset($jan2am) && $jan2am = "jan2am") echo "checked"; ?> value="Jan 2 am"><br>
+                        <input type="checkbox" name="jan2am" <?php if (isset($jan2am) && $jan2am = "jan2am"); ?> value="Jan 2 am"><br>
                         <span name="jan2pm" class="available">Reserve PM</span>
-                        <input type="checkbox" name="jan2pm" <?php if (isset($jan2pm) && $jan2pm = "jan2pm") echo "checked"; ?> value="Jan 2 pm">
+                        <input type="checkbox" name="jan2pm" <?php if (isset($jan2pm) && $jan2pm = "jan2pm"); ?> value="Jan 2 pm">
                     </td>
                 </tr>
                 <tr>
@@ -96,9 +99,9 @@
                     <td><span class="date">8</span></td>
                     <td><span class="date">9</span><br>
                         <span name="jan9am" class="available">Reserve AM</span>
-                        <input type="checkbox" name="jan9am" <?php if (isset($jan9am) && $jan2am = "jan9am") echo "checked"; ?> value="Jan 9 am"><br>
+                        <input type="checkbox" name="jan9am" <?php if (isset($jan9am) && $jan2am = "jan9am"); ?> value="Jan 9 am"><br>
                         <span name="jan9pm" class="available">Reserve PM</span>
-                        <input type="checkbox" name="jan9pm" <?php if (isset($jan9pm) && $jan2am = "jan9pm") echo "checked"; ?> value="Jan 9 pm">
+                        <input type="checkbox" name="jan9pm" <?php if (isset($jan9pm) && $jan2am = "jan9pm"); ?> value="Jan 9 pm">
                     </td>
                 </tr>
                 <tr>
@@ -110,9 +113,9 @@
                     <td><span class="date">15</span></td>
                     <td><span class="date">16</span><br>
                         <span name="jan16am" class="available">Reserve AM</span>
-                        <input type="checkbox" name="jan16am" <?php if (isset($jan16am) && $jan16am = "jan16am") echo "checked"; ?> value="Jan 16 am"><br>
+                        <input type="checkbox" name="jan16am" <?php if (isset($jan16am) && $jan16am = "jan16am"); ?> value="Jan 16 am"><br>
                         <span name="jan16pm" class="available">Reserve PM</span>
-                        <input type="checkbox" name="jan16pm" <?php if (isset($jan16pm) && $jan16pm = "jan16pm") echo "checked"; ?> value="Jan 16 pm">
+                        <input type="checkbox" name="jan16pm" <?php if (isset($jan16pm) && $jan16pm = "jan16pm"); ?> value="Jan 16 pm">
                     </td>
                 </tr>
                 <tr>
@@ -124,9 +127,9 @@
                     <td><span class="date">22</span></td>
                     <td><span class="date">23</span><br>
                         <span name="jan23am" class="available">Reserve AM</span>
-                        <input type="checkbox" name="jan23am" <?php if (isset($jan23am) && $jan23am = "jan23am") echo "checked"; ?> value="Jan 23 am"><br>
+                        <input type="checkbox" name="jan23am" <?php if (isset($jan23am) && $jan23am = "jan23am"); ?> value="Jan 23 am"><br>
                         <span name="jan23pm" class="available">Reserve PM</span>
-                        <input type="checkbox" name="jan23pm" <?php if (isset($jan23pm) && $jan23pm = "jan23pm") echo "checked"; ?> value="Jan 23 pm">
+                        <input type="checkbox" name="jan23pm" <?php if (isset($jan23pm) && $jan23pm = "jan23pm"); ?> value="Jan 23 pm">
                     </td>
                 </tr>
                 <tr>
@@ -138,9 +141,9 @@
                     <td><span class="date">29</span></td>
                     <td><span class="date">30</span><br>
                         <span name="jan30am" class="available">Reserve AM</span>
-                        <input type="checkbox" name="jan30am" <?php if (isset($jan30am) && $jan30am = "jan30am") echo "checked"; ?> value="Jan 30 am"><br>
+                        <input type="checkbox" name="jan30am" <?php if (isset($jan30am) && $jan30am = "jan30am"); ?> value="Jan 30 am"><br>
                         <span name="jan30pm" class="available">Reserve PM</span>
-                        <input type="checkbox" name="jan30pm" <?php if (isset($jan30pm) && $jan30pm = "jan30pm") echo "checked"; ?> value="Jan 30 pm"><br>
+                        <input type="checkbox" name="jan30pm" <?php if (isset($jan30pm) && $jan30pm = "jan30pm"); ?> value="Jan 30 pm"><br>
                     </td>
                 </tr>
                 <tr>
@@ -154,11 +157,11 @@
                 </tr>
 
             </table>
-            Name: <input type="text" name="name" value="<?php echo $name; ?>">
-            <span class="error">* <?php echo $nameErr; ?></span>
-            <br><br>
-            E-mail: <input type="text" name="email" value="<?php echo $email; ?>">
-            <span class="error">* <?php echo $emailErr; ?></span>
+            <p class="fieldform">Name: <input type="text" name="name" value="<?php echo $name; ?>">
+            <span class="error">* <?php echo $nameErr; ?></span></p>
+            
+            <p class="fieldform">E-mail: <input type="text" name="email" value="<?php echo $email; ?>">
+            <span class="error">* <?php echo $emailErr; ?></span></p>
             <br><br>
             <input class="reserve" type="submit" name="submit" value="Make the Reservation"></input>
         </form>
