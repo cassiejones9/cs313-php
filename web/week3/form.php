@@ -14,18 +14,18 @@
 
 <body>
 
-Hi <?php echo $_POST["name"]; ?>!<br>
-Your email is <?php echo $_POST["email"]; ?><br>
-Your major is <?php echo $_POST["major"]; ?><br>
-You wrote "<?php echo $_POST["comment"]; ?>"<br>
-You have visited<br>
-<?php echo $_POST['ckbox1']; ?> &nbsp;
-<?php echo $_POST['ckbox2']; ?> &nbsp;
-<?php echo $_POST['ckbox3']; ?> &nbsp;
-<?php echo $_POST['ckbox4']; ?> &nbsp;
-<?php echo $_POST['ckbox5']; ?> &nbsp;
-<?php echo $_POST['ckbox6']; ?> &nbsp;
-<?php echo $_POST['ckbox7']; ?> &nbsp;
+    Hi <?php echo $_POST["name"]; ?>!<br>
+    Your email is <?php echo $_POST["email"]; ?><br>
+    Your major is <?php echo $_POST["major"]; ?><br>
+    You wrote "<?php echo $_POST["comment"]; ?>"<br>
+    You have visited<br>
+    <?php echo $_POST['ckbox1']; ?> &nbsp;
+    <?php echo $_POST['ckbox2']; ?> &nbsp;
+    <?php echo $_POST['ckbox3']; ?> &nbsp;
+    <?php echo $_POST['ckbox4']; ?> &nbsp;
+    <?php echo $_POST['ckbox5']; ?> &nbsp;
+    <?php echo $_POST['ckbox6']; ?> &nbsp;
+    <?php echo $_POST['ckbox7']; ?> &nbsp;
 </body>
 
 </html>
