@@ -1,0 +1,14 @@
+
+Installation Directory: /Library/PostgreSQL/13
+Server Installation Directory: /Library/PostgreSQL/13
+Data Directory: /Library/PostgreSQL/13/data
+Database Port: 5432
+Database Superuser: postgres
+Operating System Account: postgres
+Database Service: postgresql-13
+Command Line Tools Installation Directory: /Library/PostgreSQL/13
+pgAdmin4 Installation Directory: /Library/PostgreSQL/13/pgAdmin 4
+Stack Builder Installation Directory: /Library/PostgreSQL/13/stackbuilder
+
+===== Installation completed at: 2021-01-25(YYYY-MM-DD) - 12:54:43(HH:MM:SS) =====
+                            
