@@ -6,7 +6,6 @@ CREATE TABLE Notes (
     SpeakerID INT NOT NULL,
     ConferenceID INT NOT NULL,
     Note VARCHAR(255) NOT NULL
-
 );
 
 INSERT INTO Notes(NotesID, PersonID, SpeakerID, ConferenceID, Note)
