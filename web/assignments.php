@@ -30,7 +30,7 @@
             <div class="card-body">
                 <h4 class="card-title">Week 4</h4>
                 <p class="card-text">Database Setup</p>
-                <a href="" class="btn btn-outline-dark">See Assignment</a>
+                <a href="https://github.com/cassiejones9/cs313-php/blob/master/db/myDb.sql" target="_blank" class="btn btn-outline-dark">See Assignment</a>
             </div>
         </div>
         <div class="card">
