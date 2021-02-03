@@ -1,5 +1,5 @@
 <?php
-include "db/dbConnect.php";
+include "../db/dbConnect.php";
 $db = get_db();
 session_start();
 
