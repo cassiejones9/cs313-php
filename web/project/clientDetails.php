@@ -9,7 +9,7 @@ $statement = $db->prepare($sqlString);
 $statement->bindValue(':id', $id, PDO::PARAM_INT);
 $statement->execute();
 $row = $statement->fetch(PDO::FETCH_ASSOC);
-$displayClientInfo .= "$row[firstName] $row[lastName]  Username: $row[username] Password: $row[pass]  Phone: $row[phone]  City: $row[city]"
+$displayClientInfo .= "$row[firstname] $row[lastname]  Username: $row[username] Password: $row[pass]  Phone: $row[phone]  City: $row[city]"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,10 @@ $displayClientInfo .= "$row[firstName] $row[lastName]  Username: $row[username] 
     <img src="../images/logo.jpg" class="logo">
     <h5>Client Data</h5>
     <?php
-    echo $displayClientInfo;
+    if (isset($displayClientInfo)){
+        echo $displayClientInfo;
+    }
+    
     ?>
   </div>
 </body>

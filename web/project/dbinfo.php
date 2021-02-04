@@ -19,8 +19,8 @@ if (isset($_POST['search'])) {
   $statement->bindValue(':searchClient', $searchClient, PDO::PARAM_STR);
   $statement->execute();
   while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-    $displaySearch .= "$row[firstName] $row[lastName] $row[phone]";
-    $displaySearch .= "<a href=''>Click Here for More Client Info on $row[firstname]</a>";
+    $displaySearch .= "Name: $row[firstname] $row[lastname]   Phone: $row[phone]";
+    $displaySearch .= "<a href='clientDetails.php'> Click Here for More Client Info on $row[firstname]</a>";
     $_SESSION['clientId'] = $row['clientId'];
   }
 }
