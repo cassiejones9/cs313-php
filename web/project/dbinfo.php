@@ -14,7 +14,7 @@ if (isset($_POST['allcs'])) {
 
 if (isset($_POST['search'])) {
   $searchClient = $_POST['search'];
-  $sqlString = 'SELECT clientId, username, pass, lastName, firstName, phone, city FROM client WHERE lastName = :searchClient';
+  $sqlString = 'SELECT * FROM client WHERE lastName = :searchClient';
   $statement = $db->prepare($sqlString);
   $statement->bindValue(':searchClient', $searchClient, PDO::PARAM_STR);
   $statement->execute();
