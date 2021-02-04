@@ -4,7 +4,7 @@ $db = get_db();
 session_start();
 
 $id = $_SESSION['clientId'];
-$sqlString = 'SELECT * FROM c.client AS c WHERE id = :id';
+$sqlString = 'SELECT * FROM client WHERE id = :id';
 $statement = $db->prepare($sqlString);
 $statement->bindValue(':id', $id, PDO::PARAM_INT);
 $statement->execute();

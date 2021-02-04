@@ -5,7 +5,7 @@ session_start();
 
 if (isset($_POST['allcs'])) {
   $displayClients = "";
-  $statement1 = $db->prepare('SELECT * FROM c.client AS c');
+  $statement1 = $db->prepare('SELECT * FROM client');
   $statement1->execute();
   while ($row = $statement1->fetch(PDO::FETCH_ASSOC)) {
     $displayClients .= "<a href='clientDetails.php'><h5>$row[firstName] $row[lastName]</h5></a>";
@@ -14,7 +14,7 @@ if (isset($_POST['allcs'])) {
 
 if (isset($_POST['search'])) {
   $searchClient = $_POST['search'];
-  $sqlString = 'SELECT clientId, username, pass, lastName, firstName, phone, city FROM c.client AS c WHERE lastName = :searchClient';
+  $sqlString = 'SELECT clientId, username, pass, lastName, firstName, phone, city FROM client WHERE lastName = :searchClient';
   $statement = $db->prepare($sqlString);
   $statement->bindValue(':searchClient', $searchClient, PDO::PARAM_STR);
   $statement->execute();
