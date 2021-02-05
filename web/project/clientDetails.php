@@ -6,7 +6,7 @@ session_start();
 $id = $_SESSION['clientid'];
 $sqlString = 'SELECT * FROM client WHERE clientid = :clientid';
 $statement = $db->prepare($sqlString);
-$statement->bindValue(':id', $id, PDO::PARAM_INT);
+$statement->bindValue(':clientid', $id, PDO::PARAM_INT);
 $statement->execute();
 $row = $statement->fetch(PDO::FETCH_ASSOC);
 $displayClientInfo .= "$row[firstname] $row[lastname]  Username: $row[username] Password: $row[pass]  Phone: $row[phone]  City: $row[city]"
