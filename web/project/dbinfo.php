@@ -8,7 +8,7 @@ if (isset($_POST['allcs'])) {
   $statement1 = $db->prepare('SELECT * FROM client');
   $statement1->execute();
   while ($row = $statement1->fetch(PDO::FETCH_ASSOC)) {
-    $displayClients .= "<a href='clientDetails.php'><h5>$row[firstName] $row[lastName]</h5></a>";
+    $displayClients .= "<a href='clientDetails.php'><h5>$row[firstname] $row[lastname]</h5></a>";
   }
 }
 

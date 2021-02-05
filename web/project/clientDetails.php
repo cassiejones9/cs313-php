@@ -29,6 +29,7 @@ $displayClientInfo .= "$row[firstname] $row[lastname]  Username: $row[username] 
   <div class="container">
     <img src="../images/logo.jpg" class="logo">
     <h5>Client Data</h5>
+    <a href="dbinfo.php">Back to Database Home Page</a>
     <?php
     if (isset($displayClientInfo)){
         echo $displayClientInfo;
