@@ -4,10 +4,10 @@ $db = get_db();
 session_start();
 
 if (isset($_POST['allcs'])) {
+  $displayClients = "Current List of Clients";
   $statement1 = $db->prepare('SELECT * FROM client');
   $statement1->execute();
   while ($row = $statement1->fetch(PDO::FETCH_ASSOC)) {
-    $displayClients = "";
     $displayClients .= "<a href='clientDetails.php'><h5>$row[firstname] $row[lastname]</h5></a>";
     $_SESSION['clientid'] = $row['clientid'];
   }
