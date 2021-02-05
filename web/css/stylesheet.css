@@ -10,6 +10,11 @@ p {
     font-family: Garamond, serif;
 }
 
+h5 {
+    font-family: Garamond, serif;
+    color: #022f40;
+}
+
 .fieldform {
     text-align: center;
     margin-top: 10px;
@@ -21,6 +26,7 @@ p {
     font-size: x-large;
     padding: 10px;
 }
+
 .logo {
     display: flex;
     margin-left: auto;
@@ -137,16 +143,20 @@ td {
     font-size: large;
 }
 
+.btn-secondary {
+    margin: 10px;
+}
+
 /* for Larger screen */
 @media screen and (min-width: 600px) {
 
-td {
-    height: 100px;
-}
+    td {
+        height: 100px;
+    }
 
-.logo {
-    margin-top: 20px;
-    height: 100px;
-}
+    .logo {
+        margin-top: 20px;
+        height: 100px;
+    }
 
 }
