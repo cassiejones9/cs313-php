@@ -8,7 +8,7 @@ if (isset($_POST['allcs'])) {
   $statement1 = $db->prepare('SELECT * FROM client');
   $statement1->execute();
   while ($row = $statement1->fetch(PDO::FETCH_ASSOC)) {
-    $displayClients .= "<a href='clientDetails.php'><h5>$row[firstname] $row[lastname]</h5></a>";
+    $displayClients .= "<a href='clientDetails.php' class='btn btn-secondary'><h5>$row[firstname] $row[lastname]</h5></a>";
     $_SESSION['clientid'] = $row['clientid'];
   }
 }
@@ -22,7 +22,7 @@ if (isset($_POST['search'])) {
   while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     $displaySearch = "";
     $displaySearch .= "Name: $row[firstname] $row[lastname]   Phone: $row[phone]";
-    $displaySearch .= "<a href='clientDetails.php'> Click Here for More Client Info on $row[firstname]</a>";
+    $displaySearch .= "<a href='clientDetails.php' class='btn btn-secondary'> Click Here for More Client Info on $row[firstname]</a>";
     $_SESSION['clientid'] = $row['clientid'];
   }
 }

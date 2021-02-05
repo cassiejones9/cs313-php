@@ -38,7 +38,7 @@
             <div class="card-body">
                 <h4 class="card-title">Week 5</h4>
                 <p class="card-text">Database Access</p>
-                <a href="" class="btn btn-outline-dark">See Assignment</a>
+                <a href="/project/dbinfo.com" class="btn btn-outline-dark">See Assignment</a>
             </div>
         </div>
         <div class="card">
