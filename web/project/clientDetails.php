@@ -9,7 +9,7 @@ $statement = $db->prepare($sqlString);
 $statement->bindValue(':clientid', $id, PDO::PARAM_INT);
 $statement->execute();
 $row = $statement->fetch(PDO::FETCH_ASSOC);
-$displayClientInfo .= "$row[firstname] $row[lastname]  Username: $row[username] Password: $row[pass]  Phone: $row[phone]  City: $row[city]"
+$displayClientInfo .= "$row[firstname] $row[lastname]  Username: $row[username] Password: $row[pass]  Phone: $row[phone]  Email: $row[email]"
 ?>
 <!DOCTYPE html>
 <html lang="en">

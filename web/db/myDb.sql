@@ -25,13 +25,19 @@ SET email = 'johnjjones@gmail.com'
 WHERE username = 'jonesjohn';
 
 INSERT INTO client (username, pass, lastName, firstName, phone, email)
-VALUES ('smithH', 'pa$$word', 'Smith', 'Hyrum', '012-345-6789', 'North Las Vegas');
+VALUES ('smithH', 'pa$$word', 'Johnson', 'Hyrum', '012-345-6789', 'North Las Vegas');
 
 INSERT INTO client (username, pass, lastName, firstName, phone, email)
 VALUES ('jdnlv9', 'passWoRd', 'Doe', 'Jane', '901-234-5678', 'North Las Vegas');
 
 INSERT INTO client (username, pass, lastName, firstName, phone, email)
 VALUES ('motherofjoseph', 'passworDDdd', 'Smith', 'Lucy', '345-678-9012', 'Las Vegas');
+
+INSERT INTO client (username, pass, lastName, firstName, phone, email)
+VALUES ('motherofjoseph', 'passworDDdd', 'Smith', 'Lucy', '345-678-9012', 'Las Vegas');
+
+INSERT INTO client (username, pass, lastName, firstName, phone, email)
+VALUES ('oliverc', 'paswrd', 'Cowdry', 'Oliver', '455-677-9002', 'oliverc@gmail.com');
 
 CREATE TABLE session (
     sessionId SERIAL PRIMARY KEY,
