@@ -22,7 +22,7 @@ if (isset($_POST['search'])) {
   $statement = $db->prepare($sqlString);
   $statement->bindValue(':searchClient', $searchClient, PDO::PARAM_STR);
   $statement->execute();
-  while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+  while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     $displaySearch = "";
     $displaySearch .= "<h5><strong>Name:</strong> $row[firstname] $row[lastname] &nbsp &nbsp <strong>Phone:</strong> $row[phone]</h5>";
     $displaySearch .= "<a href='clientDetails.php' class='btn btn-secondary'> Click Here for More Client Info on $row[firstname]</a>";
@@ -37,12 +37,13 @@ $lowercase = preg_match('@[a-z]@', $password);
 $number    = preg_match('@[0-9]@', $password);
 $specialChars = preg_match('@[^\w]@', $password);
 
-if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+if (isset($_POST['pass'])) {
+  if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
     echo '*Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
-}else{
+  } else {
     echo 'Strong password';
+  }
 }
-
 if (empty($_POST["username"])) {
   $usernameErr = "*A username is required*";
   echo $usernameErr;
@@ -50,8 +51,8 @@ if (empty($_POST["username"])) {
   $username = test_input($_POST["username"]);
   // check if name only contains letters and whitespace
   if (!preg_match("/^[a-zA-Z-' ]*$/", $username)) {
-      $usernameErr = "Only letters and white space allowed";
-      echo $usernameErr;
+    $usernameErr = "Only letters and white space allowed";
+    echo $usernameErr;
   }
   $_SESSION["name"] = $name;
 }
@@ -62,7 +63,7 @@ if (empty($_POST["email"])) {
   $email = test_input($_POST["email"]);
   // check if e-mail address is well-formed
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Invalid email format";
+    $emailErr = "Invalid email format";
   }
   $_SESSION["email"] = $email;
 }
@@ -97,46 +98,50 @@ function test_input($data)
   <div class="container">
     <img src="../images/logo.jpg" class="logo">
     <h2>Database Information</h2>
-    
+
     <form method="POST" action="">
-      <label><h4>See All Clients</h4></label>
+      <label>
+        <h4>See All Clients</h4>
+      </label>
       <input type="hidden" name="allcs" value="allclients">
       <input type="submit" name="allclients" value="Go">
     </form>
     <?php
-      if (isset($displayClients)) {
-        echo $displayClients;
-      }
+    if (isset($displayClients)) {
+      echo $displayClients;
+    }
     ?>
     <br>
     <br>
     <p>*Or use the form below to query clients by last name.*</p>
     <form method="POST" action="">
-      <label for="search"><h4>Enter Client Last Name</h4></label><br>
+      <label for="search">
+        <h4>Enter Client Last Name</h4>
+      </label><br>
       <input type="text" name="search">
       <input type="submit" name="submit" value="Search">
     </form>
     <?php
-      if (isset($displaySearch)) {
-        echo $displaySearch;
-      }
+    if (isset($displaySearch)) {
+      echo $displaySearch;
+    }
     ?>
     <br>
     <br>
     <form method="$_POST" action="">
       <h2>New Patient Form</h2>
       <label>Username</label>
-      <input type="text" name="username" value="">
+      <input type="text" name="username" value=""><br>
       <label>Password</label>
-      <input type="password" name="pass" value="">
+      <input type="password" name="pass" value=""><br>
       <label>First Name</label>
-      <input type="text" name="firstname" value="">
+      <input type="text" name="firstname" value=""><br>
       <label>Last Name</label>
-      <input type="text" name="lastname" value="">
+      <input type="text" name="lastname" value=""><br>
       <label>Phone Number</label>
-      <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="i.e. 555-555-5555">
+      <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="i.e. 555-555-5555"><br>
       <label>Email</label>
-      <input type="email" name="email" value="">
+      <input type="email" name="email" value=""><br>
       <input type="submit" name="submit" value="submit">
     </form>
   </div>
