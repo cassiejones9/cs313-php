@@ -149,8 +149,12 @@ td {
 
 .btn-secondary {
     margin: 10px;
-    background-color: white;
+    color: white;
 }
+a.btn.btn-secondary {
+    color: white;
+}
+
 .clientDetail {
     border: 2px solid #022f40;
     border-radius: 3px;
