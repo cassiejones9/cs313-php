@@ -149,10 +149,7 @@ td {
 
 .btn-secondary {
     margin: 10px;
-    color: white;
-}
-a.btn.btn-secondary {
-    color: white;
+    background-color: white;
 }
 
 .clientDetail {
