@@ -61,7 +61,7 @@ if (isset($_POST['search'])) {
     <br>
     <p>*Or use the form below to query clients by last name.*</p>
     <form method="POST" action="">
-      <label for="search"><h4>Enter Client Last Name</h4></label>
+      <label for="search"><h4>Enter Client Last Name</h4></label><br>
       <input type="text" name="search">
       <input type="submit" name="submit" value="Search">
     </form>
@@ -70,11 +70,23 @@ if (isset($_POST['search'])) {
         echo $displaySearch;
       }
     ?>
+    <br>
+    <br>
     <form>
       <h2>New Patient Form</h2>
       <label>Username</label>
-      <input type="checkbox" name="" value="">
-      <input>
+      <input type="text" name="username" value="">
+      <label>Password</label>
+      <input type="password" name="pass" value="">
+      <label>First Name</label>
+      <input type="text" name="firstname" value="">
+      <label>Last Name</label>
+      <input type="text" name="lastname" value="">
+      <label>Phone Number</label>
+      <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="i.e. 555-555-5555">
+      <label>Email</label>
+      <input type="email" name="email" value="">
+      <input type="submit" name="submit" value="submit">
     </form>
   </div>
 </body>
