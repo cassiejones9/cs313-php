@@ -174,11 +174,8 @@ a.btn.btn-secondary {
 }
 
 .clientDetail {
-    border: 2px solid #022f40;
-    border-radius: 3px;
     margin: 10px;
     padding: 5px;
-    max-width: 400px;
 }
 .container {
     text-align: center;
