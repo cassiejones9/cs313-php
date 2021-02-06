@@ -4,7 +4,7 @@ $db = get_db();
 session_start();
 
 if (isset($_POST['allcs'])) {
-  $displayClients = "<h6>Current List of Clients</h6><br>";
+  $displayClients = "<h3>Current List of Clients</h3><br>";
   $statement = $db->prepare('SELECT clientid, username, pass, lastname, firstname, phone, email FROM client');
   $statement->execute();
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -103,7 +103,7 @@ function test_input($data)
       </label>
       <input type="hidden" name="allcs" value="allclients">
       <input type="submit" name="allclients" value="Go">
-    </form>
+    </form><br>
     <?php
     if (isset($displayClients)) {
       echo $displayClients;

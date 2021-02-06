@@ -29,15 +29,16 @@ $displayClientInfo .= "<strong><p>Phone:</strong> $row[phone] &nbsp &nbsp <stron
 
 <body>
   <div class="container">
-    <img src="../images/logo.jpg" class="logo">
+    <img src="../images/logo.jpg" class="logo"><br>
     <h2>Client Data</h2>
     <a href="dbinfo.php" class="btn btn-secondary">Back to Database Home Page</a><br>
+    <div class="center">
     <?php
     if (isset($displayClientInfo)){
         echo $displayClientInfo;
     }
-    
     ?>
+    </div>
   </div>
 </body>
 </html>
