@@ -8,7 +8,7 @@ if (isset($_POST['allcs'])) {
   $statement = $db->prepare('SELECT * FROM client');
   $statement->execute();
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-    $displayClients .= "<a href='clientDetails.php' class='btn btn-secondary'><h5>$row[firstname] $row[lastname]</h5></a>";
+    $displayClients .= "<a href='clientDetails.php' class='btn btn-secondary'><h5>$row[firstname] $row[lastname]</h5></a><br>";
     $_SESSION['clientid'] = $row['clientid'];
   }
 }
