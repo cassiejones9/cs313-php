@@ -21,7 +21,7 @@ if (isset($_POST['search'])) {
   $statement->execute();
   while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     $displaySearch = "";
-    $displaySearch .= "Name: $row[firstname] $row[lastname]   Phone: $row[phone]";
+    $displaySearch .= "<h4>Name: $row[firstname] $row[lastname]   Phone: $row[phone]</h4>";
     $displaySearch .= "<a href='clientDetails.php' class='btn btn-secondary'> Click Here for More Client Info on $row[firstname]</a>";
     $_SESSION['clientid'] = $row['clientid'];
   }
