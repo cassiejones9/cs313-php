@@ -3,7 +3,7 @@ include "../db/dbConnect.php";
 $db = get_db();
 session_start();
 
-$id = $_SESSION['clientid'];
+$id = $_GET['clientid'];
 $sqlString = 'SELECT * FROM client WHERE clientid = :clientid';
 $statement = $db->prepare($sqlString);
 $statement->bindValue(':clientid', $id, PDO::PARAM_INT);
