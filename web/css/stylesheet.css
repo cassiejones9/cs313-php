@@ -163,7 +163,7 @@ a.btn.btn-secondary {
     color: #022f40;
 }
 
-a.btn.btn-secondary:hover {
+.btn-secondary:hover {
     background-color: rgb(211, 211, 211);
     color: #022f40;
 }

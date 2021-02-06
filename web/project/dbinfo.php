@@ -118,7 +118,7 @@ function test_input($data)
       </label><br>
       <input type="text" name="search">
       <input type="submit" name="submit" value="Search">
-    </form>
+    </form><br>
     <?php
     if (isset($displaySearch)) {
       echo $displaySearch;
