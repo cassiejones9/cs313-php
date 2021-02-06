@@ -152,6 +152,10 @@ td {
     background-color: white;
 }
 
+a.btn.btn-secondary {
+    background-color: white;
+}
+
 .clientDetail {
     border: 2px solid #022f40;
     border-radius: 3px;
