@@ -145,6 +145,12 @@ td {
 
 .btn-secondary {
     margin: 10px;
+    color: white;
+}
+.clientDetail {
+    border: #022f40;
+    border-radius: 3px;
+    margin: 10px;
 }
 
 /* for Larger screen */
