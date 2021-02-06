@@ -29,42 +29,42 @@ if (isset($_POST['search'])) {
 }
 
 // Filter and Validate the Form
-$password = $_POST['pass'];
-$uppercase = preg_match('@[A-Z]@', $password);
-$lowercase = preg_match('@[a-z]@', $password);
-$number    = preg_match('@[0-9]@', $password);
-$specialChars = preg_match('@[^\w]@', $password);
+// $password = $_POST['pass'];
+// $uppercase = preg_match('@[A-Z]@', $password);
+// $lowercase = preg_match('@[a-z]@', $password);
+// $number    = preg_match('@[0-9]@', $password);
+// $specialChars = preg_match('@[^\w]@', $password);
 
-if (isset($_POST['pass'])) {
-  if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
-    echo '*Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
-  } else {
-    echo 'Strong password';
-  }
-}
-if (empty($_POST["username"])) {
-  $usernameErr = "*A username is required*";
-  echo $usernameErr;
-} else {
-  $username = test_input($_POST["username"]);
-  // check if name only contains letters and whitespace
-  if (!preg_match("/^[a-zA-Z-' ]*$/", $username)) {
-    $usernameErr = "Only letters and white space allowed";
-    echo $usernameErr;
-  }
-  $_SESSION["name"] = $name;
-}
+// if (isset($_POST['pass'])) {
+//   if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+//     echo '*Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
+//   } else {
+//     echo 'Strong password';
+//   }
+// }
+// if (empty($_POST["username"])) {
+//   $usernameErr = "*A username is required*";
+//   echo $usernameErr;
+// } else {
+//   $username = test_input($_POST["username"]);
+//   // check if name only contains letters and whitespace
+//   if (!preg_match("/^[a-zA-Z-' ]*$/", $username)) {
+//     $usernameErr = "Only letters and white space allowed";
+//     echo $usernameErr;
+//   }
+//   $_SESSION["name"] = $name;
+// }
 
-if (empty($_POST["email"])) {
-  $emailErr = "Email is required";
-} else {
-  $email = test_input($_POST["email"]);
-  // check if e-mail address is well-formed
-  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $emailErr = "Invalid email format";
-  }
-  $_SESSION["email"] = $email;
-}
+// if (empty($_POST["email"])) {
+//   $emailErr = "Email is required";
+// } else {
+//   $email = test_input($_POST["email"]);
+//   // check if e-mail address is well-formed
+//   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+//     $emailErr = "Invalid email format";
+//   }
+//   $_SESSION["email"] = $email;
+// }
 
 
 function test_input($data)
@@ -126,8 +126,8 @@ function test_input($data)
     ?>
     <br>
     <br>
-    <form method="$_POST" action="">
-      <h2>New Patient Form</h2>
+    <!-- <form method="$_POST" action="">
+      <h2>New Client Form</h2>
       <label>Username</label>
       <input type="text" name="username" value=""><br>
       <label>Password</label>
@@ -141,7 +141,7 @@ function test_input($data)
       <label>Email</label>
       <input type="email" name="email" value=""><br>
       <input type="submit" name="submit" value="submit">
-    </form>
+    </form> -->
   </div>
 </body>
 
