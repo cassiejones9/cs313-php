@@ -4,7 +4,7 @@ $db = get_db();
 session_start();
 
 if (isset($_POST['allcs'])) {
-  $displayClients = "Current List of Clients<br>";
+  $displayClients = "<h6>Current List of Clients</h6><br>";
   $statement = $db->prepare('SELECT clientid, username, pass, lastname, firstname, phone, email FROM client');
   $statement->execute();
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -48,7 +48,7 @@ if (isset($_POST['search'])) {
     <h2>Database Information</h2>
     
     <form method="POST" action="">
-      <label>See All Clients</label>
+      <label><h4>See All Clients</h4></label>
       <input type="hidden" name="allcs" value="allclients">
       <input type="submit" name="allclients" value="Go">
     </form>
@@ -61,7 +61,7 @@ if (isset($_POST['search'])) {
     <br>
     <p>*Or use the form below to query clients by last name.*</p>
     <form method="POST" action="">
-      <label for="search">Enter Client Last Name</label>
+      <label for="search"><h4>Enter Client Last Name</h4></label>
       <input type="text" name="search">
       <input type="submit" name="submit" value="Search">
     </form>
