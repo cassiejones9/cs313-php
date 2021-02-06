@@ -4,7 +4,7 @@ $db = get_db();
 session_start();
 
 if (isset($_POST['allcs'])) {
-  $displayClients = "Current List of Clients";
+  $displayClients = "Current List of Clients<br>";
   $statement = $db->prepare('SELECT * FROM client');
   $statement->execute();
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
