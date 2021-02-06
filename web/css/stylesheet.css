@@ -182,9 +182,8 @@ a.btn.btn-secondary {
 }
 
 .center {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+
 }
 /* for Larger screen */
 @media screen and (min-width: 600px) {
