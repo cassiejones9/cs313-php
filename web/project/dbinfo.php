@@ -57,7 +57,9 @@ if (isset($_POST['search'])) {
         echo $displayClients;
       }
     ?>
-    <p>Or use the form below to query clients by last name.</p>
+    <br>
+    <br>
+    <p>*Or use the form below to query clients by last name.*</p>
     <form method="POST" action="">
       <label for="search">Enter Client Last Name</label>
       <input type="text" name="search">
