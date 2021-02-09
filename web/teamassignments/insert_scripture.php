@@ -25,12 +25,8 @@ $stmt->execute();
 
 if(isset($stmt)){
     echo "<h2>Your scripture was added to the database.</h2>";
+    echo "$book $chapter:$verse $content<br>"; 
     echo "<a href='scriptures.php'>Back to Scripture Page</a>";
 }
-
-echo $book;
-echo $chapter;
-echo $verse;
-echo $content;
 
 ?>
