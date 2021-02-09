@@ -28,13 +28,9 @@ if (isset($_POST['search'])) {
 }
 
 // for the checkboxes of topics
-$query = 'SELECT id, name FROM topic';
-$stmt = $db->prepare($query);
+$stmt = $db->prepare('SELECT id, name FROM topic');
 $stmt->execute();
 $topics = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
