@@ -68,7 +68,7 @@ if (isset($_POST['search'])) {
     // for the checkboxes of topics
     $stmt = $db->prepare('SELECT id, name FROM topic');
     $stmt->execute();
-    $topics = $stmt->fetch(PDO::FETCH_ASSOC);
+    $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($topics as $topic) {
       $topicid = $topic['id'];
       $topicname = $topic['name'];
