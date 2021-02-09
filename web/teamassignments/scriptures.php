@@ -25,7 +25,7 @@ if (isset($_POST['search'])) {
   $displaySearch = "<h1>Scripture Search</h1>";
 
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-    $displaySearch .= "<a href='detail.php?id=$row[id]'><p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
+    $displaySearch .= "<a href='detail.php?id=$row[id]'><p><strong>$row[book]&nbsp$row[chapter]:$row[verse]</strong>";
     $displaySearch .= "'</p></a>";
 
   }
