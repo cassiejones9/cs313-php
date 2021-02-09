@@ -66,6 +66,7 @@ if (isset($_POST['search'])) {
     <input type="text" name="verse">
     <label>Content of Scripture</label>
     <textarea name="content" rows="10" cols="50"></textarea>
+    <input type="checkbox" name="topic">
     <input type="submit" name="submit" value="Add Scripture">
   </form>
 </body>
