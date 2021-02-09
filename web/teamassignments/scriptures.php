@@ -61,15 +61,17 @@ $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
   
   ?>
 
+<h1>Insert a New Scripture</h1>
   <form method="POST" action="insert_scripture.php">
-    <label>Book</label>
+    <label>Book:</label>
     <input type="text" name="book"><br>
-    <label>Chapter</label>
+    <label>Chapter:</label>
     <input type="text" name="chapter"><br>
-    <label>Verse</label>
+    <label>Verse:</label>
     <input type="text" name="verse"><br>
-    <label>Content of Scripture</label>
+    <label>Content of Scripture:</label><br>
     <textarea name="content" rows="10" cols="50"></textarea><br>
+    <label>Which topic does this scripture fit best?</label>
     <?php
       foreach ($topics as $topic) {
         $topicid = $topic['id'];
