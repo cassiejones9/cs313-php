@@ -56,6 +56,18 @@ if (isset($_POST['search'])) {
   }
   
   ?>
+
+  <form method="POST" action="insert_scripture.php">
+    <label>Book</label>
+    <input type="text" name="book">
+    <label>Chapter</label>
+    <input type="text" name="chapter">
+    <label>Verse</label>
+    <input type="text" name="verse">
+    <label>Content of Scripture</label>
+    <textarea name="content" rows="10" cols="50"></textarea>
+    <input type="submit" name="submit" value="Add Scripture">
+  </form>
 </body>
 
 </html>
