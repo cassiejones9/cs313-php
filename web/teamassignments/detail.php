@@ -3,12 +3,10 @@ require ('connection.php');
 $db = get_db();
 
 $id = $_GET['id'];
-$strSql = 'SELECT id, book, chapter, verse, content FROM ta.scriptures WHERE id = :id';
+$strSql = 'SELECT id, book, chapter, verse, content FROM scriptures WHERE id = :id';
 $statement = $db->prepare($strSql);
 $statement->bindValue(':id', $id, PDO::PARAM_INT);
 $statement->execute();
-
-
 $row = $statement->fetch(PDO::FETCH_ASSOC);
 $displayScripture .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
 $displayScripture .= "Content: $row[content]</p>";
@@ -25,7 +23,10 @@ $displayScripture .= "Content: $row[content]</p>";
 
 <body>
   <?
+  if (isset ($displayScripture)){
     echo $displayScripture;
+  }
+    
   ?>
 </body>
 

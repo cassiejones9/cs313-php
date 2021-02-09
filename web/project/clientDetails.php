@@ -1,7 +1,7 @@
 <?php
 include "../db/dbConnect.php";
 $db = get_db();
-session_start();
+
 
 $id = $_GET['clientid'];
 $sqlString = 'SELECT * FROM client WHERE clientid = :clientid';
