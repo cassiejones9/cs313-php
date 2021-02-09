@@ -15,7 +15,7 @@ VALUES ('Doctrine and Covenants', 93, 28, 'He that keepeth his commandments rece
 
 
 INSERT INTO scriptures (book, chapter, verse, content)
-VALUES ('Mosíah', 16, 9, 'He is the light and the life of the world; yea, a light that is endless, that can never be darkened; yea, and also a life which is endless, that there can be no more death.');
+VALUES ('Mosiah', 16, 9, 'He is the light and the life of the world; yea, a light that is endless, that can never be darkened; yea, and also a life which is endless, that there can be no more death.');
 
 
 CREATE TABLE topic (
@@ -30,7 +30,7 @@ VALUES ('Faith'),
 
 CREATE TABLE linking (
 id SERIAL NOT NULL PRIMARY KEY,
-scipture_id INT NOT NULL,
+scripture_id INT NOT NULL,
 topic_id INT NOT NULL, 
 FOREIGN KEY (scripture_id) REFERENCES scriptures(id), 
 FOREIGN KEY (topic_id) REFERENCES topic(id)
