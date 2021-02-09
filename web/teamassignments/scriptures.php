@@ -71,7 +71,7 @@ $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <input type="text" name="verse"><br>
     <label>Content of Scripture:</label><br>
     <textarea name="content" rows="10" cols="50"></textarea><br>
-    <label>Which topic does this scripture fit best?</label>
+    <label>Which topic does this scripture fit best?</label><br>
     <?php
       foreach ($topics as $topic) {
         $topicid = $topic['id'];
