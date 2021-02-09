@@ -17,6 +17,8 @@ VALUES ('Doctrine and Covenants', 93, 28, 'He that keepeth his commandments rece
 INSERT INTO scriptures (book, chapter, verse, content)
 VALUES ('Mosiah', 16, 9, 'He is the light and the life of the world; yea, a light that is endless, that can never be darkened; yea, and also a life which is endless, that there can be no more death.');
 
+INSERT INTO scriptures (book, chapter, verse, content)
+VALUES ('Moroni', 7, 45, 'And charity suffereth long, and is kind, and envieth not, is not puffed up, seeketh not her own, is not easily provoked, thinketh no evil, and rejoiceth not in iniquity but rejoiceth in the truth, beareth all things, believeth all things, hopeth all things, endureth all things.');
 
 CREATE TABLE topic (
   id SERIAL NOT NULL PRIMARY KEY,

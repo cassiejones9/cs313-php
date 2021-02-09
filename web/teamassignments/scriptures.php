@@ -31,7 +31,7 @@ if (isset($_POST['search'])) {
 $query = 'SELECT id, name FROM topic';
 $stmt = $db->prepare($query);
 $stmt->execute();
-$topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$topics = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 
@@ -42,7 +42,7 @@ $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Scripture Insert and Search</title>
 </head>
 
 <body>
