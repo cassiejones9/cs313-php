@@ -1,5 +1,5 @@
 <?php
-require ('connection.php');
+require('connection.php');
 $db = get_db();
 
 
@@ -23,14 +23,10 @@ if (isset($_POST['search'])) {
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     $displaySearch .= "<a href='detail.php?id=$row[id]'><p><strong>$row[book]&nbsp$row[chapter]:$row[verse]</strong>";
     $displaySearch .= "'</p></a>";
-
   }
 }
 
-// for the checkboxes of topics
-$stmt = $db->prepare('SELECT id, name FROM topic');
-$stmt->execute();
-$topics = $stmt->fetch(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +53,7 @@ $topics = $stmt->fetch(PDO::FETCH_ASSOC);
   
   ?>
 
-<h1>Insert a New Scripture</h1>
+  <h1>Insert a New Scripture</h1>
   <form method="POST" action="insert_scripture.php">
     <label>Book:</label>
     <input type="text" name="book"><br>
@@ -69,16 +65,20 @@ $topics = $stmt->fetch(PDO::FETCH_ASSOC);
     <textarea name="content" rows="10" cols="50"></textarea><br>
     <label>Which topic does this scripture fit best?</label><br>
     <?php
-      foreach ($topics as $topic) {
-        $topicid = $topic['id'];
-        $topicname = $topic['name'];
+    // for the checkboxes of topics
+    $stmt = $db->prepare('SELECT id, name FROM topic');
+    $stmt->execute();
+    $topics = $stmt->fetch(PDO::FETCH_ASSOC);
+    foreach ($topics as $topic) {
+      $topicid = $topic['id'];
+      $topicname = $topic['name'];
 
-        echo "<input type='checkbox' name='topic' value='$topicid'>";
-        echo "<label for='topic'>$topicname</label><br>";
-      }
+      echo "<input type='checkbox' name='topic' value='$topicid'>";
+      echo "<label for='topic'>$topicname</label><br>";
+    }
 
     ?>
-    
+
     <input type="submit" name="submit" value="Add Scripture">
   </form>
 </body>
