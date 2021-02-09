@@ -18,10 +18,6 @@ if (isset($_POST['search'])) {
   $statement = $db->prepare($strSql);
   $statement->bindValue(':searchBook', $searchBook, PDO::PARAM_STR);
   $statement->execute();
-
-  //echo $strSql;
-  // exit();
-
   $displaySearch = "<h1>Scripture Search</h1>";
 
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -30,6 +26,14 @@ if (isset($_POST['search'])) {
 
   }
 }
+
+// for the checkboxes of topics
+$query = 'SELECT id, name FROM topic';
+$stmt = $db->prepare($query);
+$stmt->execute();
+$topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 
 ?>
 <!DOCTYPE html>
@@ -66,7 +70,17 @@ if (isset($_POST['search'])) {
     <input type="text" name="verse">
     <label>Content of Scripture</label>
     <textarea name="content" rows="10" cols="50"></textarea>
-    <input type="checkbox" name="topic">
+    <?php
+      foreach ($topics as $topic) {
+        $topicid = $topic['id'];
+        $topicname = $topic['name'];
+
+        echo "<input type='checkbox' name='topic' value='$topicid'>";
+        echo "<label for='topic'>$topicname</label><br>";
+      }
+
+    ?>
+    
     <input type="submit" name="submit" value="Add Scripture">
   </form>
 </body>
