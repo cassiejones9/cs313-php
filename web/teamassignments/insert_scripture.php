@@ -24,7 +24,7 @@ $stmt->bindValue(':content', $content, PDO::PARAM_STR);
 $stmt->execute();
 
 if(isset($stmt)){
-    echo "Your scripture was added to the database.";
+    echo "<h2>Your scripture was added to the database.</h2>";
     echo "<a href='scriptures.php'>Back to Scripture Page</a>";
 }
 
