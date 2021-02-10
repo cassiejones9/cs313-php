@@ -1,7 +1,7 @@
 <?php
 require('connection.php');
 $db = get_db();
-session_start();
+// session_start();
 
 
 $display = "<h1>Scriptures in Database</h1>";
@@ -93,17 +93,9 @@ if (isset($_POST['search'])) {
 
     <input type="submit" name="submit" value="Add Scripture">
   </form>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="js.js"></script>
-  <script>
-    function getdisplayscripture() {
-      if (isset($_SESSION['displaynewstring'])) {
-        let js_variable_name = "<?php echo $_SESSION['displaynewstring']; ?>";
-        document.getElementById('scripturedisplay').innerHTML = js_variable_name;
-      }
-
-    }
-  </script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js.js"></script> -->
+  
 
 </body>
 

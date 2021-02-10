@@ -37,24 +37,24 @@ INSERT INTO client (username, pass, lastName, firstName, phone, email)
 VALUES ('motherofjoseph', 'passworDDdd', 'Smith', 'Lucy', '345-678-9012', 'Las Vegas');
 
 INSERT INTO client (username, pass, lastName, firstName, phone, email)
-VALUES ('oliverc', 'paswrd', 'Cowdry', 'Oliver', '455-677-9002', 'oliverc@gmail.com');
+VALUES ('oliverc', 'paswrd', 'Cowdrey', 'Oliver', '455-677-9002', 'oliverc@gmail.com');
 
 CREATE TABLE session (
     sessionId SERIAL PRIMARY KEY,
     clientId int NOT NULL,
-    sessionDate DATE NOT NULL,
+    sessionDate varchar(25) NOT NULL,
     numOfPeople smallint NOT NULL,
     constraint fk_client FOREIGN KEY(clientId) REFERENCES client (clientId)
 );
 
 INSERT INTO session (clientId, sessionDate, numOfPeople)
-VALUES (1, '2021-02-06', 3);
+VALUES (1, 'jan2pm', 3);
 
 INSERT INTO session (clientId, sessionDate, numOfPeople)
-VALUES (2, '2021-02-10', 8);
+VALUES (2, 'jan9am', 8);
 
 INSERT INTO session (clientId, sessionDate, numOfPeople)
-VALUES (3, '2021-03-18', 1);
+VALUES (3, 'jan30pm', 1);
 
 SELECT c.lastName, c.firstName, c.email, s.clientId, s.sessionDate, s.numOfPeople
 FROM client c JOIN session s ON s.clientId=c.clientId;

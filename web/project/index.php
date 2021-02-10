@@ -50,26 +50,26 @@ session_start();
     }
 
     if (empty($_POST["name"])) {
-        $nameErr = "Name is required";
+        $nameErr = "<p 'style=color:red;'>Name is required</p>";
         
     } else {
         $name = test_input($_POST["name"]);
         // check if name only contains letters and whitespace
         if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
-            $nameErr = "Only letters and white space allowed";
+            $nameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
             
         }
         $_SESSION["name"] = $name;
     }
 
     if (empty($_POST["email"])) {
-        $emailErr = "Email is required";
+        $emailErr = "<p 'style=color:red;'>Email is required</p>";
        
     } else {
         $email = test_input($_POST["email"]);
         // check if e-mail address is well-formed
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email format";
+            $emailErr = "<p 'style=color:red;'>Invalid email format</p>";
             
         }
         $_SESSION["email"] = $email;

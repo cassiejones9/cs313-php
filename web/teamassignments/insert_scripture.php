@@ -1,7 +1,7 @@
 <?php
 require('connection.php');
 $db = get_db();
-session_start();
+// session_start();
 
 $book = test_input($_POST['book']);
 $chapter = test_input($_POST['chapter']);
@@ -59,23 +59,23 @@ foreach ($topic_ids as $topic_id) {
     $stmt->execute();
 }
 
-$displaynewstring = "<h1>Scriptures in Database</h1>";
-$statement = $db->prepare('SELECT s.book, s.chapter, s.verse, s.content, t.name
-FROM scriptures s
-LEFT JOIN linking l ON l.scripture_id=s.id
-LEFT JOIN topic t ON t.id=l.topic_id;');
-$statement->execute();
+// $displaynewstring = "<h1>Scriptures in Database</h1>";
+// $statement = $db->prepare('SELECT s.book, s.chapter, s.verse, s.content, t.name
+// FROM scriptures s
+// LEFT JOIN linking l ON l.scripture_id=s.id
+// LEFT JOIN topic t ON t.id=l.topic_id;');
+// $statement->execute();
 
 // go through each scripture
-while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-  $displaynewstring .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
-  $displaynewstring .= " - '$row[content]'";
-  $displaynewstring .= "Topic:$row[name]";
-}
-$_SESSION['displaynewstring'] = $displaynewstring;
+// while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+//   $displaynewstring .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
+//   $displaynewstring .= " - '$row[content]'";
+//   $displaynewstring .= "Topic:$row[name]";
+// }
+// $_SESSION['displaynewstring'] = $displaynewstring;
 // return $displaynewstring;
 
-// header("Location: scriptures.php");
+header("Location: scriptures.php");
 
 // header doesn't keep variable names where location does
 
