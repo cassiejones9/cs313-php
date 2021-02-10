@@ -71,14 +71,14 @@ if (isset($_POST['search'])) {
     $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $topicarray = array();
     foreach ($topics as $topic) {
-      $topicid = $topic['id'];
-      $topicname = $topic['name'];
+      $topicid = $topic["id"];
+      $topicname = $topic["name"];
     
       echo "<input type='checkbox' name='topic[]' value='$topicid'>";
       echo "<label for='topic'>$topicname</label><br>";
       
     }
-    // if (isset($_POST['topic'])) {
+    // if (isset($_POST["topic"])) {
 
     // }
     ?>
