@@ -12,13 +12,13 @@ echo $book;
 echo $content;
 echo $topic_ids;
 
-// function test_input($data)
-// {
-//   $data = trim($data);
-//   $data = stripslashes($data);
-//   $data = htmlspecialchars($data);
-//   return $data;
-// }
+function test_input($data)
+{
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 
 
 // // info just for the scriptures table
