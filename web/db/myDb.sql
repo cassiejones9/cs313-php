@@ -56,6 +56,7 @@ VALUES (2, '2021-02-10', 8);
 INSERT INTO session (clientId, sessionDate, numOfPeople)
 VALUES (3, '2021-03-18', 1);
 
-
+SELECT c.lastName, c.firstName, c.email, s.clientId, s.sessionDate, s.numOfPeople
+FROM client c JOIN session s ON s.clientId=c.clientId;
 
 

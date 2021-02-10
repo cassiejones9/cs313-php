@@ -57,7 +57,7 @@ session_start();
         // check if name only contains letters and whitespace
         if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
             $nameErr = "Only letters and white space allowed";
-            echo $nameErr
+            echo $nameErr;
         }
         $_SESSION["name"] = $name;
     }
