@@ -1,3 +1,5 @@
-<?php 
-echo "<h1>This is the response</h1>"
+<?php
+
+echo "Received " . $_REQUEST['name'];
+
 ?>
