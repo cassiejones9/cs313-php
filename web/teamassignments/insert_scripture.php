@@ -6,6 +6,7 @@ $book = test_input($_POST['book']);
 $chapter = test_input($_POST['chapter']);
 $verse = test_input($_POST['verse']);
 $content = test_input($_POST['content']);
+$topic_ids = array();
 $topic_ids = $_POST['topic'];
 $newtopic = test_input($_POST['topicname']);
 $chbox = $_POST['newtopic'];
