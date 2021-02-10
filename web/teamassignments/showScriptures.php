@@ -31,7 +31,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
   <?php
     echo $display;
   ?>
-
+<a href="scriptures.php">Back to Home</a>
 
   </body>
 

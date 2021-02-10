@@ -1,5 +1,5 @@
-<?php 
-require ('connection.php');
+<?php
+require('connection.php');
 $db = get_db();
 
 $book = test_input($_POST['book']);
@@ -20,25 +20,24 @@ $chbox = $_POST['newtopic'];
 
 function test_input($data)
 {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 
 // insert new topic
 if (isset($newtopic) && isset($chbox)) {
-$qry = 'INSERT INTO topic(name) VALUES(:name)';
-$statment = $db->prepare($qry);
-$statment->bindValue(':name', $newtopic);
-$statment->execute();
-$newtopic_id = $db->lastInsertId("topic_id_seq");
-if (isset($topic_ids)){
-    array_push($topic_ids, $newtopic_id);
-}
-else {
-    $topic_ids = [$newtopic_id];
-}
+    $qry = 'INSERT INTO topic(name) VALUES(:name)';
+    $statment = $db->prepare($qry);
+    $statment->bindValue(':name', $newtopic);
+    $statment->execute();
+    $newtopic_id = $db->lastInsertId("topic_id_seq");
+    if (isset($topic_ids)) {
+        array_push($topic_ids, $newtopic_id);
+    } else {
+        $topic_ids = [$newtopic_id];
+    }
 }
 
 
@@ -52,19 +51,17 @@ $stmt->bindValue(':content', $content);
 $stmt->execute();
 // get the scripture_id from above
 $scripture_id = $db->lastInsertId("scriptures_id_seq");
-foreach ($topic_ids as $topic_id){
+foreach ($topic_ids as $topic_id) {
     $stmt = $db->prepare('INSERT INTO linking(scripture_id, topic_id) VALUES(:scripture_id, :topic_id);');
     $stmt->bindValue(':scripture_id', $scripture_id);
     $stmt->bindValue(':topic_id', $topic_id);
     $stmt->execute();
 }
 
-header("Location: showScriptures.php");
+header("Location: scriptures.php");
 
 // if(isset($stmt)){
 //     echo "<h2>Your scripture was added to the database.</h2>";
 //     echo "$book $chapter:$verse $content<br>"; 
 //     echo "<a href='scriptures.php'>Back to Scripture Page</a>";
 // }
-
-?>
