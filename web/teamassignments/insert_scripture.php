@@ -60,6 +60,8 @@ foreach ($topic_ids as $topic_id) {
 
 header("Location: scriptures.php");
 
+// header doesn't keep variable names where location does
+
 // if(isset($stmt)){
 //     echo "<h2>Your scripture was added to the database.</h2>";
 //     echo "$book $chapter:$verse $content<br>"; 

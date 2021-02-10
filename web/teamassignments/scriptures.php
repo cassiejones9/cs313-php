@@ -43,9 +43,12 @@ if (isset($_POST['search'])) {
 </head>
 
 <body>
-  <?
+  <div id="scripturedisplay">
+    <?
     echo $display;
   ?>
+  </div>
+
   <form method="POST" action="">
     <label for="search"></label>
     <input type="text" name="search">
@@ -59,7 +62,7 @@ if (isset($_POST['search'])) {
   ?>
 
   <h1>Insert a New Scripture</h1>
-  <form method="POST" action="insert_scripture.php">
+  <form method="POST" action="insert_scripture.php" id="scriptureform">
     <label>Book:</label>
     <input type="text" name="book"><br>
     <label>Chapter:</label>
@@ -79,16 +82,19 @@ if (isset($_POST['search'])) {
     foreach ($topics as $topic) {
       $topicid = $topic["id"];
       $topicname = $topic["name"];
-    
+
       echo "<input type='checkbox' name='topic[]' value='$topicid'>";
       echo "<label for='topic'>$topicname</label><br>";
     }
     ?>
     <input type="checkbox" name="newtopic">
     <input type="text" name="topicname"><br>
-    
+
     <input type="submit" name="submit" value="Add Scripture">
   </form>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js.js"></script>
 </body>
 
 </html>
