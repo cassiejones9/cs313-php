@@ -58,7 +58,7 @@ foreach ($topic_ids as $topic_id) {
     $stmt->execute();
 }
 
-$display = "<h1>Scriptures in Database</h1>";
+$displaynewstring = "<h1>Scriptures in Database</h1>";
 $statement = $db->prepare('SELECT s.book, s.chapter, s.verse, s.content, t.name
 FROM scriptures s
 LEFT JOIN linking l ON l.scripture_id=s.id
@@ -67,12 +67,12 @@ $statement->execute();
 
 // go through each scripture
 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-  $display .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
-  $display .= " - '$row[content]'";
-  $display .= "Topic:$row[name]";
+  $displaynewstring .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
+  $displaynewstring .= " - '$row[content]'";
+  $displaynewstring .= "Topic:$row[name]";
 }
 
-return $display;
+return $displaynewstring;
 
 // header("Location: scriptures.php");
 

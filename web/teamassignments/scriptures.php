@@ -94,12 +94,11 @@ if (isset($_POST['search'])) {
   </form>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js.js"></script>
-
-  <?php
-  $php_variable = 'string'; //Define our PHP variable. You can of course get the value of this variable however you need.
-  ?>
   <script>
-    js_variable_name = "<?php echo $php_variable; ?>";
+    function getdisplayscripture() {
+      let js_variable_name = "<?php echo $displaynewstring; ?>";
+      document.getElementById('scripturedisplay').innerHTML=js_variable_name;
+    }
   </script>
 
 </body>

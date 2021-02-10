@@ -11,9 +11,11 @@ $("#scriptureform").submit(function (event) {
         cache: false,
         processData: false
     }).done(function (response) {
-        $("#scripturedisplay").html($display);
+        getdisplayscripture();
+        // $("#bogus").html($displaynewstring);
     });
 });
+
 
 // $("#scriptureform").submit(function (event) {
 //     event.preventDefault();
