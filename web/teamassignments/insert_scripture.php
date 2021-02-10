@@ -8,9 +8,10 @@ $verse = test_input($_POST['verse']);
 $content = test_input($_POST['content']);
 $topic_ids = $_POST['topic'];
 $newtopic = test_input($_POST['topicname']);
+$chbox = $_POST['newtopic'];
 
-echo $newtopic;
-exit;
+// echo $newtopic;
+// exit;
 // print_r($_POST['topic']);
 // echo $book;
 // echo $content;
@@ -22,6 +23,16 @@ function test_input($data)
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
+}
+
+// insert new topic
+if (isset($newtopic) && isset($chbox)) {
+$qry = 'INSERT INTO topic(name) VALUES(:name)';
+$statment = $db->prepare($qry);
+$statment->bindValue(':name', $newtopic);
+$statment->execute();
+$newtopic_id = $db->lastInsertId("topic_id_seq");
+array_push($topic_ids, $newtopic_id);
 }
 
 
