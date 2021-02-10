@@ -3,12 +3,12 @@ require('connection.php');
 $db = get_db();
 
 
-$display = "<h1>Scripture Resources</h1>";
+$display = "<h1>Scriptures in Database</h1>";
 $statement = $db->prepare('SELECT id, book, chapter, verse, content FROM scriptures');
 $statement->execute();
 
 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-  $display .= "<p><strong>Book: $row[book] Chapter: $row[chapter] Verse: $row[verse]</strong>";
+  $display .= "<p><strong>$row[book] $row[chapter]:$row[verse]</strong>";
   $display .= " - '$row[content]'</p>";
 }
 
