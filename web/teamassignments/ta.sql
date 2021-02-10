@@ -37,3 +37,8 @@ topic_id INT NOT NULL,
 FOREIGN KEY (scripture_id) REFERENCES scriptures(id), 
 FOREIGN KEY (topic_id) REFERENCES topic(id)
 );
+
+SELECT s.book, s.chapter, s.verse, s.content, t.name
+FROM scriptures s
+JOIN linking l ON l.scripture_id=s.id
+JOIN topic t ON t.id=l.topic_id;
