@@ -1,4 +1,6 @@
 <?php 
+require ('connection.php');
+$db = get_db();
 
 $book = test_input($_POST['book']);
 $chapter = test_input($_POST['chapter']);
@@ -18,8 +20,7 @@ echo $topic_ids;
 //   return $data;
 // }
 
-// require ('connection.php');
-// $db = get_db();
+
 // // info just for the scriptures table
 // $stmt = $db->prepare('INSERT INTO scriptures(book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content);');
 // $stmt->bindValue(':book', $book);
