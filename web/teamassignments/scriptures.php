@@ -76,11 +76,10 @@ if (isset($_POST['search'])) {
     
       echo "<input type='checkbox' name='topic[]' value='$topicid'>";
       echo "<label for='topic'>$topicname</label><br>";
-      
-    // if (isset($_POST["topic"])) {
-
-    // }
+    }
     ?>
+    <input type="checkbox" name="newtopic">
+    <input type="text" name="topicname"><br>
 
     <input type="submit" name="submit" value="Add Scripture">
   </form>

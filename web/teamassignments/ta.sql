@@ -40,7 +40,11 @@ FOREIGN KEY (topic_id) REFERENCES topic(id)
 
 SELECT s.book, s.chapter, s.verse, s.content, t.name
 FROM scriptures s
-JOIN linking l ON l.scripture_id=s.id
-JOIN topic t ON t.id=l.topic_id;
+LEFT JOIN linking l ON l.scripture_id=s.id
+LEFT JOIN topic t ON t.id=l.topic_id;
 
 -- By faith Abel offered unto God a more excellent sacrifice than Cain, by which he obtained witness that he was righteous, God testifying of his gifts: and by it he being dead yet speaketh.
+
+SELECT s.book, s.chapter, s.verse, s.content
+FROM scriptures s
+JOIN linking l ON l.scripture_id = s.id;
