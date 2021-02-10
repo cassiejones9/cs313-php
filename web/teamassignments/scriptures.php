@@ -64,6 +64,7 @@ if (isset($_POST['search'])) {
     <label>Content of Scripture:</label><br>
     <textarea name="content" rows="10" cols="50"></textarea><br>
     <label>Which topic does this scripture fit best?</label><br>
+    <!-- <input type="checkbox" name="topic[]" display="none" default="notopic"> -->
     <?php
     // for the checkboxes of topics
     $stmt = $db->prepare('SELECT id, name FROM topic');
@@ -80,7 +81,7 @@ if (isset($_POST['search'])) {
     ?>
     <input type="checkbox" name="newtopic">
     <input type="text" name="topicname"><br>
-
+    
     <input type="submit" name="submit" value="Add Scripture">
   </form>
 </body>
