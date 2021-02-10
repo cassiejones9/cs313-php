@@ -146,3 +146,6 @@ function test_input($data)
 </body>
 
 </html>
+
+<!-- This is what was in the Procfile before I changed -->
+<!-- web: vendor/bin/heroku-php-apache2 web/ -->
