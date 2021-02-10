@@ -58,7 +58,7 @@ foreach ($topic_ids as $topic_id) {
     $stmt->execute();
 }
 
-header("Location: scriptures.php");
+// header("Location: scriptures.php");
 
 // header doesn't keep variable names where location does
 

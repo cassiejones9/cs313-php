@@ -92,9 +92,9 @@ if (isset($_POST['search'])) {
 
     <input type="submit" name="submit" value="Add Scripture">
   </form>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js.js"></script>
+
 </body>
 
 </html>

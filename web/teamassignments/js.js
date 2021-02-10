@@ -10,7 +10,8 @@ $("#scriptureform").submit(function(event){
 		contentType: false,
 		cache: false,
 		processData:false
-    }).done(function(response){ //
+    }).done(function(response){ 
+        console.log(response);
         $("#scripturedisplay").html(response);
     });
 });
