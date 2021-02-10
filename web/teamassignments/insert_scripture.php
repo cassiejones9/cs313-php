@@ -7,7 +7,7 @@ $chapter = test_input($_POST['chapter']);
 $verse = test_input($_POST['verse']);
 $content = test_input($_POST['content']);
 $topic_ids = $_POST['topic'];
-print_r($_POST['topic']);
+// print_r($_POST['topic']);
 // echo $book;
 // echo $content;
 // echo $topic_ids;

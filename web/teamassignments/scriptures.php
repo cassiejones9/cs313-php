@@ -77,7 +77,6 @@ if (isset($_POST['search'])) {
       echo "<input type='checkbox' name='topic[]' value='$topicid'>";
       echo "<label for='topic'>$topicname</label><br>";
       
-    }
     // if (isset($_POST["topic"])) {
 
     // }

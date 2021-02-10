@@ -6,8 +6,8 @@ $db = get_db();
 $display = "<h1>Scripture Resources</h1>";
 $statement = $db->prepare('SELECT s.book, s.chapter, s.verse, s.content, t.name
 FROM scriptures s
-JOIN linking l ON l.scripture_id=s.id
-JOIN topic t ON t.id=l.topic_id;');
+LEFT JOIN linking l ON l.scripture_id=s.id
+LEFT JOIN topic t ON t.id=l.topic_id;');
 $statement->execute();
 
 // go through each scripture
