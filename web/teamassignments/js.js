@@ -11,6 +11,6 @@ $("#scriptureform").submit(function(event){
 		cache: false,
 		processData:false
     }).done(function(response){ //
-        $("#scripturedisplay").php(response);
+        $("#scripturedisplay").html(response);
     });
 });
