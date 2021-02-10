@@ -1,6 +1,7 @@
 <?php
 require('connection.php');
 $db = get_db();
+session_start();
 
 $book = test_input($_POST['book']);
 $chapter = test_input($_POST['chapter']);
@@ -71,8 +72,8 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
   $displaynewstring .= " - '$row[content]'";
   $displaynewstring .= "Topic:$row[name]";
 }
-
-return $displaynewstring;
+$_SESSION['displaynewstring'] = $displaynewstring;
+// return $displaynewstring;
 
 // header("Location: scriptures.php");
 

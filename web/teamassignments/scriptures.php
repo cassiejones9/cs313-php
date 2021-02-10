@@ -1,6 +1,7 @@
 <?php
 require('connection.php');
 $db = get_db();
+session_start();
 
 
 $display = "<h1>Scriptures in Database</h1>";
@@ -96,7 +97,7 @@ if (isset($_POST['search'])) {
   <script src="js.js"></script>
   <script>
     function getdisplayscripture() {
-      let js_variable_name = "<?php echo $displaynewstring; ?>";
+      let js_variable_name = "<?php echo $_SESSION['displaynewstring']; ?>";
       document.getElementById('scripturedisplay').innerHTML=js_variable_name;
     }
   </script>
