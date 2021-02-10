@@ -97,8 +97,11 @@ if (isset($_POST['search'])) {
   <script src="js.js"></script>
   <script>
     function getdisplayscripture() {
-      let js_variable_name = "<?php echo $_SESSION['displaynewstring']; ?>";
-      document.getElementById('scripturedisplay').innerHTML=js_variable_name;
+      if (isset($_SESSION['displaynewstring'])) {
+        let js_variable_name = "<?php echo $_SESSION['displaynewstring']; ?>";
+        document.getElementById('scripturedisplay').innerHTML = js_variable_name;
+      }
+
     }
   </script>
 
