@@ -18,17 +18,17 @@ require ('connection.php');
 $db = get_db();
 // info just for the scriptures table
 $stmt = $db->prepare('INSERT INTO scriptures(book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content);');
-$stmt->bindValue(':book', $book, PDO::PARAM_STR);
-$stmt->bindValue(':chapter', $chapter, PDO::PARAM_INT);
-$stmt->bindValue(':verse', $verse, PDO::PARAM_INT);
-$stmt->bindValue(':content', $content, PDO::PARAM_STR);
+$stmt->bindValue(':book', $book);
+$stmt->bindValue(':chapter', $chapter);
+$stmt->bindValue(':verse', $verse);
+$stmt->bindValue(':content', $content);
 $stmt->execute();
 // get the scripture_id from above
 $scripture_id = $db->lastInsertId("scriptures_id_seq");
 foreach ($topic_ids as $topic_id){
-    $stmt .= $db->prepare('INSERT INTO linking (scripture_id, topic_id) VALUES (:scripture_id, :topic_id);');
-    $stmt->bindValue(':scripture_id', $scripture_id, PDO::PARAM_INT);
-    $stmt->bindValue(':topic_id', $topic_id, PDO::PARAM_INT);
+    $stmt = $db->prepare('INSERT INTO linking (scripture_id, topic_id) VALUES (:scripture_id, :topic_id);');
+    $stmt->bindValue(':scripture_id', $scripture_id);
+    $stmt->bindValue(':topic_id', $topic_id);
     $stmt->execute();
 }
 
