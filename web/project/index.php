@@ -1,5 +1,8 @@
 <?php
 session_start();
+require('connection.php');
+$db = get_db();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,28 +52,35 @@ session_start();
         $_SESSION["jan30pm"] = ($_POST["jan30pm"]);
     }
 
-    if (empty($_POST["name"])) {
-        $nameErr = "<p 'style=color:red;'>Name is required</p>";
-        
+    if (empty($_POST["firstname"])) {
+        $fnameErr = "<p 'style=color:red;'>Name is required</p>";
     } else {
-        $name = test_input($_POST["name"]);
+        $firstname = test_input($_POST["firstname"]);
         // check if name only contains letters and whitespace
-        if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
-            $nameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
-            
+        if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
+            $fnameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
         }
-        $_SESSION["name"] = $name;
+        $_SESSION["firstname"] = $firstname;
+    }
+
+    if (empty($_POST["lastname"])) {
+        $lnameErr = "<p 'style=color:red;'>Name is required</p>";
+    } else {
+        $lastname = test_input($_POST["lastname"]);
+        // check if name only contains letters and whitespace
+        if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
+            $lnameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
+        }
+        $_SESSION["lastname"] = $lastname;
     }
 
     if (empty($_POST["email"])) {
         $emailErr = "<p 'style=color:red;'>Email is required</p>";
-       
     } else {
         $email = test_input($_POST["email"]);
         // check if e-mail address is well-formed
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $emailErr = "<p 'style=color:red;'>Invalid email format</p>";
-            
         }
         $_SESSION["email"] = $email;
     }
@@ -90,7 +100,7 @@ session_start();
         <img src="../images/logo.jpg" class="logo">
         <h4>Need family or senior pictures done? Reserve a date that works for you!</h4>
         <div class="title">January 2021</div>
-        <form method="post" action="">
+        <form method="post" action="insert_new_client.php">
             <table>
                 <tr>
                     <th>Sun</th>
@@ -111,14 +121,14 @@ session_start();
                     <td><span class="date">1</span></td>
                     <td><span class="date">2</span><br>
                         <span class="available">Reserve AM</span>
-                        <input type="checkbox" name="jan2am" <?php if (isset($_SESSION["jan2am"])){
-                            echo "checked";
-                        }   ?> value="Jan 2 am"><br>
+                        <input type="checkbox" name="jan2am" <?php if (isset($_SESSION["jan2am"])) {
+                                                                    echo "checked";
+                                                                }   ?> value="Jan 2 am"><br>
 
                         <span name="jan2pm" class="available">Reserve PM</span>
-                        <input type="checkbox" name="jan2pm" <?php if (isset($_SESSION["jan2pm"])){
-                            echo "checked";
-                        }  ?> value="Jan 2 pm">
+                        <input type="checkbox" name="jan2pm" <?php if (isset($_SESSION["jan2pm"])) {
+                                                                    echo "checked";
+                                                                }  ?> value="Jan 2 pm">
                     </td>
                 </tr>
                 <tr>
@@ -130,9 +140,13 @@ session_start();
                     <td><span class="date">8</span></td>
                     <td><span class="date">9</span><br>
                         <span name="jan9am" class="available">Reserve AM</span>
-                        <input type="checkbox" name="jan9am" <?php if (isset($_SESSION["jan9am"])){echo "checked";}  ?> value="Jan 9 am"><br>
+                        <input type="checkbox" name="jan9am" <?php if (isset($_SESSION["jan9am"])) {
+                                                                    echo "checked";
+                                                                }  ?> value="Jan 9 am"><br>
                         <span name="jan9pm" class="available">Reserve PM</span>
-                        <input type="checkbox" name="jan9pm" <?php if (isset($_SESSION["jan9pm"])){echo "checked";} ?> value="Jan 9 pm">
+                        <input type="checkbox" name="jan9pm" <?php if (isset($_SESSION["jan9pm"])) {
+                                                                    echo "checked";
+                                                                } ?> value="Jan 9 pm">
                     </td>
                 </tr>
                 <tr>
@@ -144,9 +158,13 @@ session_start();
                     <td><span class="date">15</span></td>
                     <td><span class="date">16</span><br>
                         <span name="jan16am" class="available">Reserve AM</span>
-                        <input type="checkbox" name="jan16am" <?php if (isset($_SESSION["jan16am"])){echo "checked";} ?> value="Jan 16 am"><br>
+                        <input type="checkbox" name="jan16am" <?php if (isset($_SESSION["jan16am"])) {
+                                                                    echo "checked";
+                                                                } ?> value="Jan 16 am"><br>
                         <span name="jan16pm" class="available">Reserve PM</span>
-                        <input type="checkbox" name="jan16pm" <?php if (isset($_SESSION["jan16pm"])){echo "checked";} ?> value="Jan 16 pm">
+                        <input type="checkbox" name="jan16pm" <?php if (isset($_SESSION["jan16pm"])) {
+                                                                    echo "checked";
+                                                                } ?> value="Jan 16 pm">
                     </td>
                 </tr>
                 <tr>
@@ -158,9 +176,13 @@ session_start();
                     <td><span class="date">22</span></td>
                     <td><span class="date">23</span><br>
                         <span name="jan23am" class="available">Reserve AM</span>
-                        <input type="checkbox" name="jan23am" <?php if (isset($_SESSION["jan23am"])){echo "checked";} ?> value="Jan 23 am"><br>
+                        <input type="checkbox" name="jan23am" <?php if (isset($_SESSION["jan23am"])) {
+                                                                    echo "checked";
+                                                                } ?> value="Jan 23 am"><br>
                         <span name="jan23pm" class="available">Reserve PM</span>
-                        <input type="checkbox" name="jan23pm" <?php if (isset($_SESSION["jan23pm"])){echo "checked";} ?> value="Jan 23 pm">
+                        <input type="checkbox" name="jan23pm" <?php if (isset($_SESSION["jan23pm"])) {
+                                                                    echo "checked";
+                                                                } ?> value="Jan 23 pm">
                     </td>
                 </tr>
                 <tr>
@@ -172,9 +194,13 @@ session_start();
                     <td><span class="date">29</span></td>
                     <td><span class="date">30</span><br>
                         <span name="jan30am" class="available">Reserve AM</span>
-                        <input type="checkbox" name="jan30am" <?php if (isset($_SESSION["jan30am"])){echo "checked";} ?> value="Jan 30 am"><br>
+                        <input type="checkbox" name="jan30am" <?php if (isset($_SESSION["jan30am"])) {
+                                                                    echo "checked";
+                                                                } ?> value="Jan 30 am"><br>
                         <span name="jan30pm" class="available">Reserve PM</span>
-                        <input type="checkbox" name="jan30pm" <?php if (isset($_SESSION["jan30pm"])){echo "checked";} ?> value="Jan 30 pm"><br>
+                        <input type="checkbox" name="jan30pm" <?php if (isset($_SESSION["jan30pm"])) {
+                                                                    echo "checked";
+                                                                } ?> value="Jan 30 pm"><br>
                     </td>
                 </tr>
                 <tr>
@@ -188,17 +214,33 @@ session_start();
                 </tr>
 
             </table>
-            <p class="fieldform">Name: <input type="text" name="name" value="<?php echo $_SESSION["name"]; ?>">
-                <span class="error">* <?php echo $nameErr; ?></span>
+            <p class="fieldform">First Name: <input type="text" name="firstname" value="<?php echo $_SESSION["name"]; ?>">
+                <span class="error">* <?php echo $fnameErr; ?></span>
+            </p>
+
+            <p class="fieldform">Last Name: <input type="text" name="lastname" value="<?php echo $_SESSION["name"]; ?>">
+                <span class="error">* <?php echo $lnameErr; ?></span>
             </p>
 
             <p class="fieldform">E-mail: <input type="text" name="email" value="<?php echo $_SESSION["email"]; ?>">
                 <span class="error">* <?php echo $emailErr; ?></span>
             </p>
             <br><br>
-            <input class="reserve" type="submit" name="submit" value="Make the Reservation"></input>
+            <input class="reserve" type="submit" name="submit" value="Make the Reservation">
+            <input type="hidden" name="action" value="majorityinfo">
         </form>
-        <a class="calbutton" href="viewcart.php">View Cart</a>
+        <!-- <a class="calbutton" href="viewcart.php">View Cart</a> -->
+        <div>
+            <form method="POST" action="dbinfo.php">
+                <h6>Admin Login</h6>
+                <label>Username:</label>
+                <input type="text" name="username"></input><br>
+                <label>Password:</label>
+                <input type="password" name="pass"></input><br>
+                <input type="submit" name="login" value="Login">
+                <input type="hidden" name="action" value="login">
+            </form>
+        </div>
     </div>
     <!-- <script src="../js/projectjs.js"></script> -->
 </body>

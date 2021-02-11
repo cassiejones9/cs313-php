@@ -18,25 +18,11 @@ if (!isset($_SESSION)){
 </head>
 
 <body>
-<?php 
-    if (empty($_POST["phone"])) {
-        $phoneErr = "A phone number is required";
-    } else {
-        $phone = test_input($_POST["phone"]);
-        $_SESSION["phone"] = $phone;
-    }
 
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-?>
     <div class="container">
         <img src="../images/logo.jpg" class="logo">
         <div class="viewclientinfo">
-            <form action="" method="post">
+            <form action="insert_new_client.php" method="post">
                 <label for="phone">What's your phone number <?php echo $_SESSION["name"] ?>? 
             </label><br><br>
                 <input type="tel" id="phone" name="phone" placeholder="123-45-678" value="<?php echo $_SESSION["phone"];?>" required><span class="error"> *<?php echo $phoneErr; ?></span><br><br>
@@ -78,8 +64,9 @@ function test_input($data) {
         ?>
         <br><br>
                 <a href="viewcart.php" class="calbutton">Return to Cart</a>
-                <input class="reserve" type="submit" name="submit" value="Save Phone Number"></input>
-                <a href="confirmation.php" class="finalcheckoutbutton">Complete Reservation</a>
+                <input class="reserve" type="submit" name="submit" value="Save Phone Number">
+                <input type="hidden" name="action" value="insertphone">
+                <!-- <a href="confirmation.php" class="finalcheckoutbutton">Complete Reservation</a> -->
             </form>
         </div>
         

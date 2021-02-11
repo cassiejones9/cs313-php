@@ -59,18 +59,17 @@ if (isset($_POST["jan30pmdelete"])) {
     unset($_SESSION["jan30pm"]);
 }
 
-if (isset($_POST["people"])){
-    $_SESSION["people"] = $_POST["people"];
-}
+// if (isset($_POST["people"])){
+//     $_SESSION["people"] = $_POST["people"];
+// }
 ?>
     <div class="container">
         <img src="../images/logo.jpg" class="logo">
         <div class="viewclientinfo">
             
-                Hi <strong><?php echo $_SESSION["name"]; ?></strong>!<br>
+                Hi <strong><?php echo $_SESSION["firstname"] . " " . $_SESSION["lastname"] ; ?></strong>!<br>
                 Does this reservation look correct?<br>
                 <!-- check if isset first and then echo it -->
-                <!--  -->
                 
                 <strong>
                     <?php
@@ -82,8 +81,9 @@ if (isset($_POST["people"])){
                     }
                     if (isset($_SESSION["jan2pm"])) {
                         echo $_SESSION["jan2pm"];
-                        echo "<form action='' method='post'>
+                        echo "<form action='insert_new_client.php' method='post'>
                         <button type='submit' name='jan2pmdelete' value='Remove Jan2pm'>Remove Jan2 Photoshoot</button>
+                        <input type='hidden' name='action' value='deletesession'>
                     </form><br><br>";
                     }
                     if (isset($_SESSION["jan9am"])) {
@@ -138,7 +138,7 @@ if (isset($_POST["people"])){
                 </strong>
                 <br>
                 Email: <?php echo $_SESSION["email"] ?><br>
-                <form method="post" action="">
+                <form method="post" action="insert_new_client.php">
                 How many people will be at the photoshoot?
                 <select id="normal-select-1" placeholder-text="Number of People" name="people">
                     <option <?php if($_SESSION["people"] == "1") {echo 'selected="selected"';} ?> value="1" class="select-dropdown__list-item">1</option>
@@ -154,9 +154,10 @@ if (isset($_POST["people"])){
                 </select>
         </div>
         <a href="index.php" class="calbutton">Back to Calendar</a>
-        <input class="reserve" type="submit" name="submit" value="Confirm Number of People"></input>
+        <input class="reserve" type="submit" name="submit" value="Confirm Number of People">
+        <input type="hidden" name="action" value="insertpeople">
         </form>
-        <a class="calbutton" href="checkout.php">Checkout</a>
+        <!-- <a class="calbutton" href="checkout.php">Checkout</a> -->
     </div>
 </body>
 

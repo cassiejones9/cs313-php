@@ -2,6 +2,8 @@
 if (!isset($_SESSION)){
     session_start();
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,6 +68,9 @@ I will reach out to you at <strong><?php echo $_SESSION["phone"]; ?></strong> an
 <?php echo $_SESSION["email"] ?></strong> should we have any issues with this date.<br><br>
 Thank you for trusting us to take your pictures!
 </h4>
+<div>
+    <a href="index.php" class="calbutton">Back to Calendar</a>
+</div>
 </div>
 </body>
 </html>
