@@ -6,12 +6,10 @@ if (!isset($_SESSION)) {
 }
 require('connection.php');
 $db = get_db();
-if (isset($_POST['date'])){
-    $datearray = $_POST['date'];
-}
+$datearray = $_POST['date'];
 
-// echo $datearray || "empty";
-// exit;
+echo $datearray || "empty";
+exit;
 
 if (empty($_POST["firstname"])) {
     $fnameErr = "<p>Name is required</p>";
