@@ -13,7 +13,7 @@ if (empty($_POST["firstname"])) {
     header('location: index.php');
     exit;
 } else {
-    $firstname = test_input($_POST["firstname"]);
+    $firstname = test_inputs($_POST["firstname"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
         $fnameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
@@ -26,7 +26,7 @@ if (empty($_POST["lastname"])) {
     header('location: index.php');
     exit;
 } else {
-    $lastname = test_input($_POST["lastname"]);
+    $lastname = test_inputs($_POST["lastname"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
         $lnameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
@@ -39,7 +39,7 @@ if (empty($_POST["email"])) {
     header('location: index.php');
     exit;
 } else {
-    $email = test_input($_POST["email"]);
+    $email = test_inputs($_POST["email"]);
     // check if e-mail address is well-formed
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $emailErr = "<p 'style=color:red;'>Invalid email format</p>";
@@ -47,7 +47,7 @@ if (empty($_POST["email"])) {
     $_SESSION["email"] = $email;
 }
 
-function test_input($data)
+function test_inputs($data)
 {
     $data = trim($data);
     $data = stripslashes($data);
