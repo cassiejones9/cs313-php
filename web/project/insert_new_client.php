@@ -6,7 +6,10 @@ if (!isset($_SESSION)) {
 }
 require_once 'connection.php';
 $db = get_db();
-$datearray = $_POST['date'];
+if (isset($_POST['date'])){
+    $datearray = $_POST['date'];
+}
+
 echo $datearray;
 exit;
 
