@@ -78,6 +78,9 @@ foreach ($topic_ids as $topic_id) {
 header("Location: scriptures.php");
 
 // header doesn't keep variable names where location does
+// include 'scriptures.php';
+// exit;
+// include just puts all the code into that page
 
 // if(isset($stmt)){
 //     echo "<h2>Your scripture was added to the database.</h2>";

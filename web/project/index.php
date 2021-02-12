@@ -4,8 +4,6 @@ session_start();
 require('connection.php');
 $db = get_db();
 
-require_once 'insert_new_client.php';
-
 // select statement here, limit 1 store it in the session 
 
 ?>
