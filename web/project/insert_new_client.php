@@ -4,98 +4,187 @@
 if (!isset($_SESSION)) {
     session_start();
 }
+require_once 'connection.php';
+$db = get_db();
+$datearray = $_POST['date'];
 
-// if (empty($_POST["firstname"])) {
-//     $fnameErr = "<p 'style=color:red;'>Name is required</p>";
-// } else {
-//     $firstname = test_input($_POST["firstname"]);
-//     // check if name only contains letters and whitespace
-//     if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
-//         $fnameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
-//     }
-//     $_SESSION["firstname"] = $firstname;
-// }
-
-// if (empty($_POST["lastname"])) {
-//     $lnameErr = "<p 'style=color:red;'>Name is required</p>";
-// } else {
-//     $lastname = test_input($_POST["lastname"]);
-//     // check if name only contains letters and whitespace
-//     if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
-//         $lnameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
-//     }
-//     $_SESSION["lastname"] = $lastname;
-// }
-
-// if (empty($_POST["email"])) {
-//     $emailErr = "<p 'style=color:red;'>Email is required</p>";
-// } else {
-//     $email = test_input($_POST["email"]);
-//     // check if e-mail address is well-formed
-//     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-//         $emailErr = "<p 'style=color:red;'>Invalid email format</p>";
-//     }
-//     $_SESSION["email"] = $email;
-// }
-
-// function test_input($data)
-// {
-//     $data = trim($data);
-//     $data = stripslashes($data);
-//     $data = htmlspecialchars($data);
-//     return $data;
-// }
-
-// if (isset($_POST["jan2am"])) {
-//     $_SESSION["jan2am"] = ($_POST["jan2am"]);
-// }
-// if (isset($_POST["jan2pm"])) {
-//     $_SESSION["jan2pm"] = ($_POST["jan2pm"]);
-// }
-// if (isset($_POST["jan9am"])) {
-//     $_SESSION["jan9am"] = ($_POST["jan9am"]);
-// }
-// if (isset($_POST["jan9pm"])) {
-//     $_SESSION["jan9pm"] = ($_POST["jan9pm"]);
-// }
-// if (isset($_POST["jan16am"])) {
-//     $_SESSION["jan16am"] = ($_POST["jan16am"]);
-// }
-// if (isset($_POST["jan16pm"])) {
-//     $_SESSION["jan16pm"] = ($_POST["jan16pm"]);
-// }
-// if (isset($_POST["jan23am"])) {
-//     $_SESSION["jan23am"] = ($_POST["jan23am"]);
-// }
-// if (isset($_POST["jan23pm"])) {
-//     $_SESSION["jan23pm"] = ($_POST["jan23pm"]);
-// }
-// if (isset($_POST["jan30am"])) {
-//     $_SESSION["jan30am"] = ($_POST["jan30am"]);
-// }
-// if (isset($_POST["jan30pm"])) {
-//     $_SESSION["jan30pm"] = ($_POST["jan30pm"]);
-// }
-
-function savetodb() {
-    require ('connection.php');
-    $db = get_db();
-    $query = 'INSERT INTO client(lastName, firstName, phone, email) VALUES(:lastName, :firstName, :email)';
-    $stmt = $db->prepare($query);
-    $stmt->bindValue(':lastName', $_SESSION["lastname"]);
-    $stmt->bindValue(':firstName', $_SESSION["firstname"]);
-    $stmt->bindValue(':phone', $_SESSION["phone"]);
-    $stmt->bindValue(':email', $_SESSION["email"]);
-    $stmt->execute();
-    // get the clientid from above
-    $client_id = $db->lastInsertId("client_id_seq");
-    $statement = $db->prepare('INSERT INTO session(clientId, sessionDate, numOfPeople) VALUES(:clientId, :sessionDate, :numOfPeople);');
-    $statement->bindValue(':clientId', $client_id);
-    $statement->bindValue(':sessionDate', $_SESSION["date"]);
-    $statement->bindValue(':numOfPeople', $_SESSION["people"]);
-    $statement->execute();
-    return 'viewcart.php';
+if (empty($_POST["firstname"])) {
+    $fnameErr = "<p>Name is required</p>";
+    header('location: index.php');
+    exit;
+} else {
+    $firstname = test_input($_POST["firstname"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
+        $fnameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
+    }
+    $_SESSION["firstname"] = $firstname;
 }
+
+if (empty($_POST["lastname"])) {
+    $lnameErr = "<p 'style=color:red;'>Name is required</p>";
+    header('location: index.php');
+    exit;
+} else {
+    $lastname = test_input($_POST["lastname"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
+        $lnameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
+    }
+    $_SESSION["lastname"] = $lastname;
+}
+
+if (empty($_POST["email"])) {
+    $emailErr = "<p 'style=color:red;'>Email is required</p>";
+    header('location: index.php');
+    exit;
+} else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "<p 'style=color:red;'>Invalid email format</p>";
+    }
+    $_SESSION["email"] = $email;
+}
+
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+foreach ($datearray as $date) {
+
+
+if (isset($_POST["jan2am"])) {
+    $_SESSION["jan2am"] = ($_POST["jan2am"]);
+}
+if (isset($_POST["jan2pm"])) {
+    $_SESSION["jan2pm"] = ($_POST["jan2pm"]);
+}
+if (isset($_POST["jan9am"])) {
+    $_SESSION["jan9am"] = ($_POST["jan9am"]);
+}
+if (isset($_POST["jan9pm"])) {
+    $_SESSION["jan9pm"] = ($_POST["jan9pm"]);
+}
+if (isset($_POST["jan16am"])) {
+    $_SESSION["jan16am"] = ($_POST["jan16am"]);
+}
+if (isset($_POST["jan16pm"])) {
+    $_SESSION["jan16pm"] = ($_POST["jan16pm"]);
+}
+if (isset($_POST["jan23am"])) {
+    $_SESSION["jan23am"] = ($_POST["jan23am"]);
+}
+if (isset($_POST["jan23pm"])) {
+    $_SESSION["jan23pm"] = ($_POST["jan23pm"]);
+}
+if (isset($_POST["jan30am"])) {
+    $_SESSION["jan30am"] = ($_POST["jan30am"]);
+}
+if (isset($_POST["jan30pm"])) {
+    $_SESSION["jan30pm"] = ($_POST["jan30pm"]);
+}
+}
+$action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
+if ($action == NULL) {
+    $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
+}
+
+switch ($action) {
+
+    case 'insertclient':
+        $query = 'INSERT INTO client(lastName, firstName, phone, email) VALUES(:lastName, :firstName, :email)';
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':lastName', $_SESSION["lastname"]);
+        $stmt->bindValue(':firstName', $_SESSION["firstname"]);
+        $stmt->bindValue(':phone', $_SESSION["phone"]);
+        $stmt->bindValue(':email', $_SESSION["email"]);
+        $stmt->execute();
+        // get the clientid from above
+        $client_id = $db->lastInsertId("client_id_seq");
+        $statement = $db->prepare('INSERT INTO session(clientId, sessionDate, numOfPeople) VALUES(:clientId, :sessionDate, :numOfPeople);');
+        $statement->bindValue(':clientId', $client_id);
+        $statement->bindValue(':sessionDate', $_SESSION["date"]);
+        $statement->bindValue(':numOfPeople', $_SESSION["people"]);
+        $statement->execute();
+        include 'viewcart.php';
+        exit;
+
+    case 'updateclient':
+        $update =
+            // function updateVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId, $invId) {
+            // $db = phpmotorsConnect();
+            // The SQL statement
+            $sql = 'UPDATE client SET invMake = :invMake, invModel = :invModel, invDescription = :invDescription, invImage = :invImage, 
+    invThumbnail = :invThumbnail, invPrice = :invPrice, invStock = :invStock, invColor = :invColor, classificationId = :classificationId WHERE invId = :invId';
+        // Create the prepared statement using the php_motors connection
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindValue(':invMake', $invMake, PDO::PARAM_STR);
+        $stmt->bindValue(':invModel', $invModel, PDO::PARAM_STR);
+        $stmt->bindValue(':invDescription', $invDescription, PDO::PARAM_STR);
+        $stmt->bindValue(':invImage', $invImage, PDO::PARAM_STR);
+        $stmt->bindValue(':invThumbnail', $invThumbnail, PDO::PARAM_STR);
+        $stmt->bindValue(':invPrice', $invPrice, PDO::PARAM_STR);
+        $stmt->bindValue(':invStock', $invStock, PDO::PARAM_INT);
+        $stmt->bindValue(':invColor', $invColor, PDO::PARAM_STR);
+        $stmt->bindValue(':classificationId', $classificationId, PDO::PARAM_INT);
+        $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+        // Insert the data
+        $stmt->execute();
+        // Ask how many rows changed as a result of our insert
+        $rowsChanged = $stmt->rowCount();
+        // Close the database interaction
+        $stmt->closeCursor();
+        // var_dump($stmt);
+        // echo $rowsChanged;
+        // exit;
+        // Return the indication of success (rows changed)
+        return $rowsChanged;
+        include 'viewcart.php';
+        exit;
+
+    case 'deletesession':
+
+        // $sql = 'DELETE FROM inventory WHERE invId = :invId';
+        // Create the prepared statement using the php_motors connection
+        // $stmt = $db->prepare($sql);
+        // $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+        // Insert the data
+        // $stmt->execute();
+        // Ask how many rows changed as a result of our insert
+        // $rowsChanged = $stmt->rowCount();
+        // Close the database interaction
+        // $stmt->closeCursor();
+        // var_dump($stmt);
+        // echo $rowsChanged;
+        // exit;
+        // Return the indication of success (rows changed)
+        // return $rowsChanged;
+        // $invMake = filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_STRING);
+        // $invModel = filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_STRING);
+        // $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+
+        // $deleteResult = deleteVehicle($invId);
+        // if ($deleteResult) {
+        //   $message = "<p>$invMake $invModel was successfully removed.</p>";
+        //   $_SESSION['message'] = $message;
+        //   header('location: /phpmotors/vehicles/');
+        //   exit;
+        // } else {
+        //   $message = "<p class='highlight'>$invMake $invModel failed to be deleted.</p>";
+        //   $_SESSION['message'] = $message;
+        //   header('location: /phpmotors/vehicles/');
+        //   exit;
+        // }
+        // break;
+}
+    
+
 
 // foreach ($topic_ids as $topic_id) {
 // $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
@@ -188,4 +277,3 @@ function savetodb() {
 // session Id - store it in your superglobal $_SESSION[''] = 
 
 // order by DESC gives you the highest id
-?>
