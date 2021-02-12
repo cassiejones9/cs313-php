@@ -1,7 +1,12 @@
 <?php
 session_start();
+
 require('connection.php');
 $db = get_db();
+
+require_once 'insert_new_client.php';
+
+// select statement here, limit 1 store it in the session 
 
 ?>
 <!DOCTYPE html>
@@ -11,7 +16,7 @@ $db = get_db();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CSE 341 | Photography Project</title>
+    <title>CSE 341 | Photography Reservation</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/stylesheet.css" media="screen">
     <!-- Line 11 fixes favicon error -->
@@ -53,12 +58,12 @@ $db = get_db();
     }
 
     if (empty($_POST["firstname"])) {
-        $fnameErr = "<p 'style=color:red;'>Name is required</p>";
+        $fnameErr = "<p>Name is required</p>";
     } else {
         $firstname = test_input($_POST["firstname"]);
         // check if name only contains letters and whitespace
         if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
-            $fnameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
+            $fnameErr = "<p>Only letters and white space allowed</p>";
         }
         $_SESSION["firstname"] = $firstname;
     }
@@ -69,22 +74,36 @@ $db = get_db();
         $lastname = test_input($_POST["lastname"]);
         // check if name only contains letters and whitespace
         if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
-            $lnameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
+            $lnameErr = "<p >Only letters and white space allowed</p>";
         }
         $_SESSION["lastname"] = $lastname;
     }
 
     if (empty($_POST["email"])) {
-        $emailErr = "<p 'style=color:red;'>Email is required</p>";
+        $emailErr = "<p>Email is required</p>";
     } else {
         $email = test_input($_POST["email"]);
         // check if e-mail address is well-formed
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "<p 'style=color:red;'>Invalid email format</p>";
+            $emailErr = "<p>Invalid email format</p>";
         }
         $_SESSION["email"] = $email;
     }
 
+    if (empty($_POST["phone"])) {
+        $phoneErr = "<p>A phone number is required</p>";
+    } else {
+        $phone = preg_replace('/[^0-9+-]/', '', $_POST["phone"]);
+        // check if phone is good
+        if (!preg_replace($phone, FILTER_SANITIZE_NUMBER_INT)) {
+            $phoneErr = "<p>Invalid phone format</p>";
+        }
+        $_SESSION["phone"] = $phone;
+    }
+
+    if (isset($_POST["people"])){
+        $_SESSION["people"] = $_POST["people"];
+    }
 
     function test_input($data)
     {
@@ -93,7 +112,6 @@ $db = get_db();
         $data = htmlspecialchars($data);
         return $data;
     }
-
     ?>
 
     <div class="container">
@@ -111,7 +129,6 @@ $db = get_db();
                     <th>Fri</th>
                     <th>Sat</th>
                 </tr>
-
                 <tr>
                     <td><span class="date">&nbsp;</span></td>
                     <td><span class="date">&nbsp;</span></td>
@@ -214,20 +231,39 @@ $db = get_db();
                 </tr>
 
             </table>
-            <p class="fieldform">First Name: <input type="text" name="firstname" value="<?php echo $_SESSION["name"]; ?>">
+            <p class="fieldform">First Name: <input type="text" name="firstname" value="<?php echo $_SESSION['firstname']; ?>">
                 <span class="error">* <?php echo $fnameErr; ?></span>
             </p>
 
-            <p class="fieldform">Last Name: <input type="text" name="lastname" value="<?php echo $_SESSION["name"]; ?>">
+            <p class="fieldform">Last Name: <input type="text" name="lastname" value="<?php echo $_SESSION['lastname']; ?>">
                 <span class="error">* <?php echo $lnameErr; ?></span>
             </p>
 
-            <p class="fieldform">E-mail: <input type="text" name="email" value="<?php echo $_SESSION["email"]; ?>">
+            <p class="fieldform">E-mail: <input type="text" name="email" value="<?php echo $_SESSION['email']; ?>">
                 <span class="error">* <?php echo $emailErr; ?></span>
-            </p>
-            <br><br>
-            <input class="reserve" type="submit" name="submit" value="Make the Reservation">
-            <input type="hidden" name="action" value="majorityinfo">
+            </p><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="123-45-678" value="<?php if(isset($_SESSION['phone'])){echo $_SESSION['phone'];?>" required><span class="error"> *<?php echo $phoneErr; ?></span><br><br>
+                <small>(Format: 123-45-678)</small><br><br>
+                <?php if (isset($_SESSION["phone"])){echo "*Your number has been saved*";} ?><br>
+            <br>
+
+            How many people will be at the photoshoot?
+                <select id="normal-select-1" placeholder-text="Number of People" name="people">
+                    <option <?php if($_SESSION["people"] == "1") {echo 'selected="selected"';} ?> value="1" class="select-dropdown__list-item">1</option>
+                    <option <?php if($_SESSION["people"] == "2") {echo 'selected="selected"';} ?> value="2" class="select-dropdown__list-item">2</option>
+                    <option <?php if($_SESSION["people"] == "3") {echo 'selected="selected"';} ?> value="3" class="select-dropdown__list-item">3</option>
+                    <option <?php if($_SESSION["people"] == "4") {echo 'selected="selected"';} ?> value="4" class="select-dropdown__list-item">4</option>
+                    <option <?php if($_SESSION["people"] == "5") {echo 'selected="selected"';} ?> value="5" class="select-dropdown__list-item">5</option>
+                    <option <?php if($_SESSION["people"] == "6") {echo 'selected="selected"';} ?> value="6" class="select-dropdown__list-item">6</option>
+                    <option <?php if($_SESSION["people"] == "7") {echo 'selected="selected"';} ?> value="7" class="select-dropdown__list-item">7</option>
+                    <option <?php if($_SESSION["people"] == "8") {echo 'selected="selected"';} ?> value="8" class="select-dropdown__list-item">8</option>
+                    <option <?php if($_SESSION["people"] == "8+") {echo 'selected="selected"';} ?> value="9" class="select-dropdown__list-item">8+</option>
+                </select>
+            <br>
+            <input class="reserve" type="submit" name="submit" value="Make the Reservation" onclick="savetodb()">
+            <!-- <input type="hidden" name="action" value="majorityinfo"> -->
         </form>
         <!-- <a class="calbutton" href="viewcart.php">View Cart</a> -->
         <div>
@@ -237,8 +273,8 @@ $db = get_db();
                 <input type="text" name="username"></input><br>
                 <label>Password:</label>
                 <input type="password" name="pass"></input><br>
-                <input type="submit" name="login" value="Login">
-                <input type="hidden" name="action" value="login">
+                <input type="submit" name="login" value="Login" onclick="login()">
+                <!-- <input type="hidden" name="action" value="login"> -->
             </form>
         </div>
     </div>

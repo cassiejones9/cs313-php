@@ -10,7 +10,7 @@ if (!isset($_SESSION)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CSE 341 | Photography View Cart</title>
+    <title>CSE 341 | View Photography Reservation</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/stylesheet.css" media="screen">
     <!-- Line 11 fixes favicon error -->
@@ -68,7 +68,7 @@ if (isset($_POST["jan30pmdelete"])) {
         <div class="viewclientinfo">
             
                 Hi <strong><?php echo $_SESSION["firstname"] . " " . $_SESSION["lastname"] ; ?></strong>!<br>
-                Does this reservation look correct?<br>
+                Does this reservation and information look correct?<br>
                 <!-- check if isset first and then echo it -->
                 
                 <strong>
@@ -81,9 +81,8 @@ if (isset($_POST["jan30pmdelete"])) {
                     }
                     if (isset($_SESSION["jan2pm"])) {
                         echo $_SESSION["jan2pm"];
-                        echo "<form action='insert_new_client.php' method='post'>
+                        echo "<form action='' method='post'>
                         <button type='submit' name='jan2pmdelete' value='Remove Jan2pm'>Remove Jan2 Photoshoot</button>
-                        <input type='hidden' name='action' value='deletesession'>
                     </form><br><br>";
                     }
                     if (isset($_SESSION["jan9am"])) {
@@ -138,25 +137,15 @@ if (isset($_POST["jan30pmdelete"])) {
                 </strong>
                 <br>
                 Email: <?php echo $_SESSION["email"] ?><br>
-                <form method="post" action="insert_new_client.php">
-                How many people will be at the photoshoot?
-                <select id="normal-select-1" placeholder-text="Number of People" name="people">
-                    <option <?php if($_SESSION["people"] == "1") {echo 'selected="selected"';} ?> value="1" class="select-dropdown__list-item">1</option>
-                    <option <?php if($_SESSION["people"] == "2") {echo 'selected="selected"';} ?> value="2" class="select-dropdown__list-item">2</option>
-                    <option <?php if($_SESSION["people"] == "3") {echo 'selected="selected"';} ?> value="3" class="select-dropdown__list-item">3</option>
-                    <option <?php if($_SESSION["people"] == "4") {echo 'selected="selected"';} ?> value="4" class="select-dropdown__list-item">4</option>
-                    <option <?php if($_SESSION["people"] == "5") {echo 'selected="selected"';} ?> value="5" class="select-dropdown__list-item">5</option>
-                    <option <?php if($_SESSION["people"] == "6") {echo 'selected="selected"';} ?> value="6" class="select-dropdown__list-item">6</option>
-                    <option <?php if($_SESSION["people"] == "7") {echo 'selected="selected"';} ?> value="7" class="select-dropdown__list-item">7</option>
-                    <option <?php if($_SESSION["people"] == "8") {echo 'selected="selected"';} ?> value="8" class="select-dropdown__list-item">8</option>
-                    <option <?php if($_SESSION["people"] == "8+") {echo 'selected="selected"';} ?> value="9" class="select-dropdown__list-item">8+</option>
-
-                </select>
+                Phone: <?php echo $_SESSION["phone"] ?><br>
+                Number of People Attending Photoshoot:<br>
+                <?php echo $_SESSION["people"]?><br>
         </div>
+        <a href="confirmation.php" class="calbutton">Confirm Reservation</a>
         <a href="index.php" class="calbutton">Back to Calendar</a>
-        <input class="reserve" type="submit" name="submit" value="Confirm Number of People">
+        <!-- <input class="reserve" type="submit" name="submit" value="Confirm Number of People">
         <input type="hidden" name="action" value="insertpeople">
-        </form>
+        </form> -->
         <!-- <a class="calbutton" href="checkout.php">Checkout</a> -->
     </div>
 </body>

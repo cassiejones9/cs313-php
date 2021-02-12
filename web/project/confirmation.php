@@ -2,8 +2,6 @@
 if (!isset($_SESSION)){
     session_start();
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +10,7 @@ if (!isset($_SESSION)){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CSE 341 | Photography Confirm</title>
+    <title>CSE 341 | Confirmed Photoshoot</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/stylesheet.css" media="screen">
     <!-- Line 11 fixes favicon error -->
@@ -22,14 +20,7 @@ if (!isset($_SESSION)){
 <body>
 <div class="container">
         <img src="../images/logo.jpg" class="logo">
-<h4 class="confirmationtext">Thanks <?php echo $_SESSION["name"]; ?> for your reservation for 
-<strong><?php
-if (isset($_SESSION["people"])){
-    echo $_SESSION["people"];
-}
-?> people!</strong><br><br>
-I look forward to a photoshoot with you on:
-    <strong>
+<h4 class="confirmationtext">Thanks <?php echo $_SESSION["name"]; ?> for your reservation! The photoshoot is confirmed for 
     <?php 
         if (isset($_SESSION["jan2am"])){
             echo $_SESSION["jan2am"];
@@ -62,14 +53,13 @@ I look forward to a photoshoot with you on:
             echo $_SESSION["jan30pm"];
         }
         ?>
-        </strong>
 <br><br>
 I will reach out to you at <strong><?php echo $_SESSION["phone"]; ?></strong> and/or <strong>
 <?php echo $_SESSION["email"] ?></strong> should we have any issues with this date.<br><br>
 Thank you for trusting us to take your pictures!
 </h4>
 <div>
-    <a href="index.php" class="calbutton">Back to Calendar</a>
+    <a href="index.php" class="calbutton">Make Another Reservation</a>
 </div>
 </div>
 </body>
