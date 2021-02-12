@@ -78,7 +78,7 @@ if (!isset($_SESSION)) {
 // }
 
 function savetodb() {
-    require('connection.php');
+    require ('connection.php');
     $db = get_db();
     $query = 'INSERT INTO client(lastName, firstName, phone, email) VALUES(:lastName, :firstName, :email)';
     $stmt = $db->prepare($query);
