@@ -4,7 +4,7 @@ session_start();
 require ('connection.php');
 $db = get_db();
 
-require_once 'insert_new_client.php';
+require ('insert_new_client.php');
 
 // select statement here, limit 1 store it in the session 
 
@@ -244,13 +244,11 @@ require_once 'insert_new_client.php';
                 <span class="error">* <?php echo $emailErr; ?></span>
             </p><br>
 
-            <label for="phone">Phone Number:</label>
+            <label for="phone"><p class="fieldform">Phone Number:</p></label>
             <input type="tel" name="phone" placeholder="123-456-7890" value="<?php if(isset($_SESSION['phone'])){echo $_SESSION['phone'];} ?>" required>
             <span class="error">* <?php echo $phoneErr;?></span><br>
                 <?php if(isset($_SESSION['phone'])) {echo "*Your number has been saved*";} ?><br>
-            <br>
-
-            How many people will be at the photoshoot?
+            <p class="fieldform">How many people will be at the photoshoot?</p>
                 <select id="normal-select-1" placeholder-text="Number of People" name="people">
                     <option <?php if($_SESSION['people'] == "1") {echo 'selected="selected"';} ?> value="1" class="select-dropdown__list-item">1</option>
                     <option <?php if($_SESSION['people'] == "2") {echo 'selected="selected"';} ?> value="2" class="select-dropdown__list-item">2</option>
@@ -277,7 +275,7 @@ require_once 'insert_new_client.php';
                 <input type="submit" name="login" value="Login" onclick="login()"/>
                 <!-- <input type="hidden" name="action" value="login"> -->
             </form>
-        </div>
+        </div><br><br><br>
     </div>
 </body>
 </html>

@@ -94,7 +94,7 @@ function savetodb() {
     $statement->bindValue(':sessionDate', $_SESSION["date"]);
     $statement->bindValue(':numOfPeople', $_SESSION["people"]);
     $statement->execute();
-    include 'viewcart.php';
+    return 'viewcart.php';
 }
 
 // foreach ($topic_ids as $topic_id) {
