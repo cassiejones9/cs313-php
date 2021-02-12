@@ -149,14 +149,10 @@ require_once 'insert_new_client.php';
                     <td><span class="date">1</span></td>
                     <td><span class="date">2</span><br>
                         <label for="date" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" <?php if (isset($_SESSION['jan2am'])) {
-                                                                    echo "checked";
-                                                                }   ?> value="Jan 2 am"><br>
+                        <input type="checkbox" name="date[]" value="Jan 2 am"><br>
 
                         <label name="jan2pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" <?php if (isset($_SESSION['jan2pm'])) {
-                                                                    echo "checked";
-                                                                }  ?> value="Jan 2 pm">
+                        <input type="checkbox" name="date[]" value="Jan 2 pm">
                     </td>
                 </tr>
                 <tr>
@@ -168,13 +164,9 @@ require_once 'insert_new_client.php';
                     <td><span class="date">8</span></td>
                     <td><span class="date">9</span><br>
                         <label for="date" name="jan9am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" <?php if (isset($_SESSION['jan9am'])) {
-                                                                    echo "checked";
-                                                                }  ?> value="Jan 9 am"><br>
+                        <input type="checkbox" name="date[]" value="Jan 9 am"><br>
                         <label name="jan9pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" <?php if (isset($_SESSION['jan9pm'])) {
-                                                                    echo "checked";
-                                                                } ?> value="Jan 9 pm">
+                        <input type="checkbox" name="date[]" value="Jan 9 pm">
                     </td>
                 </tr>
                 <tr>
@@ -186,13 +178,9 @@ require_once 'insert_new_client.php';
                     <td><span class="date">15</span></td>
                     <td><span class="date">16</span><br>
                         <label for="date" name="jan16am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" <?php if (isset($_SESSION['jan16am'])) {
-                                                                    echo "checked";
-                                                                } ?> value="Jan 16 am"><br>
+                        <input type="checkbox" name="date[]" value="Jan 16 am"><br>
                         <label name="jan16pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" <?php if (isset($_SESSION['jan16pm'])) {
-                                                                    echo "checked";
-                                                                } ?> value="Jan 16 pm">
+                        <input type="checkbox" name="date[]" value="Jan 16 pm">
                     </td>
                 </tr>
                 <tr>
@@ -204,13 +192,9 @@ require_once 'insert_new_client.php';
                     <td><span class="date">22</span></td>
                     <td><span class="date">23</span><br>
                         <label for="date" name="jan23am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" <?php if (isset($_SESSION['jan23am'])) {
-                                                                    echo "checked";
-                                                                } ?> value="Jan 23 am"><br>
+                        <input type="checkbox" name="date[]" value="Jan 23 am"><br>
                         <label name="jan23pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" <?php if (isset($_SESSION['jan23pm'])) {
-                                                                    echo "checked";
-                                                                } ?> value="Jan 23 pm">
+                        <input type="checkbox" name="date[]" value="Jan 23 pm">
                     </td>
                 </tr>
                 <tr>
@@ -222,13 +206,9 @@ require_once 'insert_new_client.php';
                     <td><span class="date">29</span></td>
                     <td><span class="date">30</span><br>
                         <label for="date" name="jan30am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" <?php if (isset($_SESSION['jan30am'])) {
-                                                                    echo "checked";
-                                                                } ?> value="Jan 30 am"><br>
+                        <input type="checkbox" name="date[]" value="Jan 30 am"><br>
                         <label name="jan30pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" <?php if (isset($_SESSION['jan30pm'])) {
-                                                                    echo "checked";
-                                                                } ?> value="Jan 30 pm"><br>
+                        <input type="checkbox" name="date[]" value="Jan 30 pm"><br>
                     </td>
                 </tr>
                 <tr>

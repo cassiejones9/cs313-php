@@ -7,6 +7,8 @@ if (!isset($_SESSION)) {
 require_once 'connection.php';
 $db = get_db();
 $datearray = $_POST['date'];
+echo $datearray;
+exit;
 
 if (empty($_POST["firstname"])) {
     $fnameErr = "<p>Name is required</p>";
