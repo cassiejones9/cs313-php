@@ -8,8 +8,8 @@ require('connection.php');
 $db = get_db();
 $datearray = $_POST['date'];
 
-echo $datearray || "empty";
-exit;
+// echo $datearray || "empty";
+// exit;
 
 if (empty($_POST["firstname"])) {
     $fnameErr = "<p>Name is required</p>";
@@ -58,7 +58,7 @@ function test_inputs($data)
     return $data;
 }
 
-foreach ($datearray as $date) {
+
 
 
 if (isset($_POST["jan2am"])) {
@@ -91,7 +91,8 @@ if (isset($_POST["jan30am"])) {
 if (isset($_POST["jan30pm"])) {
     $_SESSION["jan30pm"] = ($_POST["jan30pm"]);
 }
-}
+
+
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
@@ -100,6 +101,7 @@ if ($action == NULL) {
 switch ($action) {
 
     case 'insertclient':
+        // insert into client
         $query = 'INSERT INTO client(lastName, firstName, phone, email) VALUES(:lastName, :firstName, :email)';
         $stmt = $db->prepare($query);
         $stmt->bindValue(':lastName', $_SESSION["lastname"]);
@@ -107,15 +109,22 @@ switch ($action) {
         $stmt->bindValue(':phone', $_SESSION["phone"]);
         $stmt->bindValue(':email', $_SESSION["email"]);
         $stmt->execute();
-        // get the clientid from above
+        // get the clientid from above and insert session info
         $client_id = $db->lastInsertId("client_id_seq");
-        $statement = $db->prepare('INSERT INTO session(clientId, sessionDate, numOfPeople) VALUES(:clientId, :sessionDate, :numOfPeople);');
+        $statement = $db->prepare('INSERT INTO session(clientId, numOfPeople) VALUES(:clientId, :numOfPeople);');
         $statement->bindValue(':clientId', $client_id);
-        $statement->bindValue(':sessionDate', $_SESSION["date"]);
         $statement->bindValue(':numOfPeople', $_SESSION["people"]);
         $statement->execute();
-        include 'viewcart.php';
+        // insert date info into dates table
+        foreach ($datearray as $date) {
+        $statmnt = $db->prepare('INSERT INTO dates(date, clientId) VALUES(:date, :clientId);');
+        $statmnt->bindValue(':date', $_SESSION[$date]);
+        $statmnt->bindValue(':clientId', $client_id);
+        $statmnt->execute();
+        }
+        header("Location: viewcart.php");
         exit;
+        break;
 
     case 'updateclient':
         $update =

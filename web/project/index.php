@@ -90,7 +90,7 @@ $db = get_db();
         $data = htmlspecialchars($data);
         return $data;
     }
-    
+
     ?>
 
     <div class="container">
@@ -210,7 +210,7 @@ $db = get_db();
                 echo $_SESSION['phone'];
                 } ?>" required>
 
-            <span class="error">* <?php echo $phoneErr; ?></span><br>
+            <span class="error">* <?php echo $phoneErr; ?></span>
             <?php if (isset($_SESSION['phone'])) {
                 echo "*Your number has been saved*";
             } ?><br>
