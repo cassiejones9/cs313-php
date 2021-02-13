@@ -9,7 +9,7 @@ $db = get_db();
 $datenamearray = $_POST['date'];
 $_SESSION['people'] = $_POST['people'];
 
-echo $datearray || "empty";
+echo $datenamearray || "empty";
 exit;
 
 

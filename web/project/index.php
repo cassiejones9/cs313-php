@@ -33,7 +33,7 @@ $db = get_db();
         if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
             $fnameErr = "<p>Only letters and white space allowed</p>";
         }
-        $_SESSION["firstname"] = $firstname;
+        $_SESSION['firstname'] = $firstname;
     }
 
     if (empty($_POST["lastname"])) {
@@ -180,8 +180,9 @@ $db = get_db();
                 </tr>
 
             </table>
-            <p class="fieldform">First Name: <input type="text" name="firstname" value="<?php echo $_SESSION['firstname']; ?>">
-                <span class="error">* <?php echo $fnameErr; ?></span>
+            <p class="fieldform">First Name: <input type="text" name="firstname" value="<?php 
+            if(isset($_SESSION['firstname'])) {echo $_SESSION['firstname'];} ?>">
+                <span class="error">* <?php if (isset($fnameErr)) {echo $fnameErr;} ?></span>
             </p>
 
             <p class="fieldform">Last Name: <input type="text" name="lastname" value="<?php echo $_SESSION['lastname']; ?>">
