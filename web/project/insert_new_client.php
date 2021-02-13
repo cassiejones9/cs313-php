@@ -7,9 +7,10 @@ if (!isset($_SESSION)) {
 require('connection.php');
 $db = get_db();
 $datearray = $_POST['date'];
+$_SESSION['people'] = $_POST['people'];
 
-// echo $datearray || "empty";
-// exit;
+echo $datearray || "empty";
+exit;
 
 
 if (empty($_POST["firstname"])) {
