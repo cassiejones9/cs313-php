@@ -8,6 +8,7 @@ require('connection.php');
 $db = get_db();
 $datearray = $_POST['date'];
 $_SESSION['people'] = $_POST['people'];
+$lastname = $_POST['lastname'];
 
 // echo $datenamearray || "empty";
 // exit;
@@ -26,17 +27,17 @@ if (empty($_POST['firstname'])) {
     $_SESSION['firstname'] = $firstname;
 }
 
-if (empty($_POST['lastname'])) {
+if (empty($lastname)) {
     $lnameErr = "<p>Name is required</p>";
     header('location: index.php');
     exit;
 } else {
-    $lastname = test_inputs($_POST['lastname']);
+    $lname = test_inputs($lastname);
     // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $lname)) {
         $lnameErr = "<p>Only letters and white space allowed</p>";
     }
-    $_SESSION['lastname'] = $lastname;
+    $_SESSION['lastname'] = $lname;
 }
 
 if (empty($_POST['email'])) {
@@ -67,12 +68,12 @@ function test_inputs($data)
     return $data;
 }
 
-echo $_SESSION['firstname'] = $firstname;
-echo $_SESSION['lastname'] = $lastname;
-echo $_SESSION['email'] = $email;
-echo $_SESSION['phone'] = $phone;
-echo $_SESSION['people'] = $_POST['people'];
-exit;
+// echo $_SESSION['firstname'] = $firstname;
+// echo $_SESSION['lastname'] = $lastname;
+// echo $_SESSION['email'] = $email;
+// echo $_SESSION['phone'] = $phone;
+// echo $_SESSION['people'] = $_POST['people'];
+// exit;
 // if (isset($_POST["jan2am"])) {
 //     $_SESSION["jan2am"] = ($_POST["jan2am"]);
 // }
@@ -127,6 +128,8 @@ switch ($action) {
         $statement->bindValue(':clientId', $client_id);
         $statement->bindValue(':numOfPeople', $_SESSION["people"]);
         $statement->execute();
+        echo "inside insert client but not to table yet";
+        exit;
         // insert date info into dates table
         foreach ($datearray as $date) {
             $statmnt = $db->prepare('INSERT INTO dates(date, clientId) VALUES(:date, :clientId);');
@@ -206,6 +209,7 @@ switch ($action) {
         //   exit;
         // }
         // break;
+        
 }
     
 
