@@ -11,6 +11,7 @@ $datearray = $_POST['date'];
 // echo $datearray || "empty";
 // exit;
 
+
 if (empty($_POST["firstname"])) {
     $fnameErr = "<p>Name is required</p>";
     header('location: index.php');
@@ -121,10 +122,10 @@ switch ($action) {
         $statement->execute();
         // insert date info into dates table
         foreach ($datearray as $date) {
-        $statmnt = $db->prepare('INSERT INTO dates(date, clientId) VALUES(:date, :clientId);');
-        $statmnt->bindValue(':date', $_SESSION[$date]);
-        $statmnt->bindValue(':clientId', $client_id);
-        $statmnt->execute();
+            $statmnt = $db->prepare('INSERT INTO dates(date, clientId) VALUES(:date, :clientId);');
+            $statmnt->bindValue(':date', $$date);
+            $statmnt->bindValue(':clientId', $client_id);
+            $statmnt->execute();
         }
         header("Location: viewcart.php");
         exit;

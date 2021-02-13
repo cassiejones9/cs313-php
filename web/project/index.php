@@ -23,17 +23,7 @@ $db = get_db();
 
 <body>
     <?php
-    $stmt = $db->prepare('SELECT date FROM dates');
-    $stmt->execute();
-    $dates = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $datearray = array();
-    foreach ($dates as $date) {
-        $dateid = $date["id"];
-        $datename = $date["date"];
-    if (isset($_POST['date'])) {
-        $_SESSION[$datename] = ($_POST['date']);
-    }
-    }
+    
 
     if (empty($_POST['firstname'])) {
         $fnameErr = "<p>Name is required</p>";
