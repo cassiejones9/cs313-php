@@ -115,7 +115,7 @@ switch ($action) {
         $stmt->bindValue(':email', $_SESSION["email"]);
         $stmt->execute();
         // get the clientid from above and insert session info
-        $client_id = $db->lastInsertId("client_id_seq");
+        $client_id = $db->lastInsertId("client_clientId_seq");
         $statement = $db->prepare('INSERT INTO session(clientId, numOfPeople) VALUES(:clientId, :numOfPeople);');
         $statement->bindValue(':clientId', $client_id);
         $statement->bindValue(':numOfPeople', $_SESSION["people"]);
