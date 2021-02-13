@@ -6,57 +6,57 @@ if (!isset($_SESSION)) {
 }
 require('connection.php');
 $db = get_db();
-$datenamearray = $_POST['date'];
+$datearray = $_POST['date'];
 $_SESSION['people'] = $_POST['people'];
 
-echo $datenamearray || "empty";
-exit;
+// echo $datenamearray || "empty";
+// exit;
 
 
-if (empty($_POST["firstname"])) {
+if (empty($_POST['firstname'])) {
     $fnameErr = "<p>Name is required</p>";
     header('location: index.php');
     exit;
 } else {
-    $firstname = test_inputs($_POST["firstname"]);
+    $firstname = test_inputs($_POST['firstname']);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
         $fnameErr = "<p>Only letters and white space allowed</p>";
     }
-    $_SESSION["firstname"] = $firstname;
+    $_SESSION['firstname'] = $firstname;
 }
 
-if (empty($_POST["lastname"])) {
+if (empty($_POST['lastname'])) {
     $lnameErr = "<p>Name is required</p>";
     header('location: index.php');
     exit;
 } else {
-    $lastname = test_inputs($_POST["lastname"]);
+    $lastname = test_inputs($_POST['lastname']);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
         $lnameErr = "<p>Only letters and white space allowed</p>";
     }
-    $_SESSION["lastname"] = $lastname;
+    $_SESSION['lastname'] = $lastname;
 }
 
-if (empty($_POST["email"])) {
+if (empty($_POST['email'])) {
     $emailErr = "<p>Email is required</p>";
     header('location: index.php');
     exit;
 } else {
-    $email = test_inputs($_POST["email"]);
+    $email = test_inputs($_POST['email']);
     // check if e-mail address is well-formed
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $emailErr = "<p>Invalid email format</p>";
     }
-    $_SESSION["email"] = $email;
+    $_SESSION['email'] = $email;
 }
 
-if (empty($_POST["phone"])) {
+if (empty($_POST['phone'])) {
     $phoneErr = "<p>A phone number is required</p>";
 } else {
     $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_NUMBER_INT);
-    $_SESSION["phone"] = $phone;
+    $_SESSION['phone'] = $phone;
 }
 
 function test_inputs($data)
@@ -67,6 +67,12 @@ function test_inputs($data)
     return $data;
 }
 
+echo $_SESSION['firstname'] = $firstname;
+echo $_SESSION['lastname'] = $lastname;
+echo $_SESSION['email'] = $email;
+echo $_SESSION['phone'] = $phone;
+echo $_SESSION['people'] = $_POST['people'];
+exit;
 // if (isset($_POST["jan2am"])) {
 //     $_SESSION["jan2am"] = ($_POST["jan2am"]);
 // }
