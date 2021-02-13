@@ -19,46 +19,42 @@ if (empty($_POST["firstname"])) {
     $firstname = test_inputs($_POST["firstname"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
-        $fnameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
+        $fnameErr = "<p>Only letters and white space allowed</p>";
     }
     $_SESSION["firstname"] = $firstname;
 }
 
 if (empty($_POST["lastname"])) {
-    $lnameErr = "<p 'style=color:red;'>Name is required</p>";
+    $lnameErr = "<p>Name is required</p>";
     header('location: index.php');
     exit;
 } else {
     $lastname = test_inputs($_POST["lastname"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
-        $lnameErr = "<p 'style=color:red;'>Only letters and white space allowed</p>";
+        $lnameErr = "<p>Only letters and white space allowed</p>";
     }
     $_SESSION["lastname"] = $lastname;
 }
 
 if (empty($_POST["email"])) {
-    $emailErr = "<p 'style=color:red;'>Email is required</p>";
+    $emailErr = "<p>Email is required</p>";
     header('location: index.php');
     exit;
 } else {
     $email = test_inputs($_POST["email"]);
     // check if e-mail address is well-formed
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = "<p 'style=color:red;'>Invalid email format</p>";
+        $emailErr = "<p>Invalid email format</p>";
     }
     $_SESSION["email"] = $email;
 }
 
-if (empty($_POST['phone'])) {
+if (empty($_POST["phone"])) {
     $phoneErr = "<p>A phone number is required</p>";
 } else {
-    $phone = preg_replace('/[^0-9+-]/', '', $_POST['phone']);
-    // check if phone is good
-    if (!preg_replace(INPUT_POST, $phone, FILTER_SANITIZE_NUMBER_INT)) {
-        $phoneErr = "<p>Invalid phone format</p>";
-    }
-    $_SESSION['phone'] = $phone;
+    $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_NUMBER_INT);
+    $_SESSION["phone"] = $phone;
 }
 
 function test_inputs($data)
