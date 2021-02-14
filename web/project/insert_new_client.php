@@ -10,8 +10,8 @@ $datearray = $_POST['date'];
 $_SESSION['people'] = $_POST['people'];
 $lastname = $_POST['lastname'];
 
-var_dump($datearray);
-exit;
+// var_dump($datearray);
+// exit;
 
 
 if (empty($_POST['firstname'])) {
@@ -129,8 +129,8 @@ switch ($action) {
         $statement->bindValue(':numOfPeople', $_SESSION["people"]);
         $statement->execute();
         // insert date info into dates table
-        foreach ($datearray as $date) {
-            $statmnt = $db->prepare('UPDATE dates SET clientId = ');
+        foreach ($datearray as $index => $datevalue) {
+            $statmnt = $db->prepare('UPDATE dates SET clientId = $client_id WHERE dateId = $datevalue');
             $statmnt->bindValue(':clientId', $client_id);
             $statmnt->execute();
         }
