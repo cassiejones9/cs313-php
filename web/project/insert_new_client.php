@@ -130,7 +130,7 @@ switch ($action) {
         $statement->execute();
         // insert date info into dates table
         foreach ($datearray as $index => $datevalue) {
-            $statmnt = $db->prepare('UPDATE dates SET clientId = :clientId WHERE dateId = $datevalue');
+            $statmnt = $db->prepare("UPDATE dates SET clientId = :clientId WHERE dateId = $datevalue");
             $statmnt->bindValue(':clientId', $client_id);
             $statmnt->execute();
         }
