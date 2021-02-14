@@ -10,7 +10,7 @@ $datearray = $_POST['date'];
 $_SESSION['people'] = $_POST['people'];
 $lastname = $_POST['lastname'];
 
-echo $datearray;
+var_dump($datearray);
 exit;
 
 
@@ -130,7 +130,7 @@ switch ($action) {
         $statement->execute();
         // insert date info into dates table
         foreach ($datearray as $date) {
-            $statmnt = $db->prepare('INSERT INTO dates(clientId) VALUES(:clientId);');
+            $statmnt = $db->prepare('UPDATE dates SET clientId = ');
             $statmnt->bindValue(':clientId', $client_id);
             $statmnt->execute();
         }
