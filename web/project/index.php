@@ -107,10 +107,10 @@ $db = get_db();
                     <td><span class="date">1</span></td>
                     <td><span class="date">2</span><br>
                         <label for="date" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" value="Jan2am"><br>
+                        <input type="checkbox" name="date[]" value="1"><br>
 
                         <label name="jan2pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" value="Jan2pm">
+                        <input type="checkbox" name="date[]" value="2">
                     </td>
                 </tr>
                 <tr>
@@ -122,9 +122,9 @@ $db = get_db();
                     <td><span class="date">8</span></td>
                     <td><span class="date">9</span><br>
                         <label for="date" name="jan9am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" value="Jan9am"><br>
+                        <input type="checkbox" name="date[]" value="3"><br>
                         <label name="jan9pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" value="Jan9pm">
+                        <input type="checkbox" name="date[]" value="4">
                     </td>
                 </tr>
                 <tr>
@@ -136,9 +136,9 @@ $db = get_db();
                     <td><span class="date">15</span></td>
                     <td><span class="date">16</span><br>
                         <label for="date" name="jan16am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" value="Jan16am"><br>
+                        <input type="checkbox" name="date[]" value="5"><br>
                         <label name="jan16pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" value="Jan16pm">
+                        <input type="checkbox" name="date[]" value="6">
                     </td>
                 </tr>
                 <tr>
@@ -150,9 +150,9 @@ $db = get_db();
                     <td><span class="date">22</span></td>
                     <td><span class="date">23</span><br>
                         <label for="date" name="jan23am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" value="Jan23am"><br>
+                        <input type="checkbox" name="date[]" value="7"><br>
                         <label name="jan23pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" value="Jan23pm">
+                        <input type="checkbox" name="date[]" value="8">
                     </td>
                 </tr>
                 <tr>
@@ -164,9 +164,9 @@ $db = get_db();
                     <td><span class="date">29</span></td>
                     <td><span class="date">30</span><br>
                         <label for="date" name="jan30am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" value="Jan30am"><br>
+                        <input type="checkbox" name="date[]" value="9"><br>
                         <label name="jan30pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" value="Jan30pm"><br>
+                        <input type="checkbox" name="date[]" value="10"><br>
                     </td>
                 </tr>
                 <tr>
@@ -180,31 +180,23 @@ $db = get_db();
                 </tr>
 
             </table>
-            <p class="fieldform">First Name: <input type="text" name="firstname" value="<?php 
-            if(isset($_SESSION['firstname'])) {echo $_SESSION['firstname'];} ?>">
+            <p class="fieldform">First Name: <input type="text" name="firstname" required>
                 <span class="error">* <?php if (isset($fnameErr)) {echo $fnameErr;} ?></span>
             </p>
 
-            <p class="fieldform">Last Name: <input type="text" name="lastname" value="<?php echo $_SESSION['lastname']; ?>">
-                <span class="error">* <?php echo $lnameErr; ?></span>
+            <p class="fieldform">Last Name: <input type="text" name="lastname" required>
+                <span class="error">* <?php if (isset($lnameErr)) {echo $lnameErr;} ?></span>
             </p>
 
-            <p class="fieldform">E-mail: <input type="text" name="email" value="<?php echo $_SESSION['email']; ?>">
-                <span class="error">* <?php echo $emailErr; ?></span>
+            <p class="fieldform">E-mail: <input type="text" name="email" required>
+                <span class="error">* <?php if (isset($emailErr)) {echo $emailErr;} ?></span>
             </p><br>
 
-            <label for="phone">
-                <p class="fieldform">Phone Number:</p>
-            </label>
-            <input type="tel" name="phone" placeholder="123-456-7890" value="<?php 
-            if (isset($_SESSION['phone'])) {
-                echo $_SESSION['phone'];
-                } ?>" required>
+            <label for="phone"><p class="fieldform">Phone Number:</p></label>
+            <input type="tel" name="phone" placeholder="123-456-7890" required>
 
-            <span class="error">* <?php echo $phoneErr; ?></span>
-            <?php if (isset($_SESSION['phone'])) {
-                echo "*Your number has been saved*";
-            } ?><br>
+            <span class="error">* <?php if (isset($phoneErr)) {echo $phoneErr;} ?></span>
+            <br>
             <p class="fieldform">How many people will be at the photoshoot?</p>
             <select id="normal-select-1" placeholder-text="Number of People" name="people">
                 <option <?php if ($_SESSION['people'] == "1") {

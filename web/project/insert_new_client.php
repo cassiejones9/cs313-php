@@ -10,8 +10,8 @@ $datearray = $_POST['date'];
 $_SESSION['people'] = $_POST['people'];
 $lastname = $_POST['lastname'];
 
-// echo $datenamearray || "empty";
-// exit;
+echo $datearray;
+exit;
 
 
 if (empty($_POST['firstname'])) {
@@ -128,12 +128,9 @@ switch ($action) {
         $statement->bindValue(':clientId', $client_id);
         $statement->bindValue(':numOfPeople', $_SESSION["people"]);
         $statement->execute();
-        echo "inside insert client but not to table yet";
-        exit;
         // insert date info into dates table
         foreach ($datearray as $date) {
-            $statmnt = $db->prepare('INSERT INTO dates(date, clientId) VALUES(:date, :clientId);');
-            $statmnt->bindValue(':date', $$date);
+            $statmnt = $db->prepare('INSERT INTO dates(clientId) VALUES(:clientId);');
             $statmnt->bindValue(':clientId', $client_id);
             $statmnt->execute();
         }

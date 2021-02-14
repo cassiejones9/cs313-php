@@ -77,7 +77,7 @@ INSERT INTO dates (date)
 VALUES ('Jan 23 pm');
 
 INSERT INTO dates (date)
-VALUES ('Jan 30 am';
+VALUES ('Jan 30 am');
 
 INSERT INTO dates (date)
 VALUES ('Jan 30 pm');
@@ -110,4 +110,7 @@ VALUES ('Smith', 'Lucy', '345-678-9012', 'Las Vegas');
 INSERT INTO client (lastName, firstName, phone, email)
 VALUES ('Cowdrey', 'Oliver', '455-677-9002', 'oliverc@gmail.com');
 
+
+UPDATE dates 
+SET clientId = 1 WHERE dateId = 1;
 
