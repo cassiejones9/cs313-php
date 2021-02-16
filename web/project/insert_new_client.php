@@ -142,8 +142,9 @@ switch ($action) {
     case 'deletesession':
         $clientid = "(SELECT clientId FROM client WHERE lastName = '$_SESSION[lastname]' AND firstName = '$_SESSION[firstname]')";
         $query = "DELETE FROM dates WHERE clientId = $clientid";
-        syslog(LOG_INFO, $query);
+        error_log($query);
         echo $query;
+        exit;
         $stmt = $db->prepare($query);
         $stmt->execute();
         include 'viewcart.php';
