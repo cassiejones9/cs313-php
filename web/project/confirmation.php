@@ -1,7 +1,9 @@
 <?php
-if (!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
 }
+require('connection.php');
+$db = get_db();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,49 +20,29 @@ if (!isset($_SESSION)){
 </head>
 
 <body>
-<div class="container">
+    <div class="container">
         <img src="../images/logo.jpg" class="logo">
-<h4 class="confirmationtext">Thanks <?php echo $_SESSION["name"]; ?> for your reservation! The photoshoot is confirmed for 
-    <?php 
-        if (isset($_SESSION["jan2am"])){
-            echo $_SESSION["jan2am"];
-        }
-        if (isset($_SESSION["jan2pm"])){
-            echo $_SESSION["jan2pm"];
-        }
-        if (isset($_SESSION["jan9am"])){
-            echo $_SESSION["jan9am"];
-        }
-        if (isset($_SESSION["jan9pm"])){
-            echo $_SESSION["jan9pm"];
-        }
-        if (isset($_SESSION["jan16am"])){
-            echo $_SESSION["jan16am"];
-        }
-        if (isset($_SESSION["jan16pm"])){
-            echo $_SESSION["jan16pm"];
-        }
-        if (isset($_SESSION["jan23am"])){
-            echo $_SESSION["jan23am"];
-        }
-        if (isset($_SESSION["jan23pm"])){
-            echo $_SESSION["jan23pm"];
-        }
-        if (isset($_SESSION["jan30am"])){
-            echo $_SESSION["jan30am"];
-        }
-        if (isset($_SESSION["jan30pm"])){
-            echo $_SESSION["jan30pm"];
-        }
-        ?>
-<br><br>
-I will reach out to you at <strong><?php echo $_SESSION["phone"]; ?></strong> and/or <strong>
-<?php echo $_SESSION["email"] ?></strong> should we have any issues with this date.<br><br>
-Thank you for trusting us to take your pictures!
-</h4>
-<div>
-    <a href="index.php" class="calbutton">Make Another Reservation</a>
-</div>
-</div>
+        <h4 class="confirmationtext">Thanks <?php echo $_SESSION["name"]; ?> for your reservation! The photoshoot is confirmed for</h4><br>
+            <?php
+            $clientid = "SELECT clientId FROM client WHERE lastName = $_SESSION[lastname] AND firstName = $_SESSION[firstname]";
+            $query = "SELECT date FROM dates WHERE clientid = $clientid;";
+            $stmt = $db->prepare($query);
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $display = "<h4>$row[date]</h4>";
+            }
+            echo $display;
+
+            ?>
+            <br><br>
+            I will reach out to you at <strong><?php echo $_SESSION["phone"]; ?></strong> and/or <strong>
+                <?php echo $_SESSION["email"] ?></strong> should we have any issues with this date.<br><br>
+            Thank you for trusting us to take your pictures!
+        </h4>
+        <div>
+            <a href="index.php" class="calbutton">Back to Calendar</a>
+        </div>
+    </div>
 </body>
+
 </html>

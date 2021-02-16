@@ -138,8 +138,8 @@ switch ($action) {
         exit;
         break;
 
-    case 'updateclient':
-        $update =
+    case 'updatereservation':
+        // $update =
             // function updateVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId, $invId) {
             // $db = phpmotorsConnect();
             // The SQL statement
@@ -173,25 +173,12 @@ switch ($action) {
         exit;
 
     case 'deletesession':
-
-        // $sql = 'DELETE FROM inventory WHERE invId = :invId';
-        // Create the prepared statement using the php_motors connection
-        // $stmt = $db->prepare($sql);
-        // $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
-        // Insert the data
-        // $stmt->execute();
-        // Ask how many rows changed as a result of our insert
-        // $rowsChanged = $stmt->rowCount();
-        // Close the database interaction
-        // $stmt->closeCursor();
-        // var_dump($stmt);
-        // echo $rowsChanged;
-        // exit;
-        // Return the indication of success (rows changed)
-        // return $rowsChanged;
-        // $invMake = filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_STRING);
-        // $invModel = filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_STRING);
-        // $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+        $clientid = "SELECT clientId FROM client WHERE lastName = $_SESSION[lastname] AND firstName = $_SESSION[firstname]";
+        $query = "DELETE FROM dates WHERE clientid = $clientid";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        include 'viewcart.php';
+        exit;
 
         // $deleteResult = deleteVehicle($invId);
         // if ($deleteResult) {

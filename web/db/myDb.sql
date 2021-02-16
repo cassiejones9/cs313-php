@@ -10,6 +10,8 @@ CREATE TABLE client (
     phone varchar(255)  NOT NULL,
     city varchar(255)  NOT NULL
 );
+
+SELECT clientId FROM client WHERE lastName = 'Jones' AND firstName = 'Cassie';
 -- CREATE TABLE client (
 --     clientId SERIAL PRIMARY KEY,
 --     lastName varchar(255)  NOT NULL,
@@ -114,3 +116,4 @@ VALUES ('Cowdrey', 'Oliver', '455-677-9002', 'oliverc@gmail.com');
 UPDATE dates 
 SET clientId = 1 WHERE dateId = 1;
 
+SELECT date FROM dates WHERE clientid = 16;
