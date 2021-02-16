@@ -27,11 +27,11 @@ if (isset($_POST['datemod'])){
 // var_dump($datearray);
 // var_dump($datemodarray);
 
-foreach ($datearray as $index => $datevalue) {
-    $statmnt = "UPDATE dates SET clientId = 31 WHERE dateId = $datevalue";
-var_dump($statmnt);
-}
-exit;
+// foreach ($datearray as $index => $datevalue) {
+//     $statmnt = "UPDATE dates SET clientId = 31 WHERE dateId = $datevalue";
+// var_dump($statmnt);
+// }
+// exit;
 
 
 if (empty($_POST['firstname'])) {
@@ -106,6 +106,8 @@ switch ($action) {
         $stmt->execute();
         // get the clientid from above and insert session info
         $client_id = $db->lastInsertId("client_clientId_seq");
+        var_dump($client_id);
+        exit;
         $statement = $db->prepare('INSERT INTO session(clientId, numOfPeople) VALUES(:clientId, :numOfPeople);');
         $statement->bindValue(':clientId', $client_id);
         $statement->bindValue(':numOfPeople', $_SESSION["people"]);
