@@ -123,7 +123,7 @@ $db = get_db();
                     <td><span class="date">8</span></td>
                     <td><span class="date">9</span><br>
                         <label for="date" name="jan9am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" value="3" id="awesome"><br>
+                        <input type="checkbox" name="date[]" value="3"><br>
                         <label name="jan9pm" class="available">Reserve PM</label>
                         <input type="checkbox" name="date[]" value="4">
                     </td>

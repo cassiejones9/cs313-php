@@ -133,7 +133,7 @@ switch ($action) {
         $fname = $_SESSION["firstname"];
         $lname = $_SESSION["lastname"];
         $clientid = "(SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname')";
-        $query = "DELETE FROM dates WHERE clientId = $clientid";
+        $query = "UPDATE dates SET clientid = NULL WHERE clientId = $clientid";
         // error_log($query);
         // echo $query;
         // exit;
