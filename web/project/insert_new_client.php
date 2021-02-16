@@ -25,7 +25,10 @@ if (isset($_POST['datemod'])){
 // }
 
 var_dump($datearray);
-var_dump($datemodarray);
+// var_dump($datemodarray);
+foreach ($datearray as $index => $datevalue) {
+var_dump($datevalue);
+}
 exit;
 
 
