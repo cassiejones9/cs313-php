@@ -15,6 +15,8 @@ if (isset($_POST['lastname'])) {
 if (isset($_POST['datemod'])){
     $datemodarray = $_POST['datemod'];
 }
+
+
 // else {
 //     header('location: index.php');
 //     exit;
@@ -23,6 +25,7 @@ if (isset($_POST['datemod'])){
 // }
 
 // var_dump($datearray);
+// var_dump($datemodarray);
 // exit;
 
 
@@ -104,8 +107,7 @@ switch ($action) {
         $statement->execute();
         // insert date info into dates table
         foreach ($datearray as $index => $datevalue) {
-            $statmnt = $db->prepare("UPDATE dates SET clientId = :clientId WHERE dateId = $datevalue");
-            $statmnt->bindValue(':clientId', $client_id);
+            $statmnt = $db->prepare("UPDATE dates SET clientId = $client_id WHERE dateId = $datevalue");
             $statmnt->execute();
         }
         header("Location: viewcart.php");
@@ -117,8 +119,8 @@ switch ($action) {
         $lname = $_SESSION["lastname"];
         $clientid = "(SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname')";
         foreach ($datemodarray as $index => $datevalue){
-            $sql = "UPDATE dates SET cliendId = :clientId WHERE dateId = $datevalue";
-            $statmnt->bindValue(':clientId', $client_id);
+            $sql = "UPDATE dates SET cliendId = $clientid WHERE dateId = $datevalue";
+            // $statmnt->bindValue(':clientId', $client_id);
             $statmnt->execute();
         }
         header("Location: viewcart.php");
