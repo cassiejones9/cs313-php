@@ -68,42 +68,6 @@ function test_inputs($data)
     return $data;
 }
 
-// echo $_SESSION['firstname'] = $firstname;
-// echo $_SESSION['lastname'] = $lastname;
-// echo $_SESSION['email'] = $email;
-// echo $_SESSION['phone'] = $phone;
-// echo $_SESSION['people'] = $_POST['people'];
-// exit;
-// if (isset($_POST["jan2am"])) {
-//     $_SESSION["jan2am"] = ($_POST["jan2am"]);
-// }
-// if (isset($_POST["jan2pm"])) {
-//     $_SESSION["jan2pm"] = ($_POST["jan2pm"]);
-// }
-// if (isset($_POST["jan9am"])) {
-//     $_SESSION["jan9am"] = ($_POST["jan9am"]);
-// }
-// if (isset($_POST["jan9pm"])) {
-//     $_SESSION["jan9pm"] = ($_POST["jan9pm"]);
-// }
-// if (isset($_POST["jan16am"])) {
-//     $_SESSION["jan16am"] = ($_POST["jan16am"]);
-// }
-// if (isset($_POST["jan16pm"])) {
-//     $_SESSION["jan16pm"] = ($_POST["jan16pm"]);
-// }
-// if (isset($_POST["jan23am"])) {
-//     $_SESSION["jan23am"] = ($_POST["jan23am"]);
-// }
-// if (isset($_POST["jan23pm"])) {
-//     $_SESSION["jan23pm"] = ($_POST["jan23pm"]);
-// }
-// if (isset($_POST["jan30am"])) {
-//     $_SESSION["jan30am"] = ($_POST["jan30am"]);
-// }
-// if (isset($_POST["jan30pm"])) {
-//     $_SESSION["jan30pm"] = ($_POST["jan30pm"]);
-// }
 
 
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
