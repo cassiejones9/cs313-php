@@ -26,7 +26,6 @@ $db = get_db();
                 <?php
                 $fname = $_SESSION["firstname"];
                 $lname = $_SESSION["lastname"];
-                $display = "<h3>Your Reservation</h3>";
                 $clientid = "(SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname')";
                 $stmt = $db->prepare($clientid);
                 $stmt->execute();
@@ -41,7 +40,7 @@ $db = get_db();
             </strong>
         </div>
             <br><br>
-            I will reach out to you at <strong><?php echo $_SESSION["phone"]; ?></strong> and/or <strong>
+            <h4>I will reach out to you at <strong><?php echo $_SESSION["phone"]; ?></strong> and/or <strong>
                 <?php echo $_SESSION["email"] ?></strong> should we have any issues with this date.<br><br>
             Thank you for trusting us to take your pictures!
         </h4>
