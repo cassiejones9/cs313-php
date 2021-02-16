@@ -35,20 +35,20 @@ $db = get_db();
                 $lname = $_SESSION["lastname"];
                 $display = "<h3>Your Reservation</h3>";
                 $clientid = "SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname'";
-                // var_dump($clientid);
-                // exit;
+                var_dump($clientid);
+                exit;
                 $stmt = $db->prepare($clientid);
                 $stmt->execute();
                 $query = "SELECT date FROM dates WHERE clientid = $clientid";
                 $statment = $db->prepare($query);
                 $statment->execute();
-                $row = $statment->fetch(PDO::FETCH_ASSOC);
-                $display .= "<h4>$row[date]</h4>";
-                $display .= "<form method='POST' action='insert_new_client.php'>
+                while ($row = $statment->fetch(PDO::FETCH_ASSOC)) {
+                    $display .= "<h4>$row[date]</h4>";
+                    $display .= "<form method='POST' action='insert_new_client.php'>
                     <input class='reserve' type='submit' name='delete' value='Delete Reservation'>
                     <input type='hidden' name='action' value='deletesession'>
                 </form>";
-                
+                }
                 echo $display;
                 ?>
             </strong>
