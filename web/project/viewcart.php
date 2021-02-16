@@ -34,7 +34,7 @@ $db = get_db();
                 $fname = $_SESSION["firstname"];
                 $lname = $_SESSION["lastname"];
                 $display = "<h3>Your Reservation</h3>";
-                $clientid = "SELECT clientId FROM client WHERE lastName = $lname AND firstName = $fname";
+                $clientid = "SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname'";
                 var_dump($clientid);
                 exit;
                 $stmt = $db->prepare($clientid);
