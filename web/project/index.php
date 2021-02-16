@@ -28,47 +28,47 @@ $db = get_db();
 
     if (empty($_POST['firstname'])) {
         $fnameErr = "<p>Name is required</p>";
-    } else {
-        $firstname = test_input($_POST['firstname']);
-        // check if name only contains letters and whitespace
-        if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
-            $fnameErr = "<p>Only letters and white space allowed</p>";
-        }
-        $_SESSION['firstname'] = $firstname;
-    }
+    // } else {
+    //     $firstname = test_input($_POST['firstname']);
+    //     // check if name only contains letters and whitespace
+    //     if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
+    //         $fnameErr = "<p>Only letters and white space allowed</p>";
+    //     }
+    //     $_SESSION['firstname'] = $firstname;
+    // }
 
     if (empty($_POST["lastname"])) {
         $lnameErr = "<p>Name is required</p>";
-    } else {
-        $lastname = test_input($_POST['lastname']);
-        // check if name only contains letters and whitespace
-        if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
-            $lnameErr = "<p >Only letters and white space allowed</p>";
-        }
-        $_SESSION['lastname'] = $lastname;
-    }
+    // } else {
+    //     $lastname = test_input($_POST['lastname']);
+    //     // check if name only contains letters and whitespace
+    //     if (!preg_match("/^[a-zA-Z-' ]*$/", $lastname)) {
+    //         $lnameErr = "<p >Only letters and white space allowed</p>";
+    //     }
+    //     $_SESSION['lastname'] = $lastname;
+    // }
 
     if (empty($_POST['email'])) {
         $emailErr = "<p>Email is required</p>";
-    } else {
-        $email = test_input($_POST['email']);
-        // check if e-mail address is well-formed
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "<p>Invalid email format</p>";
-        }
-        $_SESSION['email'] = $email;
-    }
+    // } else {
+    //     $email = test_input($_POST['email']);
+    //     // check if e-mail address is well-formed
+    //     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //         $emailErr = "<p>Invalid email format</p>";
+    //     }
+    //     $_SESSION['email'] = $email;
+    // }
 
     if (empty($_POST['phone'])) {
         $phoneErr = "<p>A phone number is required</p>";
-    } else {
-        $phone = preg_replace('/[^0-9+-]/', '', $_POST['phone']);
-        // check if phone is good
-        if (!preg_replace(INPUT_POST, $phone, FILTER_SANITIZE_NUMBER_INT)) {
-            $phoneErr = "<p>Invalid phone format</p>";
-        }
-        $_SESSION['phone'] = $phone;
-    }
+    // } else {
+    //     $phone = preg_replace('/[^0-9+-]/', '', $_POST['phone']);
+    //     // check if phone is good
+    //     if (!preg_replace(INPUT_POST, $phone, FILTER_SANITIZE_NUMBER_INT)) {
+    //         $phoneErr = "<p>Invalid phone format</p>";
+    //     }
+    //     $_SESSION['phone'] = $phone;
+    // }
 
     if (isset($_POST['people'])) {
         $_SESSION['people'] = $_POST['people'];
