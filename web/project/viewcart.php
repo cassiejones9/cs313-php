@@ -32,8 +32,8 @@ $db = get_db();
             <strong>
                 <?php
                 $display = "<h3>Your Reservation</h3>";
-                $clientid = "SELECT clientId FROM client WHERE lastName = $_SESSION[lastname] AND firstName = $_SESSION[firstname]";
-                $query = "SELECT date FROM dates WHERE clientid = $clientid;";
+                $clientid = "SELECT clientId FROM client WHERE lastName = '$_SESSION[lastname]' AND firstName = '$_SESSION[firstname]'";
+                $query = "SELECT date FROM dates WHERE clientid = $clientid";
                 $stmt = $db->prepare($query);
                 $stmt->execute();
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
