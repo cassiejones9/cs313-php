@@ -35,7 +35,7 @@ var_dump($_SESSION);
                 $lname = $_SESSION["lastname"];
                 $display = "<h3>Your Reservation</h3>";
                 $clientid = "(SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname')";
-                var_dump($clientid);
+                // var_dump($clientid);
                 // exit;
                 $stmt = $db->prepare($clientid);
                 $stmt->execute();
