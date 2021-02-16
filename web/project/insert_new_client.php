@@ -24,9 +24,9 @@ if (isset($_POST['datemod'])){
 
 // }
 
-// var_dump($datearray);
-// var_dump($datemodarray);
-// exit;
+var_dump($datearray);
+var_dump($datemodarray);
+exit;
 
 
 if (empty($_POST['firstname'])) {
