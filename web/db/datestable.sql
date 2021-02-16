@@ -1,4 +1,4 @@
-Drop TABLE if exists dates;
+Drop TABLE dates;
 
 -- SELECT c.lastName, c.firstName, c.email, s.clientId, s.numOfPeople, d.date
 -- FROM client c 

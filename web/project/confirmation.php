@@ -22,10 +22,11 @@ $db = get_db();
 <body>
     <div class="container">
         <img src="../images/logo.jpg" class="logo">
-        <h4 class="confirmationtext">Thanks <?php echo $_SESSION["firstname"]; ?> for your reservation! The photoshoot is confirmed for</h4><br>
+        <h4 class="confirmationtext">Thanks <?php echo $_SESSION["firstname"]; ?> for your reservation!</h4><br>
                 <?php
                 $fname = $_SESSION["firstname"];
                 $lname = $_SESSION["lastname"];
+                $display = "<h3>The photoshoot is confirmed for";
                 $clientid = "(SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname')";
                 $stmt = $db->prepare($clientid);
                 $stmt->execute();
@@ -33,7 +34,7 @@ $db = get_db();
                 $statment = $db->prepare($query);
                 $statment->execute();
                 while ($row = $statment->fetch(PDO::FETCH_ASSOC)) {
-                    $display = "<h4>$row[date]</h4>";
+                    $display .= "$row[date]</h3>";
                 }
                 echo $display;
                 ?>
