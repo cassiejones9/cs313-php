@@ -22,18 +22,24 @@ $db = get_db();
 <body>
     <div class="container">
         <img src="../images/logo.jpg" class="logo">
-        <h4 class="confirmationtext">Thanks <?php echo $_SESSION["name"]; ?> for your reservation! The photoshoot is confirmed for</h4><br>
-            <?php
-            $clientid = "SELECT clientId FROM client WHERE lastName = $_SESSION[lastname] AND firstName = $_SESSION[firstname]";
-            $query = "SELECT date FROM dates WHERE clientid = $clientid;";
-            $stmt = $db->prepare($query);
-            $stmt->execute();
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $display = "<h4>$row[date]</h4>";
-            }
-            echo $display;
-
-            ?>
+        <h4 class="confirmationtext">Thanks <?php echo $_SESSION["firstname"]; ?> for your reservation! The photoshoot is confirmed for</h4><br>
+                <?php
+                $fname = $_SESSION["firstname"];
+                $lname = $_SESSION["lastname"];
+                $display = "<h3>Your Reservation</h3>";
+                $clientid = "(SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname')";
+                $stmt = $db->prepare($clientid);
+                $stmt->execute();
+                $query = "SELECT date FROM dates WHERE clientid = $clientid";
+                $statment = $db->prepare($query);
+                $statment->execute();
+                while ($row = $statment->fetch(PDO::FETCH_ASSOC)) {
+                    $display = "<h4>$row[date]</h4>";
+                }
+                echo $display;
+                ?>
+            </strong>
+        </div>
             <br><br>
             I will reach out to you at <strong><?php echo $_SESSION["phone"]; ?></strong> and/or <strong>
                 <?php echo $_SESSION["email"] ?></strong> should we have any issues with this date.<br><br>

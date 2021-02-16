@@ -7,10 +7,11 @@ if (!isset($_SESSION)) {
 require_once ('connection.php');
 $db = get_db();
 if (isset($_POST['lastname'])) {
-    $datearray = $_POST['date'];
+
     $_SESSION['people'] = $_POST['people'];
     $lastname = $_POST['lastname'];
 }
+$datearray = $_POST['date'];
 // else {
 //     header('location: index.php');
 //     exit;
@@ -76,8 +77,6 @@ function test_inputs($data)
     return $data;
 }
 
-
-
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
@@ -110,39 +109,18 @@ switch ($action) {
         exit;
         break;
 
-    case 'updatereservation':
-        // $update =
-        // function updateVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId, $invId) {
-        // $db = phpmotorsConnect();
-        // The SQL statement
-        $sql = 'UPDATE client SET invMake = :invMake, invModel = :invModel, invDescription = :invDescription, invImage = :invImage, 
-    invThumbnail = :invThumbnail, invPrice = :invPrice, invStock = :invStock, invColor = :invColor, classificationId = :classificationId WHERE invId = :invId';
-        // Create the prepared statement using the php_motors connection
-        $stmt = $db->prepare($sql);
-
-        $stmt->bindValue(':invMake', $invMake, PDO::PARAM_STR);
-        $stmt->bindValue(':invModel', $invModel, PDO::PARAM_STR);
-        $stmt->bindValue(':invDescription', $invDescription, PDO::PARAM_STR);
-        $stmt->bindValue(':invImage', $invImage, PDO::PARAM_STR);
-        $stmt->bindValue(':invThumbnail', $invThumbnail, PDO::PARAM_STR);
-        $stmt->bindValue(':invPrice', $invPrice, PDO::PARAM_STR);
-        $stmt->bindValue(':invStock', $invStock, PDO::PARAM_INT);
-        $stmt->bindValue(':invColor', $invColor, PDO::PARAM_STR);
-        $stmt->bindValue(':classificationId', $classificationId, PDO::PARAM_INT);
-        $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
-        // Insert the data
-        $stmt->execute();
-        // Ask how many rows changed as a result of our insert
-        $rowsChanged = $stmt->rowCount();
-        // Close the database interaction
-        $stmt->closeCursor();
-        // var_dump($stmt);
-        // echo $rowsChanged;
-        // exit;
-        // Return the indication of success (rows changed)
-        return $rowsChanged;
-        include 'viewcart.php';
+    case 'modifydate':
+        $fname = $_SESSION["firstname"];
+        $lname = $_SESSION["lastname"];
+        $clientid = "(SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname')";
+        foreach ($datearray as $index => $datevalue){
+            $sql = "UPDATE dates SET cliendId = :clientId WHERE dateId = $datevalue";
+            $statmnt->bindValue(':clientId', $client_id);
+            $statmnt->execute();
+        }
+        header("Location: viewcart.php");
         exit;
+        break;        
 
     case 'deletesession':
         $fname = $_SESSION["firstname"];
