@@ -4,15 +4,16 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-require_once ('connection.php');
+require_once('connection.php');
 $db = get_db();
 if (isset($_POST['lastname'])) {
     $datearray = $_POST['date'];
     $_SESSION['people'] = $_POST['people'];
     $lastname = $_POST['lastname'];
+    $firstname = $_POST['firstname'];
 }
 
-if (isset($_POST['datemod'])){
+if (isset($_POST['datemod'])) {
     $datemodarray = $_POST['datemod'];
 }
 
@@ -20,7 +21,7 @@ if (isset($_POST['datemod'])){
 // else {
 //     header('location: index.php');
 //     exit;
-    // add preg_match for first name
+// add preg_match for first name
 
 // }
 
@@ -34,23 +35,15 @@ if (isset($_POST['datemod'])){
 // exit;
 
 
-if (empty($_POST['firstname'])) {
-    $fnameErr = "<p>Name is required</p>";
-    // header('location: index.php');
-    // exit;
-} else {
-    $firstname = test_inputs($_POST['firstname']);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/", $firstname)) {
-        $fnameErr = "<p>Only letters and white space allowed</p>";
-    }
-    $_SESSION['firstname'] = $firstname;
+$fname = test_inputs($firstname);
+// check if name only contains letters and whitespace
+if (!preg_match("/^[a-zA-Z-' ]*$/", $fname)) {
+    $fnameErr = "<p>Only letters and white space allowed</p>";
 }
+$_SESSION['firstname'] = $fname;
 
 if (empty($lastname)) {
     $lnameErr = "<p>Name is required</p>";
-    // header('location: index.php');
-    // exit;
 } else {
     $lname = test_inputs($lastname);
     // check if name only contains letters and whitespace
@@ -106,8 +99,6 @@ switch ($action) {
         $stmt->execute();
         // get the clientid from above and insert session info
         $client_id = $db->lastInsertId("client_clientId_seq");
-        var_dump($client_id);
-        exit;
         $statement = $db->prepare('INSERT INTO session(clientId, numOfPeople) VALUES(:clientId, :numOfPeople);');
         $statement->bindValue(':clientId', $client_id);
         $statement->bindValue(':numOfPeople', $_SESSION["people"]);
@@ -125,7 +116,7 @@ switch ($action) {
         $fname = $_SESSION["firstname"];
         $lname = $_SESSION["lastname"];
         $clientid = "(SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname')";
-        foreach ($datemodarray as $index => $datevalue){
+        foreach ($datemodarray as $index => $datevalue) {
             $sql = "UPDATE dates SET cliendId = $clientid WHERE dateId = $datevalue";
             // $statmnt->bindValue(':clientId', $client_id);'
             $statmnt = $db->prepare($sql);
@@ -133,7 +124,7 @@ switch ($action) {
         }
         header("Location: viewcart.php");
         exit;
-        break;        
+        break;
 
     case 'deletesession':
         $fname = $_SESSION["firstname"];
@@ -147,21 +138,6 @@ switch ($action) {
         $stmt->execute();
         include 'viewcart.php';
         exit;
-
-        // $deleteResult = deleteVehicle($invId);
-        // if ($deleteResult) {
-        //   $message = "<p>$invMake $invModel was successfully removed.</p>";
-        //   $_SESSION['message'] = $message;
-        //   header('location: /phpmotors/vehicles/');
-        //   exit;
-        // } else {
-        //   $message = "<p class='highlight'>$invMake $invModel failed to be deleted.</p>";
-        //   $_SESSION['message'] = $message;
-        //   header('location: /phpmotors/vehicles/');
-        //   exit;
-        // }
-        // break;
-
 }
     
 
