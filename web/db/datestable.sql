@@ -13,31 +13,14 @@ CREATE TABLE dates (
 );
 
 INSERT INTO dates (date)
-VALUES ('Jan 2 am');
+VALUES ('Jan 2 am'),
+('Jan 2 pm'),
+('Jan 9 am'),
+('Jan 9 pm'),
+('Jan 16 am'),
+('Jan 16 pm'),
+('Jan 23 am'),
+('Jan 23 pm'),
+('Jan 30 am'),
+('Jan 30 pm');
 
-INSERT INTO dates (date)
-VALUES ('Jan 2 pm');
-
-INSERT INTO dates (date)
-VALUES ('Jan 9 am');
-
-INSERT INTO dates (date)
-VALUES ('Jan 9 pm');
-
-INSERT INTO dates (date)
-VALUES ('Jan 16 am');
-
-INSERT INTO dates (date)
-VALUES ('Jan 16 pm');
-
-INSERT INTO dates (date)
-VALUES ('Jan 23 am');
-
-INSERT INTO dates (date)
-VALUES ('Jan 23 pm');
-
-INSERT INTO dates (date)
-VALUES ('Jan 30 am');
-
-INSERT INTO dates (date)
-VALUES ('Jan 30 pm');
