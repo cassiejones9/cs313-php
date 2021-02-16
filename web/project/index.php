@@ -19,6 +19,7 @@ $db = get_db();
     <link rel="stylesheet" href="../css/stylesheet.css" media="screen">
     <!-- Line 11 fixes favicon error -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script src="js.js"></script>
 </head>
 
 <body>
@@ -122,7 +123,7 @@ $db = get_db();
                     <td><span class="date">8</span></td>
                     <td><span class="date">9</span><br>
                         <label for="date" name="jan9am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" value="3"><br>
+                        <input type="checkbox" name="date[]" value="3" id="awesome"><br>
                         <label name="jan9pm" class="available">Reserve PM</label>
                         <input type="checkbox" name="date[]" value="4">
                     </td>
@@ -180,15 +181,15 @@ $db = get_db();
                 </tr>
 
             </table>
-            <p class="fieldform">First Name: <input type="text" name="firstname" required>
+            <p class="fieldform">First Name: <input type="text" name="firstname" id="fname" required>
                 <span class="error">* <?php if (isset($fnameErr)) {echo $fnameErr;} ?></span>
             </p>
 
-            <p class="fieldform">Last Name: <input type="text" name="lastname" required>
+            <p class="fieldform">Last Name: <input type="text" name="lastname" id="lname" required>
                 <span class="error">* <?php if (isset($lnameErr)) {echo $lnameErr;} ?></span>
             </p>
 
-            <p class="fieldform">E-mail: <input type="text" name="email" required>
+            <p class="fieldform">E-mail: <input type="text" name="email" id="email" required>
                 <span class="error">* <?php if (isset($emailErr)) {echo $emailErr;} ?></span>
             </p><br>
 
@@ -228,9 +229,11 @@ $db = get_db();
                         } ?> value="9" class="select-dropdown__list-item">8+</option>
             </select>
             <br>
+            
             <input class="reserve" type="submit" name="submit" value="Make the Reservation">
             <input type="hidden" name="action" value="insertclient">
         </form>
+        <button type="button" onclick="awesome()">Fill in form</button>
         <!-- <a class="calbutton" href="viewcart.php">View Cart</a> -->
         <div>
             <form method="POST" action="dbinfo.php">
