@@ -7,11 +7,14 @@ if (!isset($_SESSION)) {
 require_once ('connection.php');
 $db = get_db();
 if (isset($_POST['lastname'])) {
-
+    $datearray = $_POST['date'];
     $_SESSION['people'] = $_POST['people'];
     $lastname = $_POST['lastname'];
 }
-$datearray = $_POST['date'];
+
+if (isset($_POST['datemod'])){
+    $datemodarray = $_POST['datemod'];
+}
 // else {
 //     header('location: index.php');
 //     exit;
@@ -113,7 +116,7 @@ switch ($action) {
         $fname = $_SESSION["firstname"];
         $lname = $_SESSION["lastname"];
         $clientid = "(SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname')";
-        foreach ($datearray as $index => $datevalue){
+        foreach ($datemodarray as $index => $datevalue){
             $sql = "UPDATE dates SET cliendId = :clientId WHERE dateId = $datevalue";
             $statmnt->bindValue(':clientId', $client_id);
             $statmnt->execute();
