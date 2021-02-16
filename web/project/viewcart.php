@@ -42,13 +42,13 @@ $db = get_db();
                 $query = "SELECT date FROM dates WHERE clientid = $clientid";
                 $statment = $db->prepare($query);
                 $statment->execute();
-                while ($row = $statment->fetch(PDO::FETCH_ASSOC)) {
-                    $display .= "<h4>$row[date]</h4>";
-                    $display .= "<form method='POST' action='insert_new_client.php'>
+                $row = $statment->fetch(PDO::FETCH_ASSOC);
+                $display .= "<h4>$row[date]</h4>";
+                $display .= "<form method='POST' action='insert_new_client.php'>
                     <input class='reserve' type='submit' name='delete' value='Delete Reservation'>
                     <input type='hidden' name='action' value='deletesession'>
                 </form>";
-                }
+                
                 echo $display;
                 ?>
             </strong>
