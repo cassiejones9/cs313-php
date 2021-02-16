@@ -11,7 +11,12 @@ if (isset($_POST['lastname'])) {
     $_SESSION['people'] = $_POST['people'];
     $lastname = $_POST['lastname'];
 }
+else {
+    header('location: index.php');
+    exit;
+    // add preg_match for first name
 
+}
 
 // var_dump($datearray);
 // exit;
@@ -19,8 +24,8 @@ if (isset($_POST['lastname'])) {
 
 if (empty($_POST['firstname'])) {
     $fnameErr = "<p>Name is required</p>";
-    header('location: index.php');
-    exit;
+    // header('location: index.php');
+    // exit;
 } else {
     $firstname = test_inputs($_POST['firstname']);
     // check if name only contains letters and whitespace
@@ -32,8 +37,8 @@ if (empty($_POST['firstname'])) {
 
 if (empty($lastname)) {
     $lnameErr = "<p>Name is required</p>";
-    header('location: index.php');
-    exit;
+    // header('location: index.php');
+    // exit;
 } else {
     $lname = test_inputs($lastname);
     // check if name only contains letters and whitespace
@@ -45,8 +50,8 @@ if (empty($lastname)) {
 
 if (empty($_POST['email'])) {
     $emailErr = "<p>Email is required</p>";
-    header('location: index.php');
-    exit;
+    // header('location: index.php');
+    // exit;
 } else {
     $email = test_inputs($_POST['email']);
     // check if e-mail address is well-formed

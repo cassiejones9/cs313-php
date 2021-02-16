@@ -59,10 +59,10 @@ var_dump($_SESSION);
             Number of People Attending Photoshoot:<br>
             <?php echo $_SESSION["people"] ?><br>
         </div>
-        <form method="POST" action="insert_new_client.php">
+        <!-- <form method="POST" action="insert_new_client.php"> -->
             <a href="index.php" class="calbutton">Make Changes to Reservation</a>
             <a href="confirmation.php" class="calbutton">Confirm Reservation</a>
-        </form>
+        <!-- </form> -->
         <!-- <a class="calbutton" href="checkout.php">Checkout</a> -->
     </div>
 </body>
