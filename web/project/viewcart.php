@@ -33,6 +33,8 @@ $db = get_db();
                 <?php
                 $display = "<h3>Your Reservation</h3>";
                 $clientid = "SELECT clientId FROM client WHERE lastName = '$_SESSION[lastname]' AND firstName = '$_SESSION[firstname]'";
+                echo $clientid;
+                exit;
                 $stmt = $db->prepare($clientid);
                 $stmt->execute();
                 $query = "SELECT date FROM dates WHERE clientid = $clientid";
