@@ -137,7 +137,7 @@ switch ($action) {
         exit;
 
     case 'deletesession':
-        $clientid = "(SELECT clientId FROM client WHERE lastName = $_SESSION[lastname] AND firstName = $_SESSION[firstname])";
+        $clientid = "(SELECT clientId FROM client WHERE lastName = '$_SESSION[lastname]' AND firstName = '$_SESSION[firstname]')";
         $query = "DELETE FROM dates WHERE clientid = $clientid";
         $stmt = $db->prepare($query);
         $stmt->execute();
