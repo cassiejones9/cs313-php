@@ -21,7 +21,7 @@ $db = get_db();
 
 <body>
     <?php
-
+var_dump($_SESSION);
     ?>
     <div class="container">
         <img src="../images/logo.jpg" class="logo">
@@ -36,7 +36,7 @@ $db = get_db();
                 $display = "<h3>Your Reservation</h3>";
                 $clientid = "SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname'";
                 var_dump($clientid);
-                exit;
+                // exit;
                 $stmt = $db->prepare($clientid);
                 $stmt->execute();
                 $query = "SELECT date FROM dates WHERE clientid = $clientid";
