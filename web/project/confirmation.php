@@ -26,7 +26,7 @@ $db = get_db();
                 <?php
                 $fname = $_SESSION["firstname"];
                 $lname = $_SESSION["lastname"];
-                $display = "<h3>The photoshoot is confirmed for";
+                $display = "<h3>The photoshoot is confirmed for ";
                 $clientid = "(SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname')";
                 $stmt = $db->prepare($clientid);
                 $stmt->execute();
