@@ -194,7 +194,7 @@ $db = get_db();
             </p><br>
 
             <label for="phone"><p class="fieldform">Phone Number:</p></label>
-            <input type="tel" name="phone" placeholder="123-456-7890" required>
+            <input type="tel" name="phone" placeholder="123-456-7890" id="phone" required>
 
             <span class="error">* <?php if (isset($phoneErr)) {echo $phoneErr;} ?></span>
             <br>
