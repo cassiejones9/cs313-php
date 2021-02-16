@@ -4,7 +4,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-require_once('connection.php');
+require_once ('connection.php');
 $db = get_db();
 if (isset($_POST['lastname'])) {
     $datearray = $_POST['date'];
@@ -35,12 +35,15 @@ if (isset($_POST['datemod'])) {
 // exit;
 
 
-$fname = test_inputs($firstname);
-// check if name only contains letters and whitespace
-if (!preg_match("/^[a-zA-Z-' ]*$/", $fname)) {
-    $fnameErr = "<p>Only letters and white space allowed</p>";
+if (isset($firstname)){
+    $fname = test_inputs($firstname);
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $fname)) {
+        $fnameErr = "<p>Only letters and white space allowed</p>";
+    }
+    $_SESSION['firstname'] = $fname;
+    
 }
-$_SESSION['firstname'] = $fname;
+// check if name only contains letters and whitespace
 
 if (empty($lastname)) {
     $lnameErr = "<p>Name is required</p>";
