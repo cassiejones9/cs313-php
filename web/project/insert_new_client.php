@@ -24,10 +24,12 @@ if (isset($_POST['datemod'])){
 
 // }
 
-var_dump($datearray);
+// var_dump($datearray);
 // var_dump($datemodarray);
+
 foreach ($datearray as $index => $datevalue) {
-var_dump($datevalue);
+    $statmnt = "UPDATE dates SET clientId = 31 WHERE dateId = $datevalue";
+var_dump($statmnt);
 }
 exit;
 
