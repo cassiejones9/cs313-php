@@ -10,7 +10,7 @@ if (isset($_POST['lastname'])) {
     $datearray = $_POST['date'];
     $_SESSION['people'] = $_POST['people'];
     $lastname = $_POST['lastname'];
-} 
+}
 
 
 // var_dump($datearray);
@@ -107,10 +107,10 @@ switch ($action) {
 
     case 'updatereservation':
         // $update =
-            // function updateVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId, $invId) {
-            // $db = phpmotorsConnect();
-            // The SQL statement
-            $sql = 'UPDATE client SET invMake = :invMake, invModel = :invModel, invDescription = :invDescription, invImage = :invImage, 
+        // function updateVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId, $invId) {
+        // $db = phpmotorsConnect();
+        // The SQL statement
+        $sql = 'UPDATE client SET invMake = :invMake, invModel = :invModel, invDescription = :invDescription, invImage = :invImage, 
     invThumbnail = :invThumbnail, invPrice = :invPrice, invStock = :invStock, invColor = :invColor, classificationId = :classificationId WHERE invId = :invId';
         // Create the prepared statement using the php_motors connection
         $stmt = $db->prepare($sql);
@@ -140,7 +140,9 @@ switch ($action) {
         exit;
 
     case 'deletesession':
-        $clientid = "(SELECT clientId FROM client WHERE lastName = '$_SESSION[lastname]' AND firstName = '$_SESSION[firstname]')";
+        $fname = $_SESSION["firstname"];
+        $lname = $_SESSION["lastname"];
+        $clientid = "(SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname')";
         $query = "DELETE FROM dates WHERE clientId = $clientid";
         error_log($query);
         echo $query;
@@ -163,7 +165,7 @@ switch ($action) {
         //   exit;
         // }
         // break;
-        
+
 }
     
 
