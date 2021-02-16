@@ -11,12 +11,12 @@ if (isset($_POST['lastname'])) {
     $_SESSION['people'] = $_POST['people'];
     $lastname = $_POST['lastname'];
 }
-else {
-    header('location: index.php');
-    exit;
+// else {
+//     header('location: index.php');
+//     exit;
     // add preg_match for first name
 
-}
+// }
 
 // var_dump($datearray);
 // exit;
