@@ -120,7 +120,8 @@ switch ($action) {
         $clientid = "(SELECT clientId FROM client WHERE lastName = '$lname' AND firstName = '$fname')";
         foreach ($datemodarray as $index => $datevalue){
             $sql = "UPDATE dates SET cliendId = $clientid WHERE dateId = $datevalue";
-            // $statmnt->bindValue(':clientId', $client_id);
+            // $statmnt->bindValue(':clientId', $client_id);'
+            $statmnt = $db->prepare($sql);
             $statmnt->execute();
         }
         header("Location: viewcart.php");
