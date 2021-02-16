@@ -33,10 +33,12 @@ $db = get_db();
                 <?php
                 $display = "<h3>Your Reservation</h3>";
                 $clientid = "SELECT clientId FROM client WHERE lastName = '$_SESSION[lastname]' AND firstName = '$_SESSION[firstname]'";
-                $query = "SELECT date FROM dates WHERE clientid = $clientid";
-                $stmt = $db->prepare($query);
+                $stmt = $db->prepare($clientid);
                 $stmt->execute();
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $query = "SELECT date FROM dates WHERE clientid = $clientid";
+                $statment = $db->prepare($query);
+                $statment->execute();
+                while ($row = $statment->fetch(PDO::FETCH_ASSOC)) {
                     $display .= "<h4>$row[date]</h4>";
                     $display .= "<form method='POST' action='insert_new_client.php'>
                     <input class='reserve' type='submit' name='delete' value='Delete Reservation'>
