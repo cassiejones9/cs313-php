@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-require('connection.php');
+require_once ('connection.php');
 $db = get_db();
 ?>
 <!DOCTYPE html>
