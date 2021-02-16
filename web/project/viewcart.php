@@ -21,7 +21,7 @@ $db = get_db();
 
 <body>
     <?php
-var_dump($_SESSION);
+// var_dump($_SESSION);
     ?>
     <div class="container">
         <img src="../images/logo.jpg" class="logo">
