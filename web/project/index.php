@@ -199,31 +199,31 @@ $db = get_db();
             <br>
             <p class="fieldform">How many people will be at the photoshoot?</p>
             <select id="normal-select-1" placeholder-text="Number of People" name="people">
-                <option <?php if ($_SESSION['people'] == "1") {
+                <option <?php if (isset($_SESSION['people']) && $_SESSION['people'] == "1") {
                             echo 'selected="selected"';
                         } ?> value="1" class="select-dropdown__list-item">1</option>
-                <option <?php if ($_SESSION['people'] == "2") {
+                <option <?php if (isset($_SESSION['people']) && $_SESSION['people'] == "2") {
                             echo 'selected="selected"';
                         } ?> value="2" class="select-dropdown__list-item">2</option>
-                <option <?php if ($_SESSION['people'] == "3") {
+                <option <?php if (isset($_SESSION['people']) && $_SESSION['people'] == "3") {
                             echo 'selected="selected"';
                         } ?> value="3" class="select-dropdown__list-item">3</option>
-                <option <?php if ($_SESSION['people'] == "4") {
+                <option <?php if (isset($_SESSION['people']) && $_SESSION['people'] == "4") {
                             echo 'selected="selected"';
                         } ?> value="4" class="select-dropdown__list-item">4</option>
-                <option <?php if ($_SESSION['people'] == "5") {
+                <option <?php if (isset($_SESSION['people']) && $_SESSION['people'] == "5") {
                             echo 'selected="selected"';
                         } ?> value="5" class="select-dropdown__list-item">5</option>
-                <option <?php if ($_SESSION['people'] == "6") {
+                <option <?php if (isset($_SESSION['people']) && $_SESSION['people'] == "6") {
                             echo 'selected="selected"';
                         } ?> value="6" class="select-dropdown__list-item">6</option>
-                <option <?php if ($_SESSION['people'] == "7") {
+                <option <?php if (isset($_SESSION['people']) && $_SESSION['people'] == "7") {
                             echo 'selected="selected"';
                         } ?> value="7" class="select-dropdown__list-item">7</option>
-                <option <?php if ($_SESSION['people'] == "8") {
+                <option <?php if (isset($_SESSION['people']) && $_SESSION['people'] == "8") {
                             echo 'selected="selected"';
                         } ?> value="8" class="select-dropdown__list-item">8</option>
-                <option <?php if ($_SESSION['people'] == "8+") {
+                <option <?php if (isset($_SESSION['people']) && $_SESSION['people'] == "8+") {
                             echo 'selected="selected"';
                         } ?> value="9" class="select-dropdown__list-item">8+</option>
             </select>

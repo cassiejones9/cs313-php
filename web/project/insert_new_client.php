@@ -6,9 +6,12 @@ if (!isset($_SESSION)) {
 }
 require('connection.php');
 $db = get_db();
-$datearray = $_POST['date'];
-$_SESSION['people'] = $_POST['people'];
-$lastname = $_POST['lastname'];
+if (isset($_POST['lastname'])) {
+    $datearray = $_POST['date'];
+    $_SESSION['people'] = $_POST['people'];
+    $lastname = $_POST['lastname'];
+} 
+
 
 // var_dump($datearray);
 // exit;
