@@ -31,13 +31,15 @@ $db = get_db();
             Does this reservation and information look correct?<br>
             <strong>
                 <?php
+                $fname = $_SESSION["firstname"];
+                $lname = $_SESSION["lastname"];
                 $display = "<h3>Your Reservation</h3>";
-                $clientid = 'SELECT clientId FROM client WHERE lastName = $_SESSION["lastname"] AND firstName = $_SESSION["firstname"]';
+                $clientid = "SELECT clientId FROM client WHERE lastName = $lname AND firstName = $fname";
                 // echo $clientid;
                 // exit;
                 $stmt = $db->prepare($clientid);
                 $stmt->execute();
-                $query = 'SELECT date FROM dates WHERE clientid = $clientid';
+                $query = "SELECT date FROM dates WHERE clientid = $clientid";
                 $statment = $db->prepare($query);
                 $statment->execute();
                 while ($row = $statment->fetch(PDO::FETCH_ASSOC)) {
