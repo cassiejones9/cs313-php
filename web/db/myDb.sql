@@ -15,7 +15,7 @@ CREATE TABLE admin (
     adminId SERIAL PRIMARY KEY,
     username VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL
-)
+);
 
 SELECT clientId FROM client WHERE lastName = 'Jones' AND firstName = 'Cassie';
 -- CREATE TABLE client (
