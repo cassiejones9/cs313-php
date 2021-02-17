@@ -339,16 +339,21 @@ $i = 0;
         <button type="button" onclick="awesome()">Fill in form</button>
         <!-- <a class="calbutton" href="viewcart.php">View Cart</a> -->
         <div>
-            <form method="POST" action="dbinfo.php">
+            <form method="POST" action="insert_new_client.php">
+                <?php 
+                if (isset($_SESSION['message'])) {echo $_SESSION['message'];}
+                ?>
                 <h4>Admin Login</h4>
                 <label>Username:</label>
-                <input type="text" name="username"><br>
+                <input type="text" name="username" id="username" required><br><br>
                 <label>Password:</label>
-                <input type="password" name="pass"><br>
+                <input type="password" name="password" id="password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?!.*[\s])(?=.*[A-Z])(?=.*[a-z]).*$" required><br>
                 <input type="submit" name="login" value="Login">
                 <input type="hidden" name="action" value="login">
+                <?php if (isset($message)) {echo $message;}?> 
             </form>
         </div><br><br><br>
+        <a href="insert_new_client.php?action=registrationpage">Register Here</a>
     </div>
 </body>
 

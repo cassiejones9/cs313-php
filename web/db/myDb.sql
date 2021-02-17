@@ -11,6 +11,12 @@ CREATE TABLE client (
     city varchar(255)  NOT NULL
 );
 
+CREATE TABLE admin (
+    adminId SERIAL PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL
+)
+
 SELECT clientId FROM client WHERE lastName = 'Jones' AND firstName = 'Cassie';
 -- CREATE TABLE client (
 --     clientId SERIAL PRIMARY KEY,
@@ -52,6 +58,12 @@ CREATE TABLE dates (
     date VARCHAR(50) NOT NULL,
     clientId int,
     constraint fk_client FOREIGN KEY(clientId) REFERENCES client (clientId)
+);
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
 );
 
 INSERT INTO dates (date)
@@ -117,3 +129,4 @@ UPDATE dates
 SET clientId = 1 WHERE dateId = 1;
 
 SELECT date FROM dates WHERE clientid = 16;
+

@@ -24,3 +24,5 @@ VALUES ('Jan 2 am'),
 ('Jan 30 am'),
 ('Jan 30 pm');
 
+
+UPDATE dates SET clientid = NULL WHERE dateId = 3;
