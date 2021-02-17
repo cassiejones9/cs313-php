@@ -84,7 +84,7 @@ $i = 0;
         return $data;
     }
 
-    $sql = 'SELECT dateid, date, clientid FROM dates WHERE clientId is NOT NULL';
+    $sql = 'SELECT dateid, date, clientid FROM dates WHERE clientId is NOT NULL ORDER BY dateid';
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -120,8 +120,9 @@ $i = 0;
                     <td><span class="date">1</span></td>
                     <td><span class="date">2</span><br>
                         <?php 
-                        if ($results[$i++]['dateid'] == 1) {
+                        if ($results[$i]['dateid'] == 1) {
                             echo "<label for='date' class='available'><s>Reserve AM</s></label>";
+                            $i++;
                         }
                         else {
                             echo "<label for='date' class='available'>Reserve AM</label>";
