@@ -250,7 +250,7 @@ switch ($action) {
         }
 
         // Hash the checked password
-        $hashedPassword = password_hash($checkPassword, PASSWORD_DEFAULT);
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // Send the data to the model if no errors exist
         $regOutcome = regUser($username, $hashedPassword);
