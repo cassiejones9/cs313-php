@@ -91,8 +91,8 @@ $i = 0;
     $dateid = "$results[dateid]";
     $date = "$results[date]";
     $clientid = "$results[clientid]";
-    var_dump($results);
-    var_dump($results[0]);
+    // var_dump($results);
+    // var_dump($results[0]);
 
     ?>
 
