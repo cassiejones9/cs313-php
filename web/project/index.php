@@ -142,10 +142,28 @@ $i = 0;
                     <td><span class="date">7</span></td>
                     <td><span class="date">8</span></td>
                     <td><span class="date">9</span><br>
-                        <label for="date" name="jan9am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" value="3"><br>
-                        <label name="jan9pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" value="4">
+                    <?php 
+                        if ($results[$i]['dateid'] == 3) {
+                            echo "<label for='date' class='available'><s>Reserve AM</s></label>";
+                            $i++;
+                        }
+                        else {
+                            echo "<label for='date' class='available'>Reserve AM</label>";
+                            echo "<input type='checkbox' name='date[]' value='3'><br>";
+                        }
+                        ?>
+                        <?php 
+                        if ($results[$i]['dateid'] == 4) {
+                            echo "<label for='date' class='available'><s>Reserve PM</s></label>";
+                            $i++;
+                        }
+                        else {
+                            echo "<label for='date' class='available'>Reserve PM</label>";
+                            echo "<input type='checkbox' name='date[]' value='4'><br>";
+                        }
+                        ?>
+
+                    
                     </td>
                 </tr>
                 <tr>
@@ -171,8 +189,9 @@ $i = 0;
                     <td><span class="date">22</span></td>
                     <td><span class="date">23</span><br>
                     <?php 
-                        if ($results[$i++]['dateid'] == 7) {
+                        if ($results[$i]['dateid'] == 7) {
                             echo "<label for='date' name='jan23am' class='available'><s>Reserve AM</s></label>";
+                            $i++;
                         }
                         else {
                             echo "<label for='date' name='jan23am' class='available'>Reserve AM</label>";
