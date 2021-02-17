@@ -120,7 +120,7 @@ $i = 0;
                     <td><span class="date">1</span></td>
                     <td><span class="date">2</span><br>
                         <?php 
-                        if ($results[$i++] == 1) {
+                        if ($results[$i++]['dateid'] == 1) {
                             echo "<label for='date' class='available'><s>Reserve AM</s></label>";
                         }
                         else {
@@ -170,7 +170,7 @@ $i = 0;
                     <td><span class="date">22</span></td>
                     <td><span class="date">23</span><br>
                     <?php 
-                        if ($results[$i++] == 7) {
+                        if ($results[$i++]['dateid'] == 7) {
                             echo "<label for='date' name='jan23am' class='available'><s>Reserve AM</s></label>";
                         }
                         else {
