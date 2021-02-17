@@ -128,10 +128,15 @@ $i = 0;
                             echo "<label for='date' class='available'>Reserve AM</label>";
                             echo "<input type='checkbox' name='date[]' value='1'><br>";
                         }
+                        if ($results[$i]['dateid'] == 2) {
+                            echo "<label for='date' class='available'><s>Reserve PM</s></label>";
+                            $i++;
+                        }
+                        else {
+                            echo "<label for='date' class='available'>Reserve PM</label>";
+                            echo "<input type='checkbox' name='date[]' value='2'><br>";
+                        }
                         ?>
-
-                        <label name="jan2pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" value="2">
                     </td>
                 </tr>
                 <tr>
@@ -174,10 +179,26 @@ $i = 0;
                     <td><span class="date">14</span></td>
                     <td><span class="date">15</span></td>
                     <td><span class="date">16</span><br>
-                        <label for="date" name="jan16am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" value="5"><br>
-                        <label name="jan16pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" value="6">
+                    <?php 
+                        if ($results[$i]['dateid'] == 5) {
+                            echo "<label for='date' class='available'><s>Reserve AM</s></label>";
+                            $i++;
+                        }
+                        else {
+                            echo "<label for='date' class='available'>Reserve AM</label>";
+                            echo "<input type='checkbox' name='date[]' value='5'><br>";
+                        }
+                        ?>
+                        <?php 
+                        if ($results[$i]['dateid'] == 6) {
+                            echo "<label for='date' class='available'><s>Reserve PM</s></label>";
+                            $i++;
+                        }
+                        else {
+                            echo "<label for='date' class='available'>Reserve PM</label>";
+                            echo "<input type='checkbox' name='date[]' value='6'><br>";
+                        }
+                        ?>
                     </td>
                 </tr>
                 <tr>
@@ -198,11 +219,17 @@ $i = 0;
                             echo "<input type='checkbox' name='date[]' value='7'><br>";
                         }
                         ?>
-
-                        
-            
-                        <label name="jan23pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" value="8">
+                        <?php 
+                        if ($results[$i]['dateid'] == 8) {
+                            echo "<label for='date' class='available'><s>Reserve PM</s></label>";
+                            $i++;
+                        }
+                        else {
+                            echo "<label for='date' class='available'>Reserve PM</label>";
+                            echo "<input type='checkbox' name='date[]' value='8'><br>";
+                        }
+                        ?>
+                    
                     </td>
                 </tr>
                 <tr>
@@ -213,10 +240,27 @@ $i = 0;
                     <td><span class="date">28</span></td>
                     <td><span class="date">29</span></td>
                     <td><span class="date">30</span><br>
-                        <label for="date" name="jan30am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" value="9"><br>
-                        <label name="jan30pm" class="available">Reserve PM</label>
-                        <input type="checkbox" name="date[]" value="10"><br>
+                    <?php 
+                        if ($results[$i]['dateid'] == 9) {
+                            echo "<label for='date' name='jan23am' class='available'><s>Reserve AM</s></label>";
+                            $i++;
+                        }
+                        else {
+                            echo "<label for='date' name='jan23am' class='available'>Reserve AM</label>";
+                            echo "<input type='checkbox' name='date[]' value='9'><br>";
+                        }
+                        ?>
+                        <?php 
+                        if ($results[$i]['dateid'] == 10) {
+                            echo "<label for='date' class='available'><s>Reserve PM</s></label>";
+                            $i++;
+                        }
+                        else {
+                            echo "<label for='date' class='available'>Reserve PM</label>";
+                            echo "<input type='checkbox' name='date[]' value='10'><br>";
+                        }
+                        ?>
+
                     </td>
                 </tr>
                 <tr>
