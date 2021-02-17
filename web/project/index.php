@@ -4,6 +4,8 @@ session_start();
 require('connection.php');
 $db = get_db();
 
+$i = 0;
+
 // select statement here, limit 1 store it in the session 
 
 ?>
@@ -24,7 +26,7 @@ $db = get_db();
 
 <body>
     <?php
-    
+
 
     if (empty($_POST['firstname'])) {
         $fnameErr = "<p>Name is required</p>";
@@ -82,6 +84,15 @@ $db = get_db();
         return $data;
     }
 
+    $sql = 'SELECT dateid, date, clientid FROM dates WHERE clientId is NOT NULL';
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $dateid = "$results[dateid]";
+    $date = "$results[date]";
+    $clientid = "$results[clientid]";
+
+
     ?>
 
     <div class="container">
@@ -107,8 +118,15 @@ $db = get_db();
                     <td><span class="date">&nbsp;</span></td>
                     <td><span class="date">1</span></td>
                     <td><span class="date">2</span><br>
-                        <label for="date" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" value="1"><br>
+                        <?php 
+                        if ($results[$i++] == 1) {
+                            echo "<label for='date' class='available'><s>Reserve AM</s></label>";
+                        }
+                        else {
+                            echo "<label for='date' class='available'>Reserve AM</label>";
+                            echo "<input type='checkbox' name='date[]' value='1'><br>";
+                        }
+                        ?>
 
                         <label name="jan2pm" class="available">Reserve PM</label>
                         <input type="checkbox" name="date[]" value="2">
@@ -150,8 +168,18 @@ $db = get_db();
                     <td><span class="date">21</span></td>
                     <td><span class="date">22</span></td>
                     <td><span class="date">23</span><br>
-                        <label for="date" name="jan23am" class="available">Reserve AM</label>
-                        <input type="checkbox" name="date[]" value="7"><br>
+                    <?php 
+                        if ($results[$i++] == 7) {
+                            echo "<label for='date' name='jan23am' class='available'><s>Reserve AM</s></label>";
+                        }
+                        else {
+                            echo "<label for='date' name='jan23am' class='available'>Reserve AM</label>";
+                            echo "<input type='checkbox' name='date[]' value='7'><br>";
+                        }
+                        ?>
+
+                        
+            
                         <label name="jan23pm" class="available">Reserve PM</label>
                         <input type="checkbox" name="date[]" value="8">
                     </td>
@@ -182,21 +210,31 @@ $db = get_db();
 
             </table>
             <p class="fieldform">First Name: <input type="text" name="firstname" id="fname" required>
-                <span class="error">* <?php if (isset($fnameErr)) {echo $fnameErr;} ?></span>
+                <span class="error">* <?php if (isset($fnameErr)) {
+                                            echo $fnameErr;
+                                        } ?></span>
             </p>
 
             <p class="fieldform">Last Name: <input type="text" name="lastname" id="lname" required>
-                <span class="error">* <?php if (isset($lnameErr)) {echo $lnameErr;} ?></span>
+                <span class="error">* <?php if (isset($lnameErr)) {
+                                            echo $lnameErr;
+                                        } ?></span>
             </p>
 
             <p class="fieldform">E-mail: <input type="text" name="email" id="email" required>
-                <span class="error">* <?php if (isset($emailErr)) {echo $emailErr;} ?></span>
+                <span class="error">* <?php if (isset($emailErr)) {
+                                            echo $emailErr;
+                                        } ?></span>
             </p><br>
 
-            <label for="phone"><p class="fieldform">Phone Number:</p></label>
+            <label for="phone">
+                <p class="fieldform">Phone Number:</p>
+            </label>
             <input type="tel" name="phone" placeholder="123-456-7890" id="phone" required>
 
-            <span class="error">* <?php if (isset($phoneErr)) {echo $phoneErr;} ?></span>
+            <span class="error">* <?php if (isset($phoneErr)) {
+                                        echo $phoneErr;
+                                    } ?></span>
             <br>
             <p class="fieldform">How many people will be at the photoshoot?</p>
             <select id="normal-select-1" placeholder-text="Number of People" name="people">
@@ -229,7 +267,7 @@ $db = get_db();
                         } ?> value="9" class="select-dropdown__list-item">8+</option>
             </select>
             <br>
-            
+
             <input class="reserve" type="submit" name="submit" value="Make the Reservation">
             <input type="hidden" name="action" value="insertclient">
         </form>
