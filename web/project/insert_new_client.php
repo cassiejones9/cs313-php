@@ -211,7 +211,7 @@ switch ($action) {
         $_SESSION['userData'] = $userData;
 
         // Send them to the admin view
-        header('Location: dbinfo.php');
+        include 'dbinfo.php';
         exit;
         break;
 

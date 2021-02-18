@@ -1,8 +1,8 @@
 <?php
 include "../db/dbConnect.php";
 $db = get_db();
-// if (!$_SESSION['loggedin']){
-//   header('Location: index.php');}
+if (!$_SESSION['loggedin']){
+  header('Location: index.php');}
 
 if (!isset($_SESSION)) {
   session_start();
@@ -63,7 +63,7 @@ function test_input($data)
   <div class="container">
     <img src="../images/logo.jpg" class="logo">
     <h2>Database Information</h2>
-  <h3>Welcome <?php $_SESSION['userData']['username']?>! You are logged in.</h3>
+  <h4>Welcome <?php $_SESSION['userData']['username']?>! You are logged in.</h4>
     <form method="POST" action="">
       <label>
         <h4>See All Clients</h4>
