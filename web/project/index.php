@@ -355,7 +355,7 @@ $i = 0;
                 <?php if (isset($message)) {echo $message;}?> 
             </form>
         </div><br><br><br>
-        <p>Don't have a log in?</p><a class="calbutton" href="insert_new_client.php?action=registrationpage">Register Here</a><br><br>
+        <p>Don't have a log in?</p><a class="reserve" href="insert_new_client.php?action=registrationpage">Register Here</a><br><br>
     </div>
 </body>
 
