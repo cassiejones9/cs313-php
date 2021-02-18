@@ -63,7 +63,7 @@ function test_input($data)
   <div class="container">
     <img src="../images/logo.jpg" class="logo">
     <h2>Database Information</h2>
-
+  <h3>Welcome <?php $_SESSION['userData']['username']?>! You are logged in.</h3>
     <form method="POST" action="">
       <label>
         <h4>See All Clients</h4>
