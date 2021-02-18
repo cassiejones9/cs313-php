@@ -1,5 +1,5 @@
 <?php
-require_once ('connection');
+require_once ('connection.php');
 $db = get_db();
 // if (!$_SESSION['loggedin']){
 //   header('Location: index.php');}
