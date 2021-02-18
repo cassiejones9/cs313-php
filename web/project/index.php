@@ -349,7 +349,7 @@ $i = 0;
                 <label>Username:</label>
                 <input type="text" name="username" id="username" required><br><br>
                 <label>Password:</label>
-                <input type="password" name="password" id="password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?!.*[\s])(?=.*[A-Z])(?=.*[a-z]).*$" required><br>
+                <input type="password" name="password" id="password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?!.*[\s])(?=.*[A-Z])(?=.*[a-z]).*$" required><br><br>
                 <input type="submit" name="login" value="Login">
                 <input type="hidden" name="action" value="login">
                 <?php if (isset($message)) {echo $message;}?> 
