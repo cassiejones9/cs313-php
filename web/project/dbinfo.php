@@ -1,5 +1,5 @@
 <?php
-include "../db/dbConnect.php";
+require_once ('connection');
 $db = get_db();
 // if (!$_SESSION['loggedin']){
 //   header('Location: index.php');}
