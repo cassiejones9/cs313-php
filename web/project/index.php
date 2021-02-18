@@ -350,12 +350,12 @@ $i = 0;
                 <input type="text" name="username" id="username" required><br><br>
                 <label>Password:</label>
                 <input type="password" name="password" id="password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?!.*[\s])(?=.*[A-Z])(?=.*[a-z]).*$" required><br><br>
-                <input type="submit" name="login" value="Login">
+                <input class="reserve" type="submit" name="login" value="Login">
                 <input type="hidden" name="action" value="login">
                 <?php if (isset($message)) {echo $message;}?> 
             </form>
         </div><br><br><br>
-        <a href="insert_new_client.php?action=registrationpage">Register Here</a>
+        <a class="calbutton" href="insert_new_client.php?action=registrationpage">Register Here</a><br><br>
     </div>
 </body>
 
