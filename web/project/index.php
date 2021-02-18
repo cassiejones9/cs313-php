@@ -338,7 +338,7 @@ $i = 0;
             <input class="reserve" type="submit" name="submit" value="Make the Reservation">
             <input type="hidden" name="action" value="insertclient">
         </form>
-        <button type="button" onclick="awesome()">Fill in form</button>
+        <!-- <button type="button" onclick="awesome()">Fill in form</button> -->
         <!-- <a class="calbutton" href="viewcart.php">View Cart</a> -->
         <div>
             <form method="POST" action="insert_new_client.php">
@@ -355,6 +355,7 @@ $i = 0;
                 <?php if (isset($message)) {echo $message;}?> 
             </form>
         </div><br><br><br>
+        <p>Don't have a log in?</p>
         <a class="calbutton" href="insert_new_client.php?action=registrationpage">Register Here</a><br><br>
     </div>
 </body>
