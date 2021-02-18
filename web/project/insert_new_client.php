@@ -218,7 +218,7 @@ switch ($action) {
     case 'logout':
         $_SESSION = array();
         session_destroy();
-        header('Location: /phpmotors/index.php');
+        header('Location: index.php');
         break;
 
     case 'registrationpage':
