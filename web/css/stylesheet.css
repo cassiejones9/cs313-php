@@ -117,7 +117,6 @@ td {
 }
 
 .calbutton {
-    display: flex;
     margin: 0px auto 10px;
     padding: 3px;
     background-color: #022F40;
