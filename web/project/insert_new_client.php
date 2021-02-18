@@ -266,4 +266,8 @@ switch ($action) {
             exit;
         }
         break;
+
+    default:
+    include 'index.php';
+    exit;
 }
