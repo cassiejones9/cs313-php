@@ -92,6 +92,7 @@ $i = 0;
     $dateid = "$results[dateid]";
     $date = "$results[date]";
     $clientid = "$results[clientid]";
+    $stmt->closeCursor();
     // var_dump($results);
     // var_dump($results[0]);
 

@@ -50,6 +50,7 @@ $displayClientInfo .= "<strong><p>Phone:</strong> $row[phone] &nbsp &nbsp <stron
     }
     ?>
     </div>
+    <a href='insert_new_client.php?action=logout'>Log Out</a>
   </div>
 </body>
 </html>

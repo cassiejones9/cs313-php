@@ -51,7 +51,8 @@ VALUES (8, 2);
 SELECT c.lastName, c.firstName, c.email, s.clientId, s.numOfPeople, d.date
 FROM client c 
 JOIN session s ON s.clientId=c.clientId
-JOIN dates d ON d.clientId=c.clientId;
+JOIN dates d ON d.clientId=c.clientId
+WHERE c.clientid = 2;
 
 CREATE TABLE dates (
     dateId SERIAL PRIMARY KEY,
