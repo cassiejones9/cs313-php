@@ -333,10 +333,10 @@ $i = 0;
                             echo 'selected="selected"';
                         } ?> value="9" class="select-dropdown__list-item">8+</option>
             </select>
-            <br>
+            <br><br>
 
             <input class="reserve" type="submit" name="submit" value="Make the Reservation">
-            <input type="hidden" name="action" value="insertclient">
+            <input type="hidden" name="action" value="insertclient"><br><br>
         </form>
         <!-- <button type="button" onclick="awesome()">Fill in form</button> -->
         <!-- <a class="calbutton" href="viewcart.php">View Cart</a> -->
@@ -346,17 +346,16 @@ $i = 0;
                 if (isset($_SESSION['message'])) {echo $_SESSION['message'];}
                 ?>
                 <h4>Admin Login</h4>
-                <label>Username:</label>
+                <label><p>Username:</p></label>
                 <input type="text" name="username" id="username" required><br><br>
-                <label>Password:</label>
+                <label><p>Password:</p></label>
                 <input type="password" name="password" id="password" pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?!.*[\s])(?=.*[A-Z])(?=.*[a-z]).*$" required><br><br>
                 <input class="reserve" type="submit" name="login" value="Login">
                 <input type="hidden" name="action" value="login">
                 <?php if (isset($message)) {echo $message;}?> 
             </form>
         </div><br><br><br>
-        <p>Don't have a log in?</p>
-        <a class="calbutton" href="insert_new_client.php?action=registrationpage">Register Here</a><br><br>
+        <p>Don't have a log in?</p><a class="calbutton" href="insert_new_client.php?action=registrationpage">Register Here</a><br><br>
     </div>
 </body>
 
