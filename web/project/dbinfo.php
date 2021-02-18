@@ -25,7 +25,7 @@ if (isset($_POST['search'])) {
   $search = strtolower($searchClientName);
   $searchClients = ucfirst($search);
   $searchClient = test_input(($searchClients));
-  $sqlString = 'SELECT clientid, username, pass, lastname, firstname, phone, email FROM client WHERE lastname = :searchClient';
+  $sqlString = 'SELECT clientid, lastname, firstname, phone, email FROM client WHERE lastname = :searchClient';
   $statement = $db->prepare($sqlString);
   $statement->bindValue(':searchClient', $searchClient, PDO::PARAM_STR);
   $statement->execute();

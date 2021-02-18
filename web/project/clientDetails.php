@@ -21,7 +21,7 @@ $statement->bindValue(':clientid', $id, PDO::PARAM_INT);
 $statement->execute();
 $row = $statement->fetch(PDO::FETCH_ASSOC);
 $displayClientInfo = "<div class='clientDetail'><h5>$row[firstname] $row[lastname]</h5><br>";  
-$displayClientInfo .= "<strong><p>Session Date:</strong> $row[date] &nbsp &nbsp <strong>Number of People:</strong> $row[people]</p><br>";
+$displayClientInfo .= "<strong><p>Session Date:</strong> $row[date] &nbsp &nbsp <strong>Number of People:</strong> $row[numOfPeople]</p><br>";
 $displayClientInfo .= "<strong><p>Phone:</strong> $row[phone] &nbsp &nbsp <strong>Email:</strong> $row[email]</p></div>";
 ?>
 <!DOCTYPE html>
