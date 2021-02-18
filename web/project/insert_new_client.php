@@ -4,7 +4,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-require_once('connection.php');
+require_once ('connection.php');
 $db = get_db();
 if (isset($_POST['lastname'])) {
     $datearray = $_POST['date'];

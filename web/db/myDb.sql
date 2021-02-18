@@ -60,11 +60,9 @@ CREATE TABLE dates (
     constraint fk_client FOREIGN KEY(clientId) REFERENCES client (clientId)
 );
 
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-);
+
+DELETE FROM client WHERE clientId = 10;
+
 
 INSERT INTO dates (date)
 VALUES ('Jan 2 am');

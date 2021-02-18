@@ -1,16 +1,27 @@
 <?php
+if (!$_SESSION['loggedin']){
+  header('Location: index.php');}
+
+if (!isset($_SESSION)) {
+  session_start();
+}
+
 include "../db/dbConnect.php";
 $db = get_db();
 
 
 $id = $_GET['clientid'];
-$sqlString = 'SELECT * FROM client WHERE clientid = :clientid';
+$sqlString = 'SELECT c.lastName, c.firstName, c.phone, c.email, s.clientId, s.numOfPeople, d.date
+FROM client c 
+JOIN session s ON s.clientId=c.clientId
+JOIN dates d ON d.clientId=c.clientId
+WHERE c.clientid = :clientid';
 $statement = $db->prepare($sqlString);
 $statement->bindValue(':clientid', $id, PDO::PARAM_INT);
 $statement->execute();
 $row = $statement->fetch(PDO::FETCH_ASSOC);
 $displayClientInfo = "<div class='clientDetail'><h5>$row[firstname] $row[lastname]</h5><br>";  
-$displayClientInfo .= "<strong><p>Username:</strong> $row[username] &nbsp &nbsp <strong>Password:</strong> $row[pass]</p><br>";
+$displayClientInfo .= "<strong><p>Session Date:</strong> $row[date] &nbsp &nbsp <strong>Number of People:</strong> $row[people]</p><br>";
 $displayClientInfo .= "<strong><p>Phone:</strong> $row[phone] &nbsp &nbsp <strong>Email:</strong> $row[email]</p></div>";
 ?>
 <!DOCTYPE html>

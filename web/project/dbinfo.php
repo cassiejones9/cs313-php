@@ -1,11 +1,19 @@
 <?php
 include "../db/dbConnect.php";
 $db = get_db();
-session_start();
+if (!$_SESSION['loggedin']){
+  header('Location: index.php');}
+
+if (!isset($_SESSION)) {
+  session_start();
+}
 
 if (isset($_POST['allcs'])) {
   $displayClients = "<h3>Current List of Clients</h3><br>";
-  $statement = $db->prepare('SELECT clientid, username, pass, lastname, firstname, phone, email FROM client');
+  $statement = $db->prepare('SELECT c.lastName, c.firstName, c.email, s.clientId, s.numOfPeople, d.date
+  FROM client c 
+  JOIN session s ON s.clientId=c.clientId
+  JOIN dates d ON d.clientId=c.clientId;');
   $statement->execute();
   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
     $displayClients .= "<a href='clientDetails.php?clientid=$row[clientid]' class='btn btn-secondary'><h5>$row[firstname] $row[lastname]</h5></a><br>";
@@ -28,45 +36,6 @@ if (isset($_POST['search'])) {
   }
 }
 
-// Filter and Validate the Form
-// $password = $_POST['pass'];
-// $uppercase = preg_match('@[A-Z]@', $password);
-// $lowercase = preg_match('@[a-z]@', $password);
-// $number    = preg_match('@[0-9]@', $password);
-// $specialChars = preg_match('@[^\w]@', $password);
-
-// if (isset($_POST['pass'])) {
-//   if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
-//     echo '*Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
-//   } else {
-//     echo 'Strong password';
-//   }
-// }
-// if (empty($_POST["username"])) {
-//   $usernameErr = "*A username is required*";
-//   echo $usernameErr;
-// } else {
-//   $username = test_input($_POST["username"]);
-//   // check if name only contains letters and whitespace
-//   if (!preg_match("/^[a-zA-Z-' ]*$/", $username)) {
-//     $usernameErr = "Only letters and white space allowed";
-//     echo $usernameErr;
-//   }
-//   $_SESSION["name"] = $name;
-// }
-
-// if (empty($_POST["email"])) {
-//   $emailErr = "Email is required";
-// } else {
-//   $email = test_input($_POST["email"]);
-//   // check if e-mail address is well-formed
-//   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-//     $emailErr = "Invalid email format";
-//   }
-//   $_SESSION["email"] = $email;
-// }
-
-
 function test_input($data)
 {
   $data = trim($data);
@@ -74,8 +43,6 @@ function test_input($data)
   $data = htmlspecialchars($data);
   return $data;
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -126,26 +93,8 @@ function test_input($data)
     ?>
     <br>
     <br>
-    <!-- <form method="$_POST" action="">
-      <h2>New Client Form</h2>
-      <label>Username</label>
-      <input type="text" name="username" value=""><br>
-      <label>Password</label>
-      <input type="password" name="pass" value=""><br>
-      <label>First Name</label>
-      <input type="text" name="firstname" value=""><br>
-      <label>Last Name</label>
-      <input type="text" name="lastname" value=""><br>
-      <label>Phone Number</label>
-      <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="i.e. 555-555-5555"><br>
-      <label>Email</label>
-      <input type="email" name="email" value=""><br>
-      <input type="submit" name="submit" value="submit">
-    </form> -->
+  
   </div>
 </body>
 
 </html>
-
-<!-- This is what was in the Procfile before I changed -->
-<!-- web: vendor/bin/heroku-php-apache2 web/ -->
