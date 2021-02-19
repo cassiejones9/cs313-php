@@ -1,8 +1,8 @@
 <?php
 require_once ('connection.php');
 $db = get_db();
-// if (!$_SESSION['loggedin']){
-//   header('Location: index.php');}
+if (!$_SESSION['loggedin']){
+  header('Location: index.php');}
 
 if (!isset($_SESSION)) {
   session_start();
