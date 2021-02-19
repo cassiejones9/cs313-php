@@ -93,7 +93,7 @@ function test_input($data)
     ?>
     <br>
     <br>
-  <a href='insert_new_client.php?action=logout'>Log Out</a>
+  <a href='insert_new_client.php?action=logout' class="calbutton">Log Out</a>
   </div>
 </body>
 
