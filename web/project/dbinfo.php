@@ -1,12 +1,13 @@
 <?php
+if (!isset($_SESSION)) {
+  session_start();
+}
 require_once ('connection.php');
 $db = get_db();
 if (!$_SESSION['loggedin']){
   header('Location: index.php');}
 
-if (!isset($_SESSION)) {
-  session_start();
-}
+
 
 if (isset($_POST['allcs'])) {
   $displayClients = "<h3>Current List of Clients</h3><br>";
