@@ -204,7 +204,7 @@ switch ($action) {
         $_SESSION['loggedin'] = TRUE;
 
         // Remove the password from the array
-        // the array_pop fucntion removes the last element from an array
+        // the array_pop function removes the last element from an array
         array_pop($userData);
 
         // Store the array into the session

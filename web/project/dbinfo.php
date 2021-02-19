@@ -64,6 +64,10 @@ function test_input($data)
   <div class="container">
     <img src="../images/logo.jpg" class="logo">
     <h2>Database Information</h2>
+    <?php var_dump($_SESSION);
+    var_dump($_SESSION['userData']);
+    ?>
+
   <h4>Welcome <?php $_SESSION['userData']['username']?>! You are logged in.</h4>
     <form method="POST" action="">
       <label>
