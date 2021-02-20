@@ -299,11 +299,9 @@ $i = 0;
             <label for="phone">
                 <p class="fieldform">Phone Number:</p>
             </label>
-            <input type="tel" name="phone" placeholder="123-456-7890" id="phone" required>
+            <input type="tel" name="phone" placeholder="123-456-7890" id="phone" required><br>
 
-            <span class="error">*Note: All Fields Are Required <?php if (isset($phoneErr)) {
-                                        echo $phoneErr;
-                                    } ?></span>
+            <span class="error"><p>*Note: All Fields Are Required</p></span>
             <br>
             <p class="fieldform">How many people will be at the photoshoot?</p>
             <select id="normal-select-1" placeholder-text="Number of People" name="people">
