@@ -189,11 +189,12 @@ a.btn.btn-secondary {
 
 .label {
     width: 250px;
-    text-align: right;
+    text-align: left;
 }
 
 .inputsize {
     width: 250px;
+    float: right;
 }
 
 /* for Larger screen */
