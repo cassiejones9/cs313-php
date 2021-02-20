@@ -200,7 +200,7 @@ a.btn.btn-secondary {
 .adminform {
     border: 2px solid #022f40;
     border-radius: 4px;
-    padding: 20px 40px;
+    padding: 20px 20px;
 }
 
 /* for Larger screen */
@@ -213,10 +213,6 @@ a.btn.btn-secondary {
     .logo {
         margin-top: 20px;
         height: 100px;
-    }
-
-    .adminform {
-        padding: 20px 60px;
     }
 
 }

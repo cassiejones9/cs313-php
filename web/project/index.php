@@ -292,6 +292,7 @@ $i = 0;
             </p>
             <span class="error"><p>*Note: All Fields Are Required</p></span>
             <p class="fieldform">How many people will be at the photoshoot?</p>
+            <div class="container">
             <select id="normal-select-1" placeholder-text="Number of People" name="people">
                 <option <?php if (isset($_SESSION['people']) && $_SESSION['people'] == "1") {
                             echo 'selected="selected"';
@@ -321,6 +322,7 @@ $i = 0;
                             echo 'selected="selected"';
                         } ?> value="9" class="select-dropdown__list-item">8+</option>
             </select>
+            </div>
             <br><br>
 
             <input class="reserve" type="submit" name="submit" value="Make the Reservation">
