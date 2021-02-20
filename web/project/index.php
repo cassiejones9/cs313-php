@@ -31,6 +31,8 @@ $i = 0;
 
     if (empty($_POST['firstname'])) {
         $fnameErr = "<p>Name is required</p>";
+        include 'index.php';
+        exit;
     } else {
         $firstname = test_input($_POST['firstname']);
         // check if name only contains letters and whitespace
@@ -299,7 +301,7 @@ $i = 0;
             </label>
             <input type="tel" name="phone" placeholder="123-456-7890" id="phone" required>
 
-            <span class="error">* <?php if (isset($phoneErr)) {
+            <span class="error">*Note: All Fields Are Required <?php if (isset($phoneErr)) {
                                         echo $phoneErr;
                                     } ?></span>
             <br>
