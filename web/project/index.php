@@ -289,14 +289,11 @@ $i = 0;
             <p class="fieldform">E-mail: <input type="text" name="email" id="email" required>
                 <span class="error">*</span>
             </p>
-            
-            <label for="phone">
-                <p class="fieldform">Phone Number:</p>
-            </label>
-            <input type="tel" name="phone" placeholder="123-456-7890" id="phone" required><br>
 
+            <p class="fieldform">Phone Number:<input type="tel" name="phone" placeholder="123-456-7890" id="phone" required>
+                <span class="error">*</span>
+            </p>
             <span class="error"><p>*Note: All Fields Are Required</p></span>
-            <br>
             <p class="fieldform">How many people will be at the photoshoot?</p>
             <select id="normal-select-1" placeholder-text="Number of People" name="people">
                 <option <?php if (isset($_SESSION['people']) && $_SESSION['people'] == "1") {
