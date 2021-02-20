@@ -177,6 +177,7 @@ a.btn.btn-secondary {
     margin: 10px;
     padding: 5px;
 }
+
 .container {
     text-align: center;
 }
@@ -186,9 +187,15 @@ a.btn.btn-secondary {
 
 }
 
-.inputsize {
-    width: 300px;
+.label {
+    width: 250px;
+    text-align: right;
 }
+
+.inputsize {
+    width: 250px;
+}
+
 /* for Larger screen */
 @media screen and (min-width: 600px) {
 

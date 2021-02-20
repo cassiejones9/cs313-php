@@ -278,16 +278,16 @@ $i = 0;
                 </tr>
 
             </table><br>
-            <label><p class="fieldform">First Name:</label><input type="text" name="firstname" id="fname" class="inputsize" required>
+            <label class="label"><p class="fieldform">First Name: </label><input type="text" name="firstname" id="fname" class="inputsize" required>
                 <span class="error">*</span>
             </p>
-            <p class="fieldform">Last Name: <input type="text" name="lastname" id="lname" required>
+            <label class="label"><p class="fieldform">Last Name: </label><input type="text" name="lastname" id="lname" class="inputsize" required>
                 <span class="error">*</span>
             </p>
-            <p class="fieldform">E-mail: <input type="text" name="email" id="email" required>
+            <label class="label"><p class="fieldform">E-mail: </label><input type="text" name="email" id="email" class="inputsize" required>
                 <span class="error">*</span>
             </p>
-            <p class="fieldform">Phone Number:<input type="tel" name="phone" placeholder="123-456-7890" id="phone" required>
+            <label class="label"><p class="fieldform">Phone Number: </label><input type="tel" name="phone" placeholder="123-456-7890" id="phone" class="inputsize" required>
                 <span class="error">*</span>
             </p>
             <span class="error"><p>*Note: All Fields Are Required</p></span>
