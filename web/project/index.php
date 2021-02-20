@@ -278,21 +278,26 @@ $i = 0;
                 </tr>
 
             </table><br>
-            <p class="fieldform">First Name: <input type="text" name="firstname" id="fname" required>
+            <div class="col-sm-6" align="center">
+            <label><p class="fieldform">First Name:</label><input type="text" name="firstname" id="fname" required>
                 <span class="error">*</span>
             </p>
-
+            </div>
+            <div class="col-sm-6" align="center">
             <p class="fieldform">Last Name: <input type="text" name="lastname" id="lname" required>
                 <span class="error">*</span>
             </p>
-
+            </div>
+            <div class="col-sm-6" align="center">
             <p class="fieldform">E-mail: <input type="text" name="email" id="email" required>
                 <span class="error">*</span>
             </p>
-
+            </div>
+            <div class="col-sm-6" align="center">
             <p class="fieldform">Phone Number:<input type="tel" name="phone" placeholder="123-456-7890" id="phone" required>
                 <span class="error">*</span>
             </p>
+            </div>
             <span class="error"><p>*Note: All Fields Are Required</p></span>
             <p class="fieldform">How many people will be at the photoshoot?</p>
             <select id="normal-select-1" placeholder-text="Number of People" name="people">
