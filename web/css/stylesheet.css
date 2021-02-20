@@ -185,6 +185,10 @@ a.btn.btn-secondary {
     text-align: center;
 
 }
+
+.inputsize {
+    width: 300px;
+}
 /* for Larger screen */
 @media screen and (min-width: 600px) {
 

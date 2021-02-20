@@ -278,7 +278,7 @@ $i = 0;
                 </tr>
 
             </table><br>
-            <label><p class="fieldform">First Name:</label><input type="text" name="firstname" id="fname" required>
+            <label><p class="fieldform">First Name:</label><input type="text" name="firstname" id="fname" class="inputsize" required>
                 <span class="error">*</span>
             </p>
             <p class="fieldform">Last Name: <input type="text" name="lastname" id="lname" required>
@@ -333,7 +333,7 @@ $i = 0;
                 <?php 
                 if (isset($_SESSION['message'])) {echo $_SESSION['message'];}
                 ?>
-                <h4>Admin Login</h4>
+                <h4>Admin Users Only</h4>
                 <label><p>Username:</p></label>
                 <input type="text" name="username" id="username" required><br><br>
                 <label><p>Password:</p></label>
