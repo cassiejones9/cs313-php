@@ -31,7 +31,7 @@ $i = 0;
 
     if (empty($_POST['firstname'])) {
         $fnameErr = "<p>Name is required</p>";
-
+        
         
     } else {
         $firstname = test_input($_POST['firstname']);
@@ -277,23 +277,17 @@ $i = 0;
                     <td><span class="date">&nbsp;</span></td>
                 </tr>
 
-            </table>
+            </table><br>
             <p class="fieldform">First Name: <input type="text" name="firstname" id="fname" required>
-                <span class="error">* <?php if (isset($fnameErr)) {
-                                            echo $fnameErr;
-                                        } ?></span>
+                <span class="error">*</span>
             </p>
 
             <p class="fieldform">Last Name: <input type="text" name="lastname" id="lname" required>
-                <span class="error">* <?php if (isset($lnameErr)) {
-                                            echo $lnameErr;
-                                        } ?></span>
+                <span class="error">*</span>
             </p>
 
             <p class="fieldform">E-mail: <input type="text" name="email" id="email" required>
-                <span class="error">* <?php if (isset($emailErr)) {
-                                            echo $emailErr;
-                                        } ?></span>
+                <span class="error">*</span>
             </p><br>
 
             <label for="phone">
