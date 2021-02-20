@@ -197,11 +197,7 @@ a.btn.btn-secondary {
     float: right;
 }
 
-.adminform {
-    border: 2px solid #022f40;
-    border-radius: 4px;
-    padding: 20px 20px;
-}
+
 
 /* for Larger screen */
 @media screen and (min-width: 600px) {
@@ -213,6 +209,12 @@ a.btn.btn-secondary {
     .logo {
         margin-top: 20px;
         height: 100px;
+    }
+
+    .adminform {
+        border: 2px solid #022f40;
+        border-radius: 4px;
+        padding: 20px 20px;
     }
 
 }
