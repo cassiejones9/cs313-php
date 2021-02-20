@@ -125,6 +125,8 @@ switch ($action) {
 
     case 'insertclient':
         // insert into client
+
+        
         $query = 'INSERT INTO client(lastName, firstName, phone, email) VALUES(:lastName, :firstName, :phone, :email)';
         $stmt = $db->prepare($query);
         $stmt->bindValue(':lastName', $_SESSION["lastname"]);

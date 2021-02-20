@@ -31,7 +31,7 @@ $i = 0;
 
     if (empty($_POST['firstname'])) {
         $fnameErr = "<p>Name is required</p>";
-        
+
         
     } else {
         $firstname = test_input($_POST['firstname']);
@@ -288,8 +288,8 @@ $i = 0;
 
             <p class="fieldform">E-mail: <input type="text" name="email" id="email" required>
                 <span class="error">*</span>
-            </p><br>
-
+            </p>
+            
             <label for="phone">
                 <p class="fieldform">Phone Number:</p>
             </label>
