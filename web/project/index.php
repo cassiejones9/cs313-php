@@ -32,7 +32,7 @@ $i = 0;
     if (empty($_POST['firstname'])) {
         $fnameErr = "<p>Name is required</p>";
         include 'index.php';
-        exit;
+        
     } else {
         $firstname = test_input($_POST['firstname']);
         // check if name only contains letters and whitespace
