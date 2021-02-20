@@ -328,7 +328,7 @@ $i = 0;
         </form>
         <!-- <button type="button" onclick="awesome()">Fill in form</button> -->
         <!-- <a class="calbutton" href="viewcart.php">View Cart</a> -->
-        <div>
+        <div class="adminform">
             <form method="POST" action="insert_new_client.php">
                 <?php 
                 if (isset($_SESSION['message'])) {echo $_SESSION['message'];}
@@ -342,8 +342,9 @@ $i = 0;
                 <input type="hidden" name="action" value="login">
                 <?php if (isset($message)) {echo $message;}?> 
             </form>
-        </div><br><br><br>
+        <br><br><br>
         <p>Don't have a log in?</p><a class="calbutton" href="insert_new_client.php?action=registrationpage">Register Here</a><br><br>
+        </div>
     </div>
 </body>
 
