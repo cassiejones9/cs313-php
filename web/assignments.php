@@ -38,15 +38,18 @@
             <div class="card-body">
                 <h4 class="card-title">Week 5</h4>
                 <p class="card-text">Database Access</p>
-                <a href="/project/dbinfo.com" class="btn btn-outline-dark">See Assignment</a>
+                <p>In order to access the link below, you'll have to sign in to see the database.</p>
+                <p>Username: Bob</p><br>
+                <p>Password: passworD123!</p>
+                <a href="https://polar-ridge-83377.herokuapp.com/project/dbinfo.php" class="btn btn-outline-dark">See Assignment</a>
             </div>
         </div>
         <div class="card">
             <div class="card-header"></div>
             <div class="card-body">
-                <h4 class="card-title">Week 6</h4>
-                <p class="card-text">Database Update</p>
-                <a href="" class="btn btn-outline-dark">See Assignment</a>
+                <h4 class="card-title">Week 7</h4>
+                <p class="card-text">Project 1</p>
+                <a href="https://polar-ridge-83377.herokuapp.com/project/index.php" class="btn btn-outline-dark">See Assignment</a>
             </div>
         </div>
     </div>
